@@ -1,27 +1,40 @@
 import Grid2 from "@mui/material/Unstable_Grid2";
-import IconContainer from "./IconContainer";
+import IconWithLabelCard from "./common/IconWithLabelCard";
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
 import CookieIcon from '@mui/icons-material/Cookie';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
+import { Link } from 'react-router-dom';
 
 
 
 function NavBar(props) {
 
-
+    const iconsInfos = [
+        { icon: LunchDiningIcon, route: '/lunch', label: 'Nos burgers' },
+        { icon: CookieIcon, route: '/cookie', label: 'Nos desserts' },
+        { icon: FoodBankIcon, route: '/food', label: 'Nos plats' },
+        { icon: LocalDrinkIcon, route: '/drink', label: 'Nos boissons' },
+        { icon: FastfoodIcon, route: '/fastfood', label: 'Nos menus' },
+    ];
 
     return (
-        <div style={{ backgroundColor: 'red', padding: '8px', borderRadius: 8, maxWidth: 200 }}> {/* Rouge, coins arrondis, centré */}
-            <Grid2 container direction="row" justifyContent="center" alignItems="center" spacing={1}>
-                {Array.from(Array(5).keys()).map((index) => (
-                    <Grid2 item key={index} xs={12}>
-                        <IconContainer props={{ test: "hello" }} />
-                    </Grid2>
-                ))}
-            </Grid2>
-        </div>
+        <Grid2 container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={1}
+            sx={{ backgroundColor: 'red', padding: '8px', maxWidth: 200 }}
+        >
+            {iconsInfos.map((icoInfo, index) => (
+                <Grid2 xs={12}>
+                    <Link to={icoInfo.route} key={index}> {/* Add Link here */}
+                        <IconWithLabelCard props={icoInfo} />
+                    </Link>
+                </Grid2>
+            ))}
+        </Grid2>
     )
 }
 
