@@ -1,14 +1,15 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+import { useState } from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
 import BasicCard from './BasicCard';
 
 
 function IconWithLabelCard(props) {
     const icoInfo = props.props;
-    console.log(icoInfo);
+
+
+
+
 
     const getActionArea = () => {
         return (
@@ -28,8 +29,7 @@ function IconWithLabelCard(props) {
     }
 
     return (
-        <BasicCard
-            //style={{ maxWidth: 200, border: 'none' }}
+        <BasicCard style={undefined}
             actionArea={getActionArea()}
             content={getContent()}
         />

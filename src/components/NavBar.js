@@ -28,10 +28,8 @@ function NavBar(props) {
             sx={{ backgroundColor: 'red', padding: '8px', maxWidth: 200 }}
         >
             {iconsInfos.map((icoInfo, index) => (
-                <Grid2 xs={12}>
-                    <Link to={icoInfo.route} key={index}> {/* Add Link here */}
-                        <IconWithLabelCard props={icoInfo} />
-                    </Link>
+                <Grid2 xs={12} key={index}>
+                    <IconWithLabelCard props={icoInfo} />
                 </Grid2>
             ))}
         </Grid2>

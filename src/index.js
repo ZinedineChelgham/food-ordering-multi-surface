@@ -15,10 +15,6 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
 
-
-
-      <Route path="*" element={<h1>404</h1>} />
-
     </Routes>
   </BrowserRouter>
 
