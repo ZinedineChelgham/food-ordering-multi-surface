@@ -4,6 +4,7 @@ import IconWithLabelCard from "./components/common/IconWithLabelCard";
 import NavBar from "./components/NavBar";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import {Link} from "react-router-dom";
+import OrderSummaryPage from "./components/OrderSummaryPage.js";
 
 
 function App() {
@@ -21,9 +22,7 @@ function App() {
         >
             <NavBar />
             <FoodItemsList />
-            <Link to="/ordersummary"> {/* Utilisez Link pour créer le lien vers la page de récapitulatif */}
-                <button>Recap de la commande</button>
-            </Link>
+            <OrderSummaryPage />
         </Grid2>
     );
 }

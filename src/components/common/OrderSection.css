@@ -1,0 +1,17 @@
+/* OrderSection.css */
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.item-description {
+    flex: 1;
+}
