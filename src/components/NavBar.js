@@ -12,9 +12,9 @@ import { Link } from 'react-router-dom';
 function NavBar(props) {
 
     const iconsInfos = [
+        { icon: FoodBankIcon, route: '/food', label: 'Accueil' },
         { icon: LunchDiningIcon, route: '/lunch', label: 'Nos burgers' },
         { icon: CookieIcon, route: '/cookie', label: 'Nos desserts' },
-        { icon: FoodBankIcon, route: '/food', label: 'Nos plats' },
         { icon: LocalDrinkIcon, route: '/drink', label: 'Nos boissons' },
         { icon: FastfoodIcon, route: '/fastfood', label: 'Nos menus' },
     ];
