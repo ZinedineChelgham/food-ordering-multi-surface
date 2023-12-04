@@ -22,7 +22,7 @@ function FoodItemsList(props) {
                 <FoodItemCard key={index} props={{ test: "hello" }} />
             ))}
         </Grid2>
-    );
+    )
 }
 
 export default FoodItemsList;
