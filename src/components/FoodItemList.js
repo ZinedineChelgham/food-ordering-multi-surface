@@ -1,23 +1,28 @@
 import Grid2 from "@mui/material/Unstable_Grid2";
 import FoodItemCard from "./common/FoodItemCard";
 
-
 function FoodItemsList(props) {
-
     return (
-        <Grid2 container
+        <Grid2
+            container
             direction="row"
             justifyContent="center"
             alignItems="center"
             xs={12}
-            sx={{ backgroundColor: 'blue' }}
+            sx={{
+                height:'100%',
+                backgroundColor: 'blue',
+                overflow: 'auto',
+                '&::-webkit-scrollbar': {
+                    display: 'none',
+                },
+            }}
         >
-            {Array.from(Array(10).keys()).map((index) => (
-                <FoodItemCard key={index} props={{ test: "helo" }} />
+            {Array.from(Array(400).keys()).map((index) => (
+                <FoodItemCard key={index} props={{ test: "hello" }} />
             ))}
         </Grid2>
-
-    )
+    );
 }
 
 export default FoodItemsList;
