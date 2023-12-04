@@ -15,7 +15,7 @@ root.render(
   <BrowserRouter>
     <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/ordersummary" component={OrderSummaryPage} />
+        <Route path="/ordersummary" element={<OrderSummaryPage/> } />
     </Routes>
   </BrowserRouter>
 

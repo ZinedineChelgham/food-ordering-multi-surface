@@ -16,7 +16,6 @@ function FoodItemsList(props) {
                 <FoodItemCard key={index} props={{ test: "helo" }} />
             ))}
         </Grid2>
-
     )
 }
 

@@ -22,7 +22,6 @@ function App() {
         >
             <NavBar />
             <FoodItemsList />
-            <OrderSummaryPage />
         </Grid2>
     );
 }
