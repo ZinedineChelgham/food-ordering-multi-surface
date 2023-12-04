@@ -9,7 +9,7 @@ function FoodItemsList(props) {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            xs={5}
+            xs={12}
             sx={{ backgroundColor: 'blue' }}
         >
             {Array.from(Array(10).keys()).map((index) => (
