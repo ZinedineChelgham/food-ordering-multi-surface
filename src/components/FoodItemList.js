@@ -11,6 +11,7 @@ function FoodItemsList(props) {
             xs={12}
             sx={{
                 height:'100%',
+                //height:'59vh',
                 backgroundColor: 'blue',
                 overflow: 'auto',
                 '&::-webkit-scrollbar': {
