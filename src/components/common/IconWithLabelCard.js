@@ -2,19 +2,18 @@ import { useState } from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import BasicCard from './BasicCard';
-
+import useMediaQuery from "@mui/material/useMediaQuery";
+import {useTheme} from "@mui/material/styles";
 
 function IconWithLabelCard(props) {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const icoInfo = props.props;
-
-
-
-
 
     const getActionArea = () => {
         return (
             <CardMedia
-                sx={{ fontSize: 120, margin: 'auto', marginTop: '5%' }}
+                sx={{ fontSize:isSmallScreen? '18vw': '9.8vh', margin: 'auto', marginTop: '5%', backgroundColor: 'yellow',width: 'inherit',padding:'0'}}
                 component={icoInfo.icon}
             />
         )
@@ -22,7 +21,7 @@ function IconWithLabelCard(props) {
 
     const getContent = () => {
         return (
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'center', fontSize:isSmallScreen? '4vw': '4vh' }}>
                 {icoInfo.label}
             </Typography>
         )
@@ -30,8 +29,9 @@ function IconWithLabelCard(props) {
 
     return (
         <BasicCard style={undefined}
-            actionArea={getActionArea()}
-            content={getContent()}
+                   sx={{backgroundColor:'blue'}}
+                   actionArea={getActionArea()}
+                   content={getContent()}
         />
     )
 }

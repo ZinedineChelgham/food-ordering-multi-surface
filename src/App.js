@@ -6,12 +6,12 @@ import CustomPlusProduct from "./components/CustomPlusProduct";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import {Link} from "react-router-dom";
 import OrderSummaryPage from "./components/OrderSummaryPage.js";
-
+import PhonePageHome from "./components/SpecialPhone/PhonePageHome";
 
 function App() {
 
     return (
-        <CustomPlusProduct textContent={"Nos burgers:"} buttonText={"Custome ton burger"} otherComponent={<FoodItemsList/>}/>
+        <PhonePageHome/>
     );
 }
 
