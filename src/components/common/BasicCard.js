@@ -13,25 +13,41 @@ function BasicCard({ style, actionArea, content }) {
         setIsClicked(!isClicked); // Toggle the state when the card is clicked
     };
 
-    return (
-        <Grid2
-            direction="row"
-            sx={{
-                backgroundColor: isClicked ? '#dad8d8' : 'white',
-                width: 'inherit',
-                margin: isSmallScreen ? '1vw' : '1vh',
-                alignItems: 'center', // Align the content vertically in the center
-            }}
-            onClick={handleCardClick}
-        >
-            <CardActionArea>
-                {actionArea}
-                <CardContent sx={{ textAlign: 'center', padding: '0' }}>
-                    {content}
-                </CardContent>
-            </CardActionArea>
-        </Grid2>
-    );
+    if (isSmallScreen) {
+        return (
+            <Grid2
+                direction="row"
+                sx={{
+                    backgroundColor: isClicked ? '#dad8d8' : 'white',
+                    width: 'inherit',
+                    margin: isSmallScreen ? '1vw' : '1vh',
+                    alignItems: 'center', // Align the content vertically in the center
+                }}
+                onClick={handleCardClick}
+            >
+                <CardActionArea>
+                    {actionArea}
+                    <CardContent sx={{ textAlign: 'center', padding: '0' }}>
+                        {content}
+                    </CardContent>
+                </CardActionArea>
+            </Grid2>
+        );
+    } else {
+        return (
+            <Card
+                sx={{ backgroundColor: isClicked ? '#dad8d8' : 'white' }}
+                onClick={handleCardClick}
+            >
+                <CardActionArea>
+                    {actionArea}
+                    <CardContent sx={{ textAlign: 'center' }}>
+                        {content}
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+        );
+    }
 }
 
 export default BasicCard;
