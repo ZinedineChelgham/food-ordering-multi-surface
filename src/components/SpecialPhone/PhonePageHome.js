@@ -4,28 +4,29 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NavBar from "../NavBar";
 import FoodItemList from "../FoodItemList";
+import OrderBar from "./OrderBar";
+import Header from "./Header";
 
 function HomePhone(props) {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
-        <Grid container direction={isSmallScreen ? 'column' : 'row'}>
-            <div style={{width:'100%',display:"flex",flexDirection:'column'}}>
-                <div>
-                    <NavBar/>
-                </div>
-                <div>
-                    <FoodItemList/>
-                </div>
-                <div>
-                    <NavBar/>
-                </div>
-                <div>
-                    <NavBar/>
-                </div>
+        <div style={{ height: '100vh', overflow: 'hidden' }}>
+            <div style={{ height: '7%', overflow: 'hidden' }}>
+                <Header />
             </div>
-        </Grid>
+            <div style={{ height: '75%', overflow: 'hidden' }}>
+                <FoodItemList />
+            </div>
+            <div style={{ height: '7%', overflow: 'hidden' }}>
+                {/* Le composant OrderBar prendra tout l'espace disponible */}
+                <OrderBar />
+            </div>
+            <div style={{ height: '10%' }}>
+                <NavBar />
+            </div>
+        </div>
     );
 }
 

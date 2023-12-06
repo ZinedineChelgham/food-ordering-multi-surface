@@ -7,6 +7,8 @@ import Grid2 from "@mui/material/Unstable_Grid2";
 import {Link} from "react-router-dom";
 import OrderSummaryPage from "./components/OrderSummaryPage.js";
 import PhonePageHome from "./components/SpecialPhone/PhonePageHome";
+import Header from "./components/SpecialPhone/Header";
+import OrderBar from "./components/SpecialPhone/OrderBar";
 
 function App() {
 
