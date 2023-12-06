@@ -24,7 +24,7 @@ function NavBar(props) {
     return (
         <div style={{ display: 'flex', flexDirection: isSmallScreen ? 'row' : 'column', width: 'max-content'}}>
             {iconsInfos.map((icoInfo, index) => (
-                <Grid item xs={12} key={index} sx={{ }}>
+                <Grid item xs={12} key={index} sx={{ width:'20vw'}}>
                     <IconWithLabelCard props={icoInfo} />
                 </Grid>
             ))}

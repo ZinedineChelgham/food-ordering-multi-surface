@@ -13,7 +13,7 @@ function IconWithLabelCard(props) {
     const getActionArea = () => {
         return (
             <CardMedia
-                sx={{ fontSize:isSmallScreen? '10vw': '9.8vh', margin: 'auto', marginTop: '5%', backgroundColor: 'yellow',width: 'inherit',padding:'0'}}
+                sx={{ fontSize:isSmallScreen? '10vw': '9.8vh', margin: 'auto', marginTop: '5%',width: 'inherit',padding:'0'}}
                 component={icoInfo.icon}
             />
         )

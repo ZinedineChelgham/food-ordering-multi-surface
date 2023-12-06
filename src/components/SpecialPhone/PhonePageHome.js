@@ -12,18 +12,18 @@ function HomePhone(props) {
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
-        <div style={{ height: '100vh', overflow: 'hidden' }}>
+        <div style={{ height: '100vh', overflow: 'hidden'}}>
             <div style={{ height: '7%', overflow: 'hidden' }}>
                 <Header />
             </div>
-            <div style={{ height: '75%', overflow: 'hidden' }}>
+            <div style={{ height: '76%', overflow: 'hidden' }}>
                 <FoodItemList />
             </div>
             <div style={{ height: '7%', overflow: 'hidden' }}>
                 {/* Le composant OrderBar prendra tout l'espace disponible */}
                 <OrderBar />
             </div>
-            <div style={{ height: '10%' }}>
+            <div style={{ height: '7%' }}>
                 <NavBar />
             </div>
         </div>

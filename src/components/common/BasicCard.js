@@ -1,6 +1,7 @@
 import { Card, CardActionArea, CardContent } from '@mui/material';
+import Grid2 from "@mui/material/Unstable_Grid2";
 import React, { useState } from 'react';
-import {useTheme} from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 function BasicCard({ style, actionArea, content }) {
@@ -13,15 +14,23 @@ function BasicCard({ style, actionArea, content }) {
     };
 
     return (
-        <Card sx={{ backgroundColor: isClicked ? '#dad8d8' : 'white', height: '100%',width:isSmallScreen? '17.75vw':'inherit', margin:isSmallScreen? '1vw':'1vh',}}
-            onClick={handleCardClick}>
+        <Grid2
+            direction="row"
+            sx={{
+                backgroundColor: isClicked ? '#dad8d8' : 'white',
+                width: 'inherit',
+                margin: isSmallScreen ? '1vw' : '1vh',
+                alignItems: 'center', // Align the content vertically in the center
+            }}
+            onClick={handleCardClick}
+        >
             <CardActionArea>
                 {actionArea}
                 <CardContent sx={{ textAlign: 'center', padding: '0' }}>
                     {content}
                 </CardContent>
             </CardActionArea>
-        </Card>
+        </Grid2>
     );
 }
 
