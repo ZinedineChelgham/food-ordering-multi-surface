@@ -5,6 +5,8 @@ import NavBar from "./components/NavBar";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import OrderHeader from './components/OrderHeader';
 import CommandList from './components/CommandList';
+import ModeRush from './components/ModeRush';
+
 
 
 
@@ -24,6 +26,7 @@ function App() {
             >
                 <NavBar />
                 <FoodItemsList />
+                
             </Grid2>
             <Grid2 container
                 direction="column"
@@ -36,10 +39,11 @@ function App() {
                 backgroundColor={'violet'}>
                 <OrderHeader />
                 <CommandList />
+                <ModeRush />
             </Grid2>
-            
         </Grid2>
     );
+    
 }
 
 export default App;
