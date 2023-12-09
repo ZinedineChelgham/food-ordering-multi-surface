@@ -6,6 +6,14 @@
     border-bottom: 4px solid #ddd; /* Bordure inférieure grise pour simuler une ombre */
     padding: 10px;
 }
+.item-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 8px;
+    font-weight: bold;
+
+}
 
 .item img {
     width: 50px;
@@ -16,7 +24,7 @@
 
 .order-section {
     width: 97%;
-    padding: 20px;
+    padding: 1vw;
     height: auto;
 }
 /* OrderSection.css */

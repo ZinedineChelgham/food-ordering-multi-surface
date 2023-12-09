@@ -13,7 +13,8 @@ const OrderSection = ({ title, items }) => (
             {items.map(item => (
                 <div className="item" key={item.id}>
                     <img src={item.image} alt={item.name} />
-                    <div className="item-description">{item.name}</div>
+                    <div className="item-description">{item.name} </div>
+                    <div className="item-price">{item.price} €</div>
                     <button className="delete-button">
                         &#10060; {/* C'est l'entité HTML pour la croix rouge */}
                     </button>
