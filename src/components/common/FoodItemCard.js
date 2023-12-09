@@ -9,7 +9,7 @@ function FoodItemCard(props) {
         return (
             <CardMedia
                 component="img"
-                height="140"
+                height="100"
                 image={burger}
                 alt="big burger"
             />
@@ -32,7 +32,6 @@ function FoodItemCard(props) {
 
     return (
         <BasicCard
-            //style={{ maxWidth: 200, border: 'none' }}
             actionArea={getActionArea()}
             content={getContent()}
         />

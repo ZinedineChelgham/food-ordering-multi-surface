@@ -9,11 +9,13 @@ import CommandList from './components/CommandList';
 import ModeRush from './components/ModeRush';
 import {Link} from "react-router-dom";
 import OrderSummaryPage from "./components/OrderSummaryPage.js";
-
+import PhonePageHome from "./components/SpecialPhone/PhonePageHome";
+import Header from "./components/SpecialPhone/Header";
+import OrderBar from "./components/SpecialPhone/OrderBar";
 
 function App() {
     return (
-        <CustomPlusProduct textContent={"Nos burgers:"} buttonText={"Custome ton burger"} otherComponent={<FoodItemsList/>}/>
+        <PhonePageHome/>
     );
     
 }

@@ -1,39 +1,35 @@
-import Grid2 from "@mui/material/Unstable_Grid2";
-import IconWithLabelCard from "./common/IconWithLabelCard";
+import React from 'react';
+import Grid from '@mui/material/Grid';
+import IconWithLabelCard from './common/IconWithLabelCard';
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
 import CookieIcon from '@mui/icons-material/Cookie';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
-import { Link } from 'react-router-dom';
-
-
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function NavBar(props) {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     const iconsInfos = [
         { icon: FoodBankIcon, route: '/food', label: 'Accueil' },
-        { icon: LunchDiningIcon, route: '/lunch', label: 'Nos burgers' },
-        { icon: CookieIcon, route: '/cookie', label: 'Nos desserts' },
-        { icon: LocalDrinkIcon, route: '/drink', label: 'Nos boissons' },
-        { icon: FastfoodIcon, route: '/fastfood', label: 'Nos menus' },
+        { icon: LunchDiningIcon, route: '/lunch', label: 'Burgers' },
+        { icon: CookieIcon, route: '/cookie', label: 'Desserts' },
+        { icon: LocalDrinkIcon, route: '/drink', label: 'Boissons' },
+        { icon: FastfoodIcon, route: '/fastfood', label: 'Menus' },
     ];
 
     return (
-        <Grid2 container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            spacing={1}
-            sx={{ backgroundColor: 'red', padding: '8px', maxWidth: 200 }}
-        >
+        <div style={{ display: 'flex', flexDirection: isSmallScreen ? 'row' : 'column', width: 'max-content'}}>
             {iconsInfos.map((icoInfo, index) => (
-                <Grid2 xs={12} key={index}>
+                <Grid item xs={12} key={index} sx={{ width:'20vw'}}>
                     <IconWithLabelCard props={icoInfo} />
-                </Grid2>
+                </Grid>
             ))}
-        </Grid2>
-    )
+        </div>
+    );
 }
 
 export default NavBar;

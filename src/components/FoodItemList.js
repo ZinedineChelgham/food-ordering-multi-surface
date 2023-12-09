@@ -1,7 +1,13 @@
 import Grid2 from "@mui/material/Unstable_Grid2";
 import FoodItemCard from "./common/FoodItemCard";
+import {useTheme} from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 function FoodItemsList(props) {
+
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
         <Grid2
             container
@@ -10,7 +16,9 @@ function FoodItemsList(props) {
             alignItems="center"
             xs={12}
             sx={{
-                height:'100%',
+                //height: isSmallScreen? '59vh':'100%',
+                //height:'59vh',
+                height: '100%',
                 backgroundColor: 'blue',
                 overflow: 'auto',
                 '&::-webkit-scrollbar': {
