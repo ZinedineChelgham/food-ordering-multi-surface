@@ -8,6 +8,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import MultiOrder from "./components/multi-order/multi-order";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +17,7 @@ root.render(
     <Routes>
         <Route path="/" element={<App />} />
         <Route path="/ordersummary" element={<OrderSummaryPage/> } />
+        <Route path="/multiorder" element={<MultiOrder />} />
     </Routes>
   </BrowserRouter>
 

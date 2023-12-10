@@ -15,7 +15,25 @@ import OrderBar from "./components/SpecialPhone/OrderBar";
 
 function App() {
     return (
-        <PhonePageHome/>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+            <Header/>
+            <OrderBar/>
+            <div style={{ display: 'flex', flexDirection: 'row', height: '100%', width: '100%' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', width: '20vw', height: '100%' }}>
+                    <NavBar/>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', width: '80vw', height: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'row', height: '100%', width: '100%' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', width: '80%', height: '100%' }}>
+                            <FoodItemsList/>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', width: '20%', height: '100%' }}>
+                            <CommandList/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
     
 }
