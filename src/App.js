@@ -12,6 +12,7 @@ import OrderSummaryPage from "./components/OrderSummaryPage.js";
 import PhonePageHome from "./components/SpecialPhone/PhonePageHome";
 import Header from "./components/SpecialPhone/Header";
 import OrderBar from "./components/SpecialPhone/OrderBar";
+import foodItems from './components/SpecialPhone/mock.js';
 
 function App() {
     return (

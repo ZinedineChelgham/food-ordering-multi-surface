@@ -1,33 +1,62 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import React from "react";
+import Grid from "@mui/material/Grid";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import NavBar from "../NavBar";
 import FoodItemList from "../FoodItemList";
 import OrderBar from "./OrderBar";
 import Header from "./Header";
+import foodItems from "./mock";
+import { useCallback } from "react";
 
 function HomePhone(props) {
-    const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-    return (
-        <div style={{ height: '100vh', overflow: 'hidden'}}>
-            <div style={{ height: '7%', overflow: 'hidden' }}>
-                <Header />
-            </div>
-            <div style={{ height: '76%', overflow: 'hidden' }}>
-                <FoodItemList />
-            </div>
-            <div style={{ height: '7%', overflow: 'hidden' }}>
-                {/* Le composant OrderBar prendra tout l'espace disponible */}
-                <OrderBar />
-            </div>
-            <div style={{ height: '7%' }}>
-                <NavBar />
-            </div>
-        </div>
-    );
+  const [category, setCategory] = React.useState("menus");
+
+  const getFoodItems = (category) => {
+    return foodItems[category];
+  };
+
+  const handleCategoryChange = (cat) => {
+    setCategory(cat);
+    console.log("clicked" + cat);
+  };
+
+  return (
+    <Grid
+      container
+      direction={isSmallScreen ? "row" : "column"}
+      style={{ height: "100vh", width: "100vw", overflow: "hidden" }}
+    >
+      {isSmallScreen ? (
+        <Grid item xs={12} style={{ height: "10%" }}>
+          <Header />
+        </Grid>
+      ) : (
+        <Grid item xs={12} style={{ height: "100%", overflow: "hidden" }}>
+          <NavBar handleCategoryChange={handleCategoryChange} />
+        </Grid>
+      )}
+
+      <Grid item style={{ height: "70%", width: "100%", overflow: "hidden" }}>
+        <FoodItemList foodItems={getFoodItems(category)} />
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        style={{
+          height: "8%",
+          flex: "1 1 auto",
+          maxHeight: "10rem",
+          marginTop: "1rem",
+        }}
+      >
+        <OrderBar />
+      </Grid>
+    </Grid>
+  );
 }
 
 export default HomePhone;
