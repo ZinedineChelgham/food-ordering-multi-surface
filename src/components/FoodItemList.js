@@ -12,7 +12,11 @@ function FoodItemsList({ foodItems }) {
   const [items, setItems] = React.useState([]);
 
   React.useEffect(() => {
-    setItems([...foodItems]);
+    if (Array.isArray(foodItems)) {
+      setItems([...foodItems]);
+    } else {
+      setItems([]);
+    }
   }, [foodItems]);
 
   console.log("items from state", items);

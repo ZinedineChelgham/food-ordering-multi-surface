@@ -7,17 +7,13 @@ import FoodItemList from "../FoodItemList";
 import OrderBar from "./OrderBar";
 import Header from "./Header";
 import foodItems from "./mock";
-import { useCallback } from "react";
 
 function HomePhone(props) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [category, setCategory] = React.useState("menus");
-
-  const getFoodItems = (category) => {
-    return foodItems[category];
-  };
+  const [items, setItems] = React.useState(foodItems);
 
   const handleCategoryChange = (cat) => {
     setCategory(cat);
@@ -41,7 +37,7 @@ function HomePhone(props) {
       )}
 
       <Grid item style={{ height: "70%", width: "100%", overflow: "hidden" }}>
-        <FoodItemList foodItems={getFoodItems(category)} />
+        <FoodItemList foodItems={items[category]} />
       </Grid>
       <Grid
         item
@@ -54,6 +50,14 @@ function HomePhone(props) {
         }}
       >
         <OrderBar />
+      </Grid>
+
+      <Grid>
+        {isSmallScreen ? (
+          <Grid item xs={12} style={{ height: "100%", overflow: "hidden" }}>
+            <NavBar handleCategoryChange={handleCategoryChange} />
+          </Grid>
+        ) : undefined}
       </Grid>
     </Grid>
   );

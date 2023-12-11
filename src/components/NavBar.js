@@ -41,7 +41,10 @@ function NavBar({ handleCategoryChange }) {
     >
       {iconsInfos.map((icoInfo, index) => (
         <Grid item key={index}>
-          <IconWithLabelCard icoInfo={icoInfo} handleCategoryChange={handleCategoryChange} />
+          <IconWithLabelCard
+            icoInfo={icoInfo}
+            handleCategoryChange={handleCategoryChange}
+          />
         </Grid>
       ))}
     </Grid>

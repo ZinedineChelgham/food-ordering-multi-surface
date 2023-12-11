@@ -47,6 +47,7 @@ function IconWithLabelCard({ icoInfo, handleCategoryChange }) {
       actionArea={getActionArea()}
       content={getContent()}
       handleCategoryChange={handleCategoryChange}
+      category={icoInfo.label}
     />
   );
 }
