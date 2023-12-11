@@ -5,7 +5,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 
-function FoodItemsList({ foodItems }) {
+function FoodItemsList({ foodItems, currCat }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -20,6 +20,10 @@ function FoodItemsList({ foodItems }) {
   }, [foodItems]);
 
   console.log("items from state", items);
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
   return (
     <Grid2
@@ -42,7 +46,7 @@ function FoodItemsList({ foodItems }) {
     >
       <Grid2 xs={12}>
         <Typography textAlign={"start"} margin={2} variant="h2" width={"100%"}>
-          Burgers
+          {capitalizeFirstLetter(currCat)}
         </Typography>
       </Grid2>
 

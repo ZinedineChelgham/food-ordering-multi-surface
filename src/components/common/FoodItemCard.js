@@ -13,11 +13,11 @@ function FoodItemCard({ item }) {
   const getContent = () => {
     return (
       <>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography marginBottom={0} gutterBottom variant="h5" component="div">
           {item.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {item.price} €
+          {item.price}€
         </Typography>
       </>
     );

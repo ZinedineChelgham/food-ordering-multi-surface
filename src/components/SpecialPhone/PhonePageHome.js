@@ -13,10 +13,9 @@ function HomePhone(props) {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [category, setCategory] = React.useState("menus");
-  const [items, setItems] = React.useState(foodItems);
 
   const handleCategoryChange = (cat) => {
-    setCategory(cat);
+    setCategory(cat.toLowerCase());
     console.log("clicked" + cat);
   };
 
@@ -32,12 +31,15 @@ function HomePhone(props) {
         </Grid>
       ) : (
         <Grid item xs={12} style={{ height: "100%", overflow: "hidden" }}>
-          <NavBar handleCategoryChange={handleCategoryChange} />
+          <NavBar
+            handleCategoryChange={handleCategoryChange}
+            currCat={category}
+          />
         </Grid>
       )}
 
       <Grid item style={{ height: "70%", width: "100%", overflow: "hidden" }}>
-        <FoodItemList foodItems={items[category]} />
+        <FoodItemList foodItems={foodItems[category]} currCat={category} />
       </Grid>
       <Grid
         item
@@ -55,7 +57,10 @@ function HomePhone(props) {
       <Grid>
         {isSmallScreen ? (
           <Grid item xs={12} style={{ height: "100%", overflow: "hidden" }}>
-            <NavBar handleCategoryChange={handleCategoryChange} />
+            <NavBar
+              handleCategoryChange={handleCategoryChange}
+              currCat={category}
+            />
           </Grid>
         ) : undefined}
       </Grid>

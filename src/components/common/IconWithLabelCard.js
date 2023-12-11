@@ -5,7 +5,7 @@ import BasicCard from "./BasicCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-function IconWithLabelCard({ icoInfo, handleCategoryChange }) {
+function IconWithLabelCard({ icoInfo, handleCategoryChange, currCat }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   console.log(handleCategoryChange);
@@ -43,11 +43,12 @@ function IconWithLabelCard({ icoInfo, handleCategoryChange }) {
   return (
     <BasicCard
       style={undefined}
-      sx={{ backgroundColor: "blue" }}
       actionArea={getActionArea()}
       content={getContent()}
       handleCategoryChange={handleCategoryChange}
       category={icoInfo.label}
+      currCat={currCat}
+      fromIcon={true}
     />
   );
 }

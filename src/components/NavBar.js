@@ -9,16 +9,16 @@ import FastfoodIcon from "@mui/icons-material/Fastfood";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-function NavBar({ handleCategoryChange }) {
+function NavBar({ handleCategoryChange, currCat }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   console.log(handleCategoryChange);
 
   const iconsInfos = [
-    { icon: FastfoodIcon, route: "/fastfood", label: "Menus" },
-    { icon: LunchDiningIcon, route: "/lunch", label: "Burgers" },
-    { icon: CookieIcon, route: "/cookie", label: "Desserts" },
-    { icon: LocalDrinkIcon, route: "/drink", label: "Boissons" },
+    { icon: FastfoodIcon, route: "/fastfood", label: "menus" },
+    { icon: LunchDiningIcon, route: "/lunch", label: "burgers" },
+    { icon: CookieIcon, route: "/cookie", label: "desserts" },
+    { icon: LocalDrinkIcon, route: "/drink", label: "boissons" },
   ];
 
   return (
@@ -44,6 +44,7 @@ function NavBar({ handleCategoryChange }) {
           <IconWithLabelCard
             icoInfo={icoInfo}
             handleCategoryChange={handleCategoryChange}
+            currCat={currCat}
           />
         </Grid>
       ))}

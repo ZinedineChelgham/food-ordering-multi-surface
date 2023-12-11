@@ -7,22 +7,30 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 function BasicCard(props) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  //const [isClicked, setIsClicked] = useState(false);
 
-  const { style, actionArea, content, handleCategoryChange, category } = props;
+  const {
+    style,
+    actionArea,
+    content,
+    handleCategoryChange,
+    category,
+    currCat,
+    fromIcon,
+  } = props;
 
   const handleCardClick = () => {
-    console.log("basicCard", category);
     handleCategoryChange(category);
-    //setIsClicked(!isClicked); // Toggle the state when the card is clicked
   };
 
   //console.log(memoizedHandleClick);
 
+  console.log("curcatt", currCat);
+  console.log("categoryy", category);
+
   return (
     <Card
       sx={{
-        //backgroundColor: isClicked ? "#dad8d8" : "white",
+        backgroundColor: fromIcon && currCat === category ? "#dad8d8" : "white",
         width: isSmallScreen ? "4rem" : "9rem",
         height: "fit-content",
         ...style,
