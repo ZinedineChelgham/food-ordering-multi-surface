@@ -1,7 +1,8 @@
 // OrderHeader.js
 import React from 'react';
 
-const OrderHeader = () => {
+const OrderHeader = (props) => {
+
   return (
     <div style={{ backgroundColor: 'black', color: 'white', padding: '1vh', display: 'flex', alignItems: 'center', justifyContent: 'space-between', }}>
     <p>VOTRE COMMANDE</p>

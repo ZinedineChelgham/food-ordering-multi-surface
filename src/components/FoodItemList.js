@@ -25,7 +25,7 @@ function FoodItemsList(props) {
             }}
         >
             {Array.from(Array(400).keys()).map((index) => (
-                <Grid key={index} item xs={isSmallScreen ? 12 : 2.75}>
+                <Grid key={index} item xs={isSmallScreen ? 12 : 2}>
                     <FoodItemCard props={{ test: "hello" }} />
                 </Grid>
             ))}
