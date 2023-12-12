@@ -12,30 +12,18 @@ import OrderSummaryPage from "./components/OrderSummaryPage.js";
 import PhonePageHome from "./components/SpecialPhone/PhonePageHome";
 import Header from "./components/SpecialPhone/Header";
 import OrderBar from "./components/SpecialPhone/OrderBar";
+import GlobalPageBorn from "./components/GlobalPageBorn";
+import Base from "./components/GlobalPageBorn";
+import NavPlusList from "./components/NavPlusListBorn";
 
+//<PhonePageHome/>
+//<GlobalPageBorn/>
 function App() {
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-            <Header/>
-            <OrderBar/>
-            <div style={{ display: 'flex', flexDirection: 'row', height: '100%', width: '100%' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', width: '20vw', height: '100%' }}>
-                    <NavBar/>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', width: '80vw', height: '100%' }}>
-                    <div style={{ display: 'flex', flexDirection: 'row', height: '100%', width: '100%' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', width: '80%', height: '100%' }}>
-                            <FoodItemsList/>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', width: '20%', height: '100%' }}>
-                            <CommandList/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <GlobalPageBorn/>
+
     );
-    
+
 }
 
 export default App;

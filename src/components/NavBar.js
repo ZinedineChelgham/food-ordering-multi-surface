@@ -12,6 +12,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 function NavBar(props) {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isLandscape = useMediaQuery('(orientation: landscape)');
 
     const iconsInfos = [
         { icon: FoodBankIcon, route: '/food', label: 'Accueil' },
@@ -24,7 +25,7 @@ function NavBar(props) {
     return (
         <div style={{ display: 'flex', flexDirection: isSmallScreen ? 'row' : 'column', width: 'max-content'}}>
             {iconsInfos.map((icoInfo, index) => (
-                <Grid item xs={12} key={index} sx={{ width:'20vw'}}>
+                <Grid item xs={12} key={index} sx={{ width:isSmallScreen ?'20vw':isLandscape?'25vw':'15vh', height:isSmallScreen?'':'14vh'}}>
                     <IconWithLabelCard props={icoInfo} />
                 </Grid>
             ))}
