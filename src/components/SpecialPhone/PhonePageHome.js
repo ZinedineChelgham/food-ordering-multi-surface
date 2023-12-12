@@ -16,7 +16,8 @@ function HomePhone(props) {
             <div style={{ height: '7%', overflow: 'hidden' }}>
                 <Header />
             </div>
-            <div style={{ height: '76%', overflow: 'hidden' }}>
+            <div style={{ height: '76%', overflow: 'hidden' ,display: 'flex',
+                justifyContent: 'center'}}>
                 <FoodItemList />
             </div>
             <div style={{ height: '7%', overflow: 'hidden' }}>
