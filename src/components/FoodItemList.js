@@ -1,24 +1,22 @@
-import Grid2 from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
 import FoodItemCard from "./common/FoodItemCard";
-import {useTheme} from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 function FoodItemsList(props) {
-
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
-        <Grid2
+        <Grid
             container
+            spacing={2}
             direction="row"
             justifyContent="center"
             alignItems="center"
             xs={12}
             sx={{
-                //height: isSmallScreen? '59vh':'100%',
-                //height:'59vh',
-                height: '100%',
+                height:'105%',
                 backgroundColor: 'blue',
                 overflow: 'auto',
                 '&::-webkit-scrollbar': {
@@ -27,10 +25,12 @@ function FoodItemsList(props) {
             }}
         >
             {Array.from(Array(400).keys()).map((index) => (
-                <FoodItemCard key={index} props={{ test: "hello" }} />
+                <Grid key={index} item xs={isSmallScreen ? 12 : 2.75}>
+                    <FoodItemCard props={{ test: "hello" }} />
+                </Grid>
             ))}
-        </Grid2>
-    )
+        </Grid>
+    );
 }
 
 export default FoodItemsList;

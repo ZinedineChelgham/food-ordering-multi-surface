@@ -17,7 +17,7 @@ function NavPlusList(props) {
             <div style={{ height: '20%', }}>
                 <NavBar />
             </div>
-            <div style={{ width: '75%', overflow: 'hidden',marginRight:'2vw' }}>
+            <div style={{ width: '75%', overflow: 'hidden' }}>
                 <FoodItemList />
             </div>
         </div>

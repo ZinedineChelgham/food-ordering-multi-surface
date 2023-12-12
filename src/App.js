@@ -20,7 +20,7 @@ import NavPlusList from "./components/NavPlusListBorn";
 //<GlobalPageBorn/>
 function App() {
     return (
-        <GlobalPageBorn/>
+        <PhonePageHome/>
 
     );
 
