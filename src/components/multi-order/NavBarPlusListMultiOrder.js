@@ -3,6 +3,7 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NavBar from "../NavBar";
 import FoodItemList from "../FoodItemList";
+import CustomHeader from "./CustomHeader";
 
 
 function NavPlusListMultiOrder() {

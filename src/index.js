@@ -8,7 +8,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import MultiOrder from "./components/multi-order/multi-order";
+import MultiOrder from "./components/multi-order/Multi-order.js";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
