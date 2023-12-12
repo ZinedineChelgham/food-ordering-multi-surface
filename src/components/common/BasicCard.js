@@ -16,16 +16,18 @@ function BasicCard(props) {
     category,
     currCat,
     fromIcon,
+    onFoodItemClick,
   } = props;
 
   const handleCardClick = () => {
-    handleCategoryChange(category);
+    if (fromIcon) {
+      handleCategoryChange(category);
+    } else {
+      onFoodItemClick();
+    }
   };
 
   //console.log(memoizedHandleClick);
-
-  console.log("curcatt", currCat);
-  console.log("categoryy", category);
 
   return (
     <Card

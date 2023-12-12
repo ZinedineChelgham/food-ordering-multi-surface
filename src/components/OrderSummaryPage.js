@@ -13,8 +13,12 @@ import PaidIcon from "@mui/icons-material/Paid";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { useMemo } from "react";
+import CartContext from "../context/CartContext";
+import { useContext } from "react";
 
 const OrderSummaryPage = () => {
+  const { cartItems } = useContext(CartContext);
+
   const burgers = useMemo(
     () => [
       { id: 1, name: "Hamburger", image: burger, price: 5.0 },
