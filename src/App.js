@@ -12,10 +12,11 @@ import OrderSummaryPage from "./components/OrderSummaryPage.js";
 import PhonePageHome from "./components/SpecialPhone/PhonePageHome";
 import Header from "./components/SpecialPhone/Header";
 import OrderBar from "./components/SpecialPhone/OrderBar";
+import OrderContainer from './components/OrderContainer.js';
 
 function App() {
     return (
-        <PhonePageHome/>
+        <OrderContainer/>
     );
     
 }

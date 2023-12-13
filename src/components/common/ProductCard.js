@@ -3,7 +3,7 @@ import { CardMedia, Button, Grid, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-function ProductCard({ image, isFirstItem, isLastItem }) {
+function ProductCard({ image, isFirstItem, isLastItem, onRemove, index }) {
     return (
         <Grid container alignItems="center" spacing={2} style={{ marginBottom: '20px', maxWidth: '400px' }}>
             {/* Image on the left */}
@@ -18,15 +18,11 @@ function ProductCard({ image, isFirstItem, isLastItem }) {
                 />
             </Grid>
             <Grid item xs={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {isLastItem ? (
-                    <IconButton color="primary" >
-                        <AddIcon />
-                    </IconButton>
-                ) : !isFirstItem ? (
-                    <IconButton color="primary">
+                {!isFirstItem && !isLastItem ? (
+                    <IconButton color="primary" onClick={() => onRemove(index)}>
                         <RemoveIcon />
                     </IconButton>
-                ) : null}
+                )  : null}
             </Grid>
         </Grid>
     );

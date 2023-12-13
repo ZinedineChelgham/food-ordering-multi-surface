@@ -1,0 +1,61 @@
+/* CommandList.css */
+.command-list-container {
+  border: 1px solid #409633;
+  border-radius: 15px;
+  background-color: #5b9547;
+  padding: 16px;
+  margin-bottom: 20px;
+  width: fit-content;
+  /* Remove margin and other styles that were specific to .main-block-container */
+}
+
+.command-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.empty-command-list {
+  /* Styles to center the empty message within the OrderHeader and CommandList area */
+  text-align: center;
+  padding: 16px; /* or any other padding you prefer */
+}
+
+.quantity {
+  font-weight: bold;
+}
+
+.name {
+  margin: 0 10px;
+}
+
+.price {
+  margin-left: auto;
+}
+
+.command-actions {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px; /* Space above the buttons */
+}
+
+.cancel-button, .validate-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cancel-button {
+  background-color: #f44336; /* Red color for cancellation */
+  color: white;
+}
+
+.validate-button {
+  background-color: #4CAF50; /* Green color for validation */
+  color: white;
+}
