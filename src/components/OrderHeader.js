@@ -1,44 +1,23 @@
-// import React from 'react';
-
-// const OrderHeader = () => {
-//   return (
-//     <div style={{ backgroundColor: 'black', color: 'white', padding: '20px', display: 'flex', alignItems: 'center' }}>
-//     <p style={{ marginRight: '400px' }}>VOTRE COMMANDE</p>
-//     <p style={{ marginRight: '200px' }}>TOTAL</p>
-//     <p>€0.00</p>
-//   </div>
-//   );
-// };
-
-// export default OrderHeader;
-
-// import React from 'react';
-// import './OrderHeader.css'; // Import the CSS file
-
-// const OrderHeader = () => {
-//   return (
-//     <div className="order-header">
-//       <p>VOTRE COMMANDE</p>
-//       <p>TOTAL</p>
-//       <p>€0.00</p>
-//     </div>
-//   );
-// };
-
-// export default OrderHeader;
-
 import React from 'react';
 import './OrderHeader.css'; // Import the CSS file
 
+//fontSize:'1' 
+
 const OrderHeader = ({ total }) => {
   return (
-    <div className="order-header">
-      <p>VOTRE COMMANDE</p>
-      <p>TOTAL</p>
-      <p>€{total.toFixed(2)}</p>
-    </div>
+
+    <div className="order-header" style={{ backgroundColor: 'black', color: 'white', padding: '1vh', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+    <p>VOTRE COMMANDE</p>
+      <div>
+        <p style={{ marginRight: '5vw' }}>TOTAL €{total.toFixed(2)} </p>
+        <p></p>
+      </div>
+  </div>
+   
   );
 };
+
+//
 
 export default OrderHeader;
 

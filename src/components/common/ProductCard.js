@@ -6,15 +6,13 @@ import RemoveIcon from '@mui/icons-material/Remove';
 function ProductCard({ image, isFirstItem, isLastItem, onRemove, index }) {
     return (
         <Grid container alignItems="center" spacing={2} style={{ marginBottom: '20px', maxWidth: '400px' }}>
-            {/* Image on the left */}
             <Grid item xs={6}>
                 <CardMedia
                     component="img"
-                    width="100%"
-                    style={{ height: '100%', objectFit: 'contain' }}
+                    width="70%"
+                    style={{ height: '70%', objectFit: 'contain' }}
                     image={image}
                     alt="big burger"
-                // style={{ width: '100%' }}
                 />
             </Grid>
             <Grid item xs={6} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
