@@ -12,18 +12,23 @@ import OrderSummaryPage from "./components/OrderSummaryPage.js";
 import PhonePageHome from "./components/SpecialPhone/PhonePageHome";
 import Header from "./components/SpecialPhone/Header";
 import OrderBar from "./components/SpecialPhone/OrderBar";
+
+import OrderContainer from './components/OrderContainer.js';
+
 import GlobalPageBorn from "./components/GlobalPageBorn";
 import Base from "./components/GlobalPageBorn";
 import NavPlusList from "./components/NavPlusListBorn";
 
+
 //<PhonePageHome/>
 //<GlobalPageBorn/>
+//<OrderContainer/>
 function App() {
+    const ingredients = ['tomate', 'salade', 'fromage'];
     return (
+        // <ModeRush ingredients={ingredients}/>
         <GlobalPageBorn/>
-
-    );
-
+        );
 }
 
 export default App;

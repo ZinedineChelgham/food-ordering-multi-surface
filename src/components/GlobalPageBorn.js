@@ -7,6 +7,7 @@ import FoodItemList from "./FoodItemList";
 import OrderBar from "./SpecialPhone/OrderBar";
 import OrderHeader from "./OrderHeader";
 import NavPlusList from "./NavPlusListBorn";
+import OrderContainer from './OrderContainer';
 
 function GlobalPage(props) {
     const theme = useTheme();
@@ -15,15 +16,15 @@ function GlobalPage(props) {
 
     return (
         <div style={{ height: '100vh', overflow: 'hidden'}}>
-            <div style={{ height: '10%', overflow: 'hidden' }}>
+            <div style={{ height: '5%', overflow: 'hidden' }}>
                 <Header />
             </div>
             <div style={{ height: '70%', overflow: 'hidden' }}>
                 {/* Le composant OrderBar prendra tout l'espace disponible */}
                 <NavPlusList/>
             </div>
-            <div style={{ height: '20%' }}>
-                <OrderHeader/>
+            <div style={{ height: '25%' }}>
+                <OrderContainer/>
             </div>
         </div>
     );
