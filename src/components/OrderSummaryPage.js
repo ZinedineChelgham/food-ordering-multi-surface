@@ -12,6 +12,10 @@ import  './OrderSummaryPage.css'
 import PaidIcon from '@mui/icons-material/Paid';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {useTheme} from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import Toolbar from "@mui/material/Toolbar";
+import AppBar from "@mui/material/AppBar";
+import {Slide, useScrollTrigger} from "@mui/material";
 
 
 
@@ -69,6 +73,7 @@ const OrderSummaryPage = () => {
             clearTimeout(scrollTimer);
 
             scrollTimer = setTimeout(() => {
+                console.log('Stopped scrolling.');
                 setIsScrolling(false);
             }, 200); // Ajustez la durée du délai selon vos besoins
         };
@@ -79,11 +84,14 @@ const OrderSummaryPage = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
-
     return (
-        <div style={{ overflowX: 'hidden'}}>
-            <h1>Récapitulatif de la commande </h1>
+        <div style={{ overflowX: 'hidden', marginTop:'10vh'}}>
+                <AppBar position="fixed">
+                    <Toolbar style={{ justifyContent: 'space-between' }}>
+                        <Typography variant="h6">Récapitulatif de commande</Typography>
+                        <Button color="inherit">Retour</Button>
+                    </Toolbar>
+                </AppBar>
             <Grid container spacing={2} className="order-summary-container">
                 <Grid item xs={12}>
                     <Paper className="order-section" elevation={3}>
