@@ -6,7 +6,7 @@ import FoodItemList from "../FoodItemList";
 import CustomHeader from "./CustomHeader";
 
 
-function NavPlusListMultiOrder() {
+function NavPlusListMultiOrder({ foodItems, currCat, handleCategoryChange}) {
 
     return (
         <div style={{ width: '50vw', height:'100%', overflow: 'hidden',display: 'flex',flexdirection: 'row', justifyContent: 'space-between'}}>
@@ -14,7 +14,7 @@ function NavPlusListMultiOrder() {
                 <NavBar isMultiOrder />
             </div>
             <div style={{ width: '75%', overflow: 'hidden',marginRight:'2vw' }}>
-                <FoodItemList />
+                <FoodItemList foodItems={foodItems} />
             </div>
         </div>
     );
