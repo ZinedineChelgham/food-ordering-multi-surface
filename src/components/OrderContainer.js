@@ -5,9 +5,8 @@ import CartContext from "../context/CartContext";
 
 const OrderContainer = () => {
   // This state will hold the order items and could be updated when items are added or removed
-  const [orderItems, setOrderItems] = useState([]);
 
-  const { cartItems } = React.useContext(CartContext);
+  const { cartItems, removeItem } = React.useContext(CartContext);
 
   // const burgerItems = [
   //   { id: 1, name: "Burger", price: 7.2, quantity: 1 },
@@ -94,40 +93,18 @@ const OrderContainer = () => {
   };
   const onDeleteItem = (id) => {
     // Logic to delete the item from the order
-    setOrderItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
-
-  const addItemToOrder = (item) => {
-    setOrderItems((prevItems) => {
-      // Check if the item is already in the order
-      const existingItem = prevItems.find((i) => i.id === item.id);
-      if (existingItem) {
-        // If it is, update the quantity
-        return prevItems.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i
-        );
-      } else {
-        // If it's not, add the new item with its original quantity
-        return [...prevItems, item];
-      }
-    });
+    removeItem(id);
+    console.log("Remove itemm", cartItems);
   };
 
   // Calculate the total amount of the order
   const calculateTotal = (items) =>
     items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-  // Simulate adding items after component mounts
-  useEffect(() => {
-    cartItems.forEach((item) => {
-      addItemToOrder(item);
-    });
-  }, [cartItems]);
-
   return (
     <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <div style={{ height: "20%", flexShrink: 0 }}>
-        <OrderHeader total={calculateTotal(orderItems)} />
+        <OrderHeader total={calculateTotal(cartItems)} />
       </div>
       <div
         style={{
@@ -138,7 +115,7 @@ const OrderContainer = () => {
         }}
       >
         <CommandList
-          orderItems={orderItems}
+          orderItems={cartItems}
           onItemUpdate={handleItemUpdate}
           onDeleteItem={onDeleteItem}
         />
@@ -156,8 +133,8 @@ const OrderContainer = () => {
               fontWeight: "bold",
               marginRight: "10px",
               cursor: "pointer",
-              cursor: orderItems.length === 0 ? "default" : "pointer",
-              opacity: orderItems.length === 0 ? 0.5 : 1,
+              cursor: cartItems.length === 0 ? "default" : "pointer",
+              opacity: cartItems.length === 0 ? 0.5 : 1,
               // Add any other styles you want to apply directly here
             }}
           >
@@ -172,8 +149,8 @@ const OrderContainer = () => {
               borderRadius: "5px",
               padding: "10px 20px",
               fontWeight: "bold",
-              cursor: orderItems.length === 0 ? "default" : "pointer",
-              opacity: orderItems.length === 0 ? 0.5 : 1,
+              cursor: cartItems.length === 0 ? "default" : "pointer",
+              opacity: cartItems.length === 0 ? 0.5 : 1,
               // Add any other styles you want to apply directly here
             }}
           >
