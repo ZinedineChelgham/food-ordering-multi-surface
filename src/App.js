@@ -18,16 +18,13 @@ import OrderContainer from "./components/OrderContainer.js";
 import GlobalPageBorn from "./components/GlobalPageBorn";
 import Base from "./components/GlobalPageBorn";
 import NavPlusList from "./components/NavPlusListBorn";
+import GlobalPage from "./components/GlobalPage.js";
 
 //<PhonePageHome/>
 //<GlobalPageBorn/>
 //<OrderContainer/>
 function App() {
-  const ingredients = ["tomate", "salade", "fromage"];
-  return (
-    // <ModeRush ingredients={ingredients}/>
-    <PhonePageHome />
-  );
+  return <GlobalPage />;
 }
 
 export default App;

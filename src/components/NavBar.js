@@ -15,10 +15,10 @@ function NavBar({ handleCategoryChange, currCat }) {
   const isLandscape = useMediaQuery("(orientation: landscape)");
 
   const iconsInfos = [
-    { icon: LunchDiningIcon, route: "/lunch", label: "Burgers" },
-    { icon: CookieIcon, route: "/cookie", label: "Desserts" },
-    { icon: LocalDrinkIcon, route: "/drink", label: "Boissons" },
-    { icon: FastfoodIcon, route: "/fastfood", label: "Menus" },
+    { icon: LunchDiningIcon, route: "/lunch", label: "burgers" },
+    { icon: CookieIcon, route: "/cookie", label: "desserts" },
+    { icon: LocalDrinkIcon, route: "/drink", label: "boissons" },
+    { icon: FastfoodIcon, route: "/fastfood", label: "menus" },
   ];
 
   return (
