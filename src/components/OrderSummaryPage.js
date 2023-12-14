@@ -71,7 +71,6 @@ const OrderSummaryPage = () => {
         const handleScroll = () => {
             setIsScrolling(true);
             clearTimeout(scrollTimer);
-
             scrollTimer = setTimeout(() => {
                 console.log('Stopped scrolling.');
                 setIsScrolling(false);

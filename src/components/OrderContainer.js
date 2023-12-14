@@ -145,7 +145,6 @@ const OrderContainer = () => {
                         padding: '10px 20px',
                         fontWeight: 'bold',
                         marginRight: '10px',
-                        cursor: 'pointer',
                         cursor: orderItems.length === 0 ? 'default' : 'pointer',
                         opacity: orderItems.length === 0 ? 0.5 : 1,
                         // Add any other styles you want to apply directly here
