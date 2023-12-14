@@ -1,0 +1,47 @@
+.command-list-container {
+  display: flex; /* Use flexbox to align children horizontally */
+  flex-direction: row; /* Align children in a row */
+  justify-content: flex-start; /* Align children to the start of the container */
+  align-items: flex-start; /* Align children at the start vertically */
+  flex-wrap: wrap; /* Allow items to wrap onto the next line if there isn't enough space */
+  gap: 10px; /* Space between each product container */
+  padding: 10px; /* Padding around the entire container */
+  /* other styles */
+}
+
+.command-item {
+  display: flex; /* Use flexbox to align quantity, name, and price horizontally */
+  flex-direction: row; /* Align children in a row */
+  justify-content: flex-start; /* Align children to the start horizontally */
+  align-items: center; /* Center children vertically */
+  gap: 5px; /* Space between quantity, name, and price */
+  padding: 5px; /* Padding inside each product container */
+  border: 1px solid #ddd; /* Optional: Border around each product container */
+  border-radius: 4px; /* Optional: Rounded corners for the container */
+  background-color: rgb(96, 210, 111); /* Optional: Background color for the container */
+  /* other styles */
+}
+
+.command-actions {
+  display: flex;
+  justify-content: space-around;
+  /* padding-top: 10px;  */
+} 
+
+.cancel-button, .validate-button {
+  /* padding: 10px 20px; */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cancel-button {
+  background-color: #f44336; /* Red color for cancellation */
+  color: white;
+}
+
+.validate-button {
+  background-color: #4CAF50; /* Green color for validation */
+  color: white;
+}

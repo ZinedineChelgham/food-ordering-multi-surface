@@ -1,14 +1,24 @@
-// OrderHeader.js
 import React from 'react';
+import './OrderHeader.css'; // Import the CSS file
 
-const OrderHeader = () => {
+//fontSize:'1' 
+
+const OrderHeader = ({ total }) => {
   return (
-    <div style={{ backgroundColor: 'black', color: 'white', padding: '20px', display: 'flex', alignItems: 'center' }}>
-    <p style={{ marginRight: '400px' }}>VOTRE COMMANDE</p>
-    <p style={{ marginRight: '200px' }}>TOTAL</p>
-    <p>€0.00</p>
+
+    <div className="order-header" style={{ backgroundColor: 'black', color: 'white', padding: '1vh', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+    <p>VOTRE COMMANDE</p>
+      <div>
+        <p style={{ marginRight: '5vw' }}>TOTAL €{total.toFixed(2)} </p>
+        <p></p>
+      </div>
   </div>
+   
   );
 };
 
+//
+
 export default OrderHeader;
+
+

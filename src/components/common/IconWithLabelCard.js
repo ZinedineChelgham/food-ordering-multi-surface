@@ -8,12 +8,13 @@ import {useTheme} from "@mui/material/styles";
 function IconWithLabelCard(props) {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isLandscape = useMediaQuery('(orientation: landscape)');
     const icoInfo = props.props;
 
     const getActionArea = () => {
         return (
             <CardMedia
-                sx={{ fontSize:isSmallScreen? '10vw': '9.8vh', margin: 'auto', marginTop: '5%',width: 'inherit',padding:'0'}}
+                sx={{ fontSize:isSmallScreen? '10vw': '5vh', margin: 'auto', marginTop:isSmallScreen? '':'1vh',width: 'inherit',padding:isSmallScreen?'0':isLandscape?'0':'1vh'}}
                 component={icoInfo.icon}
             />
         )
@@ -21,7 +22,7 @@ function IconWithLabelCard(props) {
 
     const getContent = () => {
         return (
-            <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'center', fontSize:isSmallScreen? '4vw': '4vh' }}>
+            <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'center', fontSize:isSmallScreen? '4vw':isLandscape?'4vh': '5vw' }}>
                 {icoInfo.label}
             </Typography>
         )
