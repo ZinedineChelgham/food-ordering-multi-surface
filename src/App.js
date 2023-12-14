@@ -18,6 +18,7 @@ import OrderContainer from './components/OrderContainer.js';
 import GlobalPageBorn from "./components/GlobalPageBorn";
 import Base from "./components/GlobalPageBorn";
 import NavPlusList from "./components/NavPlusListBorn";
+import GlobalPage from "./components/GlobalPage.js";
 
 
 //<PhonePageHome/>

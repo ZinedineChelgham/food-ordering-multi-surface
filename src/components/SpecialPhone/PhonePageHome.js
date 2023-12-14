@@ -13,6 +13,8 @@ function HomePhone(props) {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [category, setCategory] = React.useState("menus");
+  
+  console.log("-----phone display-----");
 
   const handleCategoryChange = (cat) => {
     setCategory(cat.toLowerCase());

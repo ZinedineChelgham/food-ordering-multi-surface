@@ -12,8 +12,8 @@ const CartState = ({ children }) => {
 
   const [state, dispatch] = useReducer(CartReducer, initalState);
 
-  const addToCart = (item) => {
-    dispatch({ type: ADD_TO_CART, payload: item });
+  const addToCart = (item, quantity) => {
+    dispatch({ type: ADD_TO_CART, payload: { ...item, quantity: quantity } });
   };
 
   const showHideCart = () => {

@@ -33,7 +33,7 @@ function FoodItemCard({ item }) {
       content={getContent()}
       onFoodItemClick={() => {
         console.log("Adding item in the cart", item);
-        addToCart(item);
+        addToCart(item, 1);
         console.log("Cart state", cartItems);
       }}
     />
