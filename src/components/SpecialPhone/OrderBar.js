@@ -2,9 +2,11 @@ import React from "react";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import CartContext from "../../context/CartContext";
+import { useNavigate } from "react-router";
 
 function OrderBar({ leftText, totalPrice, onClick }) {
   const { cartItems } = React.useContext(CartContext);
+  const navigate = useNavigate();
 
   const getCartTotal = () => {
     return cartItems.reduce((acc, item) => acc + item.price, 0);
@@ -15,7 +17,7 @@ function OrderBar({ leftText, totalPrice, onClick }) {
   return (
     <Paper
       elevation={3}
-      onClick={onClick}
+      onClick={() => navigate("/ordersummary")}
       sx={{
         height: "100%",
         backgroundColor: "yellow",
