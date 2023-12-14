@@ -9,10 +9,21 @@ const CartReducer = (state, action) => {
       };
     }
     case ADD_TO_CART: {
-      return {
-        ...state,
-        cartItems: [...state.cartItems, action.payload],
-      };
+      if (state.cartItems.find((item) => item.id === action.payload.id)) {
+        return {
+          ...state,
+          cartItems: state.cartItems.map((item) =>
+            item.id === action.payload.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          ),
+        };
+      } else {
+        return {
+          ...state,
+          cartItems: [...state.cartItems, action.payload],
+        };
+      }
     }
     case REMOVE_ITEM: {
       return {
