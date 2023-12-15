@@ -39,6 +39,7 @@ function BasicCard({
           width: "inherit",
           margin: isSmallScreen ? "1vw" : "1vh",
           alignItems: "center", // Align the content vertically in the center
+          borderRadius: "10px",
         }}
       >
         <CardActionArea onClick={() => handleCardClick()}>
