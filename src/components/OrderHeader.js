@@ -1,11 +1,8 @@
 import React from 'react';
 import './OrderHeader.css'; // Import the CSS file
 
-//fontSize:'1' 
-
 const OrderHeader = ({ total }) => {
   return (
-
     <div className="order-header" style={{ backgroundColor: 'black', color: 'white', padding: '1vh', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
     <p>VOTRE COMMANDE</p>
       <div>
@@ -13,7 +10,6 @@ const OrderHeader = ({ total }) => {
         <p></p>
       </div>
   </div>
-   
   );
 };
 

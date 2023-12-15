@@ -9,18 +9,17 @@ import FastfoodIcon from "@mui/icons-material/Fastfood";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-function NavBar({ handleCategoryChange, currCat }) {
+
+function NavBar({ handleCategoryChange, currCat, isMultiOrder }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLandscape = useMediaQuery("(orientation: landscape)");
-
   const iconsInfos = [
     { icon: LunchDiningIcon, route: "/lunch", label: "burgers" },
     { icon: CookieIcon, route: "/cookie", label: "desserts" },
     { icon: LocalDrinkIcon, route: "/drink", label: "boissons" },
     { icon: FastfoodIcon, route: "/fastfood", label: "menus" },
   ];
-
   return (
     <div
       style={{
@@ -37,7 +36,7 @@ function NavBar({ handleCategoryChange, currCat }) {
           xs={12}
           key={index}
           sx={{
-            width: isSmallScreen ? "20vw" : isLandscape ? "25vw" : "15vh",
+            width: isSmallScreen ? "20vw" :isMultiOrder?'10vw': isLandscape ? "25vw" : "15vh",
             height: isSmallScreen ? "" : "14vh",
           }}
         >
