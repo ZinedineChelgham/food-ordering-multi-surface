@@ -10,7 +10,12 @@ function FoodItemCard({ item }) {
 
   const getActionArea = () => {
     return (
-      <CardMedia component="img" height="100" image={burger} alt="big burger" />
+      <CardMedia
+        component="img"
+        height="100"
+        image={item.url}
+        alt="big burger"
+      />
     );
   };
 
