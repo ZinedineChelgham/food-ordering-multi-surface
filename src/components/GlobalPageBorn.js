@@ -17,6 +17,8 @@ function GlobalPageBorne(props) {
 
   const [category, setCategory] = React.useState("menus");
 
+  console.log("item from borne", foodItems[category]);
+
   const handleCategoryChange = (cat) => {
     setCategory(cat.toLowerCase());
     console.log("clicked" + cat);

@@ -1,6 +1,5 @@
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import burger from "../../assets/img/burger/burger.png";
 import BasicCard from "./BasicCard";
 import React from "react";
 import CartContext from "../../context/CartContext";
