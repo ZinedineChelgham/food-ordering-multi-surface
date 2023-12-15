@@ -19,7 +19,7 @@ function NavPlusList({
   return (
     <div
       style={{
-        width: "100vw",
+        width: isMultiOrder? undefined : "100vw",
         height: "100%",
         overflow: "hidden",
         display: "flex",
