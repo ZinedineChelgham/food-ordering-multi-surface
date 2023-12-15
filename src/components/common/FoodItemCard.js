@@ -22,10 +22,15 @@ function FoodItemCard({ item }) {
   const getContent = () => {
     return (
       <>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography
+          gutterBottom
+          variant="h6"
+          component="div"
+          marginBottom={0.1}
+        >
           {item.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body1" color="text.secondary" fontWeight={"bold"}>
           {item.price} €
         </Typography>
       </>
