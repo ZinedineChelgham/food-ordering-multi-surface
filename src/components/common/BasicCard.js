@@ -35,7 +35,9 @@ function BasicCard({
         direction="row"
         sx={{
           backgroundColor:
-            fromIcon && currCat === category ? "#dad8d8" : "white",
+            fromIcon && currCat.toLowerCase() === category.toLowerCase()
+              ? "#dad8d8"
+              : "white",
           width: "inherit",
           margin: isSmallScreen ? "1vw" : "1vh",
           alignItems: "center", // Align the content vertically in the center
@@ -55,7 +57,9 @@ function BasicCard({
       <Card
         sx={{
           backgroundColor:
-            fromIcon && currCat === category ? "#dad8d8" : "white",
+            fromIcon && currCat.toLowerCase() === category.toLowerCase()
+              ? "#dad8d8"
+              : "white",
         }}
       >
         <CardActionArea onClick={() => handleCardClick()}>
