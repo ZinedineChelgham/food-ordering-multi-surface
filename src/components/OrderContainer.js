@@ -65,6 +65,7 @@ const OrderContainer = () => {
         <div className="command-actions">
           <button
             className="cancel-button"
+            disabled={cartItems.length === 0}
             style={{
               backgroundColor: "#d9534f", // Red color
               color: "white", // White text
@@ -73,10 +74,11 @@ const OrderContainer = () => {
               padding: "10px 20px",
               fontWeight: "bold",
               marginRight: "10px",
-              cursor: cartItems.length === 0 ? "default" : "pointer",
-              opacity: cartItems.length === 0 ? 0.5 : 1,
+              cursor: cartItems.length === 0 ? "not-allowed" : "pointer",
+              opacity: cartItems.length === 0 ? 0.6 : 1,
               width: "50%",
               height: "100%",
+
               // Add any other styles you want to apply directly here
             }}
             onClick={handleCancelOrder}
@@ -92,6 +94,7 @@ const OrderContainer = () => {
           </button>
           <button
             className="validate-button"
+            disabled={cartItems.length === 0}
             style={{
               backgroundColor: "#5cb85c", // Green color
               color: "white", // White text
@@ -99,8 +102,8 @@ const OrderContainer = () => {
               borderRadius: "5px",
               padding: "10px 20px",
               fontWeight: "bold",
-              cursor: cartItems.length === 0 ? "default" : "pointer",
-              opacity: cartItems.length === 0 ? 0.5 : 1,
+              cursor: cartItems.length === 0 ? "not-allowed" : "pointer",
+              opacity: cartItems.length === 0 ? 0.6 : 1,
               width: "50%",
               height: "100%",
 
