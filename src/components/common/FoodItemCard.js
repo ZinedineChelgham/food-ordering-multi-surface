@@ -10,7 +10,7 @@ function FoodItemCard({ item }) {
   const getActionArea = () => {
     return (
       <CardMedia
-          style={{borderRadius: 'inherit', height: '10vh'}}
+        style={{ borderRadius: "inherit", height: "10vh" }}
         component="img"
         height="100"
         image={item.url}
@@ -30,9 +30,21 @@ function FoodItemCard({ item }) {
         >
           {item.name}
         </Typography>
-        <Typography variant="body1" color="text.secondary" fontWeight={"bold"}>
-          {item.price} €
-        </Typography>
+        <div style={{ textAlign: "center" }}>
+          <Typography
+            variant="body1"
+            color="#fffff"
+            fontWeight={"bold"}
+            style={{
+              backgroundColor: "#ffff00",
+              display: "inline-block",
+              width: "50%",
+            }}
+            padding={0.1}
+          >
+            {item.price} €
+          </Typography>
+        </div>
       </>
     );
   };

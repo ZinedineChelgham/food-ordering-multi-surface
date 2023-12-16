@@ -1,7 +1,13 @@
 import React from "react";
 import "./CommandList.css";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 const CommandList = ({ orderItems, onItemUpdate, onDeleteItem }) => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLandscape = useMediaQuery("(orientation: landscape)");
   return (
     <>
       {orderItems.length > 0 ? (
@@ -41,12 +47,20 @@ const CommandList = ({ orderItems, onItemUpdate, onDeleteItem }) => {
       ) : (
         <div
           style={{
+            height: "100%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <p>VOTRE COMMANDE EST VIDE</p>
+          <Typography
+            variant="body1"
+            color="#fffff"
+            fontWeight={"bold"}
+            fontSize={isLandscape ? "4vh" : "5vw"}
+          >
+            Votre commande est vide
+          </Typography>
         </div>
       )}
     </>

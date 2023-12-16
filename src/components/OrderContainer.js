@@ -2,30 +2,33 @@ import React, { useState, useEffect } from "react";
 import CommandList from "./CommandList";
 import OrderHeader from "./OrderHeader";
 import CartContext from "../context/CartContext";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 const OrderContainer = () => {
   // This state will hold the order items and could be updated when items are added or removed
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLandscape = useMediaQuery("(orientation: landscape)");
 
   const { cartItems, removeItem } = React.useContext(CartContext);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleItemUpdate = (item, action) => {};
 
   const handleCancelOrder = () => {
-   cartItems.forEach((item) => removeItem(item.id));
+    cartItems.forEach((item) => removeItem(item.id));
   };
 
   const handleValidateOrder = () => {
-      navigate('/ordersummary', { state: { cartItems } });
+    navigate("/ordersummary", { state: { cartItems } });
   };
 
   const onDeleteItem = (id) => {
     // Logic to delete the item from the order
     removeItem(id);
-    console.log("Remove itemm", cartItems);
-    console.log("etat du cart", cartItems);
-
   };
 
   // Calculate the total amount of the order
@@ -33,7 +36,14 @@ const OrderContainer = () => {
     items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
-    <div style={{ height: "85%", display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        height: "85%",
+        display: "flex",
+        flexDirection: "column",
+        paddingBottom: "5px",
+      }}
+    >
       <div style={{ height: "auto", flexShrink: 0 }}>
         <OrderHeader total={calculateTotal(cartItems)} />
       </div>
@@ -51,7 +61,7 @@ const OrderContainer = () => {
           onDeleteItem={onDeleteItem}
         />
       </div>
-      <div style={{ height: "10%" ,flexShrink:0}}>
+      <div style={{ height: "10%", flexShrink: 0, padding: "10px" }}>
         <div className="command-actions">
           <button
             className="cancel-button"
@@ -65,11 +75,20 @@ const OrderContainer = () => {
               marginRight: "10px",
               cursor: cartItems.length === 0 ? "default" : "pointer",
               opacity: cartItems.length === 0 ? 0.5 : 1,
+              width: "50%",
+              height: "100%",
               // Add any other styles you want to apply directly here
             }}
             onClick={handleCancelOrder}
           >
-            Abandonner la commande
+            <Typography
+              variant="body1"
+              color="#fffff"
+              fontWeight={"bold"}
+              fontSize={isLandscape ? "3vh" : "3.5vw"}
+            >
+              Abandonner la commande
+            </Typography>
           </button>
           <button
             className="validate-button"
@@ -82,12 +101,21 @@ const OrderContainer = () => {
               fontWeight: "bold",
               cursor: cartItems.length === 0 ? "default" : "pointer",
               opacity: cartItems.length === 0 ? 0.5 : 1,
+              width: "50%",
+              height: "100%",
 
               // Add any other styles you want to apply directly here
             }}
             onClick={handleValidateOrder}
           >
-              Valider la commande
+            <Typography
+              variant="body1"
+              color="#fffff"
+              fontWeight={"bold"}
+              fontSize={isLandscape ? "3vh" : "3.5vw"}
+            >
+              Valider
+            </Typography>
           </button>
         </div>
       </div>

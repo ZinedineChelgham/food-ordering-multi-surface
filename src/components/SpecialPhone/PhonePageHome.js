@@ -40,7 +40,14 @@ function HomePhone(props) {
         {/* Le composant OrderBar prendra tout l'espace disponible */}
         <OrderBar />
       </div>
-      <div style={{ height: "10%", display: 'flex', flexWrap: 'wrap', alignContent: 'flex-end'}}>
+      <div
+        style={{
+          height: "10%",
+          display: "flex",
+          flexWrap: "wrap",
+          alignContent: "flex-end",
+        }}
+      >
         <NavBar
           handleCategoryChange={handleCategoryChange}
           currCat={category}
