@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import CommandList from "./CommandList";
 import OrderHeader from "./OrderHeader";
 import CartContext from "../context/CartContext";
+import { useNavigate } from 'react-router-dom';
 
 const OrderContainer = () => {
   // This state will hold the order items and could be updated when items are added or removed
 
   const { cartItems, removeItem } = React.useContext(CartContext);
+    const navigate = useNavigate();
 
   const handleItemUpdate = (item, action) => {};
 
@@ -15,12 +17,15 @@ const OrderContainer = () => {
   };
 
   const handleValidateOrder = () => {
-    // Logic to handle order validation
+      navigate('/ordersummary', { state: { cartItems } });
   };
+
   const onDeleteItem = (id) => {
     // Logic to delete the item from the order
     removeItem(id);
     console.log("Remove itemm", cartItems);
+    console.log("etat du cart", cartItems);
+
   };
 
   // Calculate the total amount of the order
@@ -76,10 +81,12 @@ const OrderContainer = () => {
               fontWeight: "bold",
               cursor: cartItems.length === 0 ? "default" : "pointer",
               opacity: cartItems.length === 0 ? 0.5 : 1,
+
               // Add any other styles you want to apply directly here
             }}
+            onClick={handleValidateOrder}
           >
-            Valider la commande
+              Valider la commande
           </button>
         </div>
       </div>

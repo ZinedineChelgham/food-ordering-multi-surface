@@ -16,11 +16,14 @@ import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import {Slide, useScrollTrigger} from "@mui/material";
+import { useLocation } from 'react-router-dom';
 
 
 
 
-const OrderSummaryPage = ({ cartItems }) => {
+const OrderSummaryPage = () => {
+    const location = useLocation();
+    const [cartItems, setCartItems] = useState(location.state?.cartItems || []);
     const theme = useTheme();
     // Utilisez useMediaQuery pour détecter la taille de l'écran
     const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Définissez la taille maximale pour considérer comme mobile
@@ -38,19 +41,44 @@ const OrderSummaryPage = ({ cartItems }) => {
     // État pour stocker le prix total
     const [totalPrice, setTotalPrice] = useState(0);
     useEffect(() => {
-        const newTotalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
+        const newTotalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
         setTotalPrice(newTotalPrice);
     }, [cartItems]);
 
     const categorizeItems = () => {
         // Cette fonction devrait diviser les cartItems en différentes catégories
+        console.log(cartItems)
         const categorized = {
-            burgers: cartItems.filter(item => item.category === 'burgers'),
-            menus: cartItems.filter(item => item.category === 'menus'),
+            burgers: cartItems.filter(item => item.type === 'burger'),
+            menus: cartItems.filter(item => item.type === 'menu'),
+            desserts: cartItems.filter(item => item.type === 'dessert'),
+            boissons: cartItems.filter(item => item.type === 'boisson'),
+
             // Répétez pour les autres catégories...
         };
         return categorized;
     };
+
+    const handleIncrease = (id) => {
+        const updatedItems = cartItems.map(item =>
+            item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+        setCartItems(updatedItems);
+    };
+
+
+    const handleDecrease = (id) => {
+        const updatedItems = cartItems.map(item =>
+            item.id === id ? { ...item, quantity: Math.max(item.quantity - 1, 0) } : item
+        );
+        setCartItems(updatedItems);
+    };
+
+    const handleDelete = (id) => {
+        const updatedItems = cartItems.filter(item => item.id !== id);
+        setCartItems(updatedItems);
+    };
+
     const categorizedItems = categorizeItems();
     useEffect(() => {
         let scrollTimer;
@@ -72,28 +100,51 @@ const OrderSummaryPage = ({ cartItems }) => {
     }, []);
     return (
         <div style={{ overflowX: 'hidden', marginTop:'10vh'}}>
-                <AppBar position="fixed">
-                    <Toolbar style={{ justifyContent: 'space-between' }}>
+                <AppBar position="fixed" style={{height:'10vh', display: 'flex',
+                    justifyContent: 'center'}}>
+                    <Toolbar style={{justifyContent: 'space-between' }}>
                         <Typography variant="h6">Récapitulatif de commande</Typography>
                         <Button color="inherit">Retour</Button>
                     </Toolbar>
                 </AppBar>
-            <Grid container spacing={2} className="order-summary-container">
-                <Grid item xs={12}>
+            <Grid container spacing={2} className="order-summary-container" style={{marginTop:'0'}}>
+                <Grid item xs={12} sx={{display: 'flex',
+                    justifyContent: 'center'}}>
                     <Paper className="order-section" elevation={3}>
-                        <OrderSection title="Burgers" />
+                        <OrderSection title="Burgers" items={categorizedItems.burgers}
+                                      onIncrease={handleIncrease}
+                                      onDecrease={handleDecrease}
+                                      onDelete={handleDelete}/>
                     </Paper>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sx={{display: 'flex',
+                    justifyContent: 'center'}}>
                     <Paper className="order-section" elevation={3}>
-                        <OrderSection title="Suppléments" />
+                        <OrderSection title="Menus" items={categorizedItems.menus}
+                                      onIncrease={handleIncrease}
+                                      onDecrease={handleDecrease}
+                                      onDelete={handleDelete}/>
                     </Paper>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sx={{display: 'flex',
+                    justifyContent: 'center'}}>
                     <Paper className="order-section" elevation={3}>
-                        <OrderSection title="Boissons" />
+                        <OrderSection title="Desserts" items={categorizedItems.desserts}
+                                      onIncrease={handleIncrease}
+                                      onDecrease={handleDecrease}
+                                      onDelete={handleDelete}/>
                     </Paper>
                 </Grid>
+                <Grid item xs={12} sx={{display: 'flex',
+                    justifyContent: 'center'}}>
+                    <Paper className="order-section" elevation={3}>
+                        <OrderSection title="Boisson" items={categorizedItems.boissons}
+                                      onIncrease={handleIncrease}
+                                      onDecrease={handleDecrease}
+                                      onDelete={handleDelete}/>
+                    </Paper>
+                </Grid>
+
             </Grid>
             {/* Ajoutez le bouton de paiement en bas à droite */}
             <div className="payment-button-container">
