@@ -7,8 +7,8 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 function Header({ category }) {
   return (
-    <AppBar position="static">
-      <Toolbar>
+    <AppBar position="static" style={{height: "-webkit-fill-available"}}>
+      <Toolbar >
         <IconButton
             style={{position: 'absolute'}}
             edge="start"

@@ -15,6 +15,12 @@ function FoodItemsList({ foodItems, currCat }) {
             justifyContent="center"
             alignItems="center"
             xs={12}
+            style={{
+                display:isSmallScreen?'':'flex',
+                justifyContent:isSmallScreen?'': 'space-around',
+                alignContent:isSmallScreen?'': 'flex-start',
+
+            }}
             sx={{
                 height: "100%",
                 marginLeft:'0',
@@ -27,7 +33,7 @@ function FoodItemsList({ foodItems, currCat }) {
             }}
         >
             {foodItems.map((item, index) => (
-                <Grid key={index} item xs={isSmallScreen ? 12 : 2.75} >
+                <Grid key={index} item xs={isSmallScreen ? 12 : 2.75} style={{padding:'0', marginBottom:'2vh',marginTop:'2vh'}}>
                     <FoodItemCard item={item} />
                 </Grid>
             ))}

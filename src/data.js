@@ -9,6 +9,80 @@ const foodItems = {
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
     {
+      id: 1,
+      name: "Classic Smash Burger",
+      price: 10,
+      type:"burger",
+      url:
+          "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
+    },
+    {
+      id: 1,
+      name: "Classic Smash Burger",
+      price: 10,
+      type:"burger",
+      url:
+          "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
+    },
+    {
+      id: 1,
+      name: "Classic Smash Burger",
+      price: 10,
+      type:"burger",
+      url:
+          "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
+    },
+    {
+      id: 1,
+      name: "Classic Smash Burger",
+      price: 10,
+      type:"burger",
+      url:
+          "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
+    },
+    {
+      id: 1,
+      name: "Classic Smash Burger",
+      price: 10,
+      type:"burger",
+      url:
+          "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
+    },
+    {
+      id: 1,
+      name: "Classic Smash Burger",
+      price: 10,
+      type:"burger",
+      url:
+          "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
+    },
+    {
+      id: 1,
+      name: "Classic Smash Burger",
+      price: 10,
+      type:"burger",
+      url:
+          "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
+    },
+    {
+      id: 1,
+      name: "Classic Smash Burger",
+      price: 10,
+      type:"burger",
+      url:
+          "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
+    },
+    {
+      id: 1,
+      name: "Classic Smash Burger",
+      price: 10,
+      type:"burger",
+      url:
+          "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
+    },
+
+
+    {
       id: 2,
       name: "Spicy Texan Burger",
       price: 15,
