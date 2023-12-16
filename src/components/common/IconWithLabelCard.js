@@ -17,7 +17,7 @@ function IconWithLabelCard({ props, handleCategoryChange, currCat }) {
         sx={{
           fontSize: isSmallScreen ? "10vw" : "5vh",
           margin: "auto",
-          marginTop: isSmallScreen ? "" : "1vh",
+          marginTop: isSmallScreen ? "" : "",
           width: "inherit",
           padding: isSmallScreen ? "0" : isLandscape ? "0" : "1vh",
         }}

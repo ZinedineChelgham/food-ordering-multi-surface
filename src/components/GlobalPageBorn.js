@@ -10,6 +10,25 @@ import NavPlusList from "./NavPlusListBorn";
 import OrderContainer from "./OrderContainer";
 import foodItems from "../data";
 import ModeRush from "./ModeRush";
+import IconButton from "@mui/material/IconButton";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+function BackButtonHeader() {
+    // Vous pouvez ajouter une fonction pour gérer l'événement onClick si nécessaire.
+    const handleBack = () => {
+        // Par exemple, naviguer vers la page précédente.
+        console.log('Retour');
+    };
+
+    return (
+        <div style={{ padding: '1vh' }}>
+            <IconButton onClick={handleBack}
+                        style={{fontSize:'5vh'}}>
+                <ArrowBackIcon style={{ fontSize: 'inherit' }} />
+            </IconButton>
+        </div>
+    );
+}
 
 function GlobalPageBorne(props) {
     const theme = useTheme();
@@ -19,7 +38,7 @@ function GlobalPageBorne(props) {
     const ingredients = ["tomate", "salade", "fromage"];
 
     React.useEffect(() => {
-        const interval = setInterval(() => {
+        /**const interval = setInterval(() => {
             fetch('http://localhost:3001/mode-rush')
                 .then(response => {
                     if (!response.ok) {
@@ -34,6 +53,7 @@ function GlobalPageBorne(props) {
         }, 10000); // Vérifie toutes les 10 secondes
 
         return () => clearInterval(interval);
+         **/
     }, []);
 
 
@@ -51,10 +71,10 @@ function GlobalPageBorne(props) {
 
     return (
         <div style={{ height: "100vh", overflow: "hidden" }}>
-            <div style={{ height: "5%", overflow: "hidden" }}>
-                <Header />
+            <div style={{ height: "auto", overflow: "hidden" }}>
+                <BackButtonHeader/>
             </div>
-            <div style={{ height: "70%", overflow: "hidden" }}>
+            <div style={{ height: "65%", overflow: "hidden" }}>
                 {/* Le composant OrderBar prendra tout l'espace disponible */}
                 {/* <NavPlusList
                     handleCategoryChange={handleCategoryChange}
@@ -64,10 +84,10 @@ function GlobalPageBorne(props) {
                 {isRushMode ? (
                     <ModeRush ingredients={ingredients}/>
                 ) : (
-                    <NavPlusList 
+                    <NavPlusList
                         handleCategoryChange={handleCategoryChange}
                         foodItems={foodItems[category]}
-                        currCat={category} 
+                        currCat={category}
                         />
                 )}
             </div>

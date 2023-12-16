@@ -27,7 +27,7 @@ function NavPlusList({
         justifyContent: "space-between",
       }}
     >
-      <div style={{ height: "20%" }}>
+      <div style={{ }}>
         <NavBar
           handleCategoryChange={handleCategoryChange}
           currCat={currCat}

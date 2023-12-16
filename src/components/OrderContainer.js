@@ -102,13 +102,13 @@ const OrderContainer = () => {
     items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
-    <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
-      <div style={{ height: "20%", flexShrink: 0 }}>
+    <div style={{ height: "85%", display: "flex", flexDirection: "column" }}>
+      <div style={{ height: "auto", flexShrink: 0 }}>
         <OrderHeader total={calculateTotal(cartItems)} />
       </div>
       <div
         style={{
-          height: "70%",
+          height: "100%",
           overflowY: "auto",
           flexGrow: 1,
           marginLeft: "40px",
@@ -120,7 +120,7 @@ const OrderContainer = () => {
           onDeleteItem={onDeleteItem}
         />
       </div>
-      <div style={{ height: "30%", flexShrink: 0 }}>
+      <div style={{ height: "10%" ,flexShrink:0}}>
         <div className="command-actions">
           <button
             className="cancel-button"
