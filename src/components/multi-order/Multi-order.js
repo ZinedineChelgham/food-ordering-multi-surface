@@ -7,10 +7,19 @@ import foodItems from "../../data";
 import NavPlusList from "../NavPlusListBorn";
 import OrderContainer from "../OrderContainer";
 const MultiOrder = () => {
-  const [category, setCategory] = React.useState("menus");
+  const [category1, setCategory1] = React.useState("menus");
+  const [category2, setCategory2] = React.useState("menus");
+  const [category3, setCategory3] = React.useState("menus");
 
-  const handleCategoryChange = (cat) => {
-    setCategory(cat.toLowerCase());
+
+  const handleCategoryChange1 = (cat) => {
+    setCategory1(cat.toLowerCase());
+    console.log("clicked" + cat);
+  };  const handleCategoryChange2 = (cat) => {
+    setCategory2(cat.toLowerCase());
+    console.log("clicked" + cat);
+  };  const handleCategoryChange3 = (cat) => {
+    setCategory3(cat.toLowerCase());
     console.log("clicked" + cat);
   };
 
@@ -55,9 +64,9 @@ const MultiOrder = () => {
             onViewOrderButtonClick={handleViewOrderButtonClick()}
           />
           <NavPlusList
-            handleCategoryChange={handleCategoryChange}
-            foodItems={foodItems[category]}
-            currCat={category}
+            handleCategoryChange={handleCategoryChange1}
+            foodItems={foodItems[category1]}
+            currCat={category1}
             isMultiOrder={true}
           />
         </div>
@@ -77,9 +86,9 @@ const MultiOrder = () => {
             onBackButtonClick={handleBackButtonClick}
           />
           <NavPlusList
-            handleCategoryChange={handleCategoryChange}
-            foodItems={foodItems[category]}
-            currCat={category}
+            handleCategoryChange={handleCategoryChange2}
+            foodItems={foodItems[category2]}
+            currCat={category2}
             isMultiOrder={true}
           />
         </div>
@@ -99,9 +108,9 @@ const MultiOrder = () => {
             onBackButtonClick={handleBackButtonClick}
           />
           <NavPlusList
-            handleCategoryChange={handleCategoryChange}
-            foodItems={foodItems[category]}
-            currCat={category}
+            handleCategoryChange={handleCategoryChange3}
+            foodItems={foodItems[category3]}
+            currCat={category3}
             isMultiOrder={true}
           />
         </div>
