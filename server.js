@@ -1,6 +1,8 @@
 const express = require('express');
 const readline = require('readline');
+const cors = require('cors');
 const app = express();
+app.use(cors());
 const port = 3001;
 
 const rl = readline.createInterface({
