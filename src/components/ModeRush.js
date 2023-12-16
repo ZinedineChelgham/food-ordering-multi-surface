@@ -1,85 +1,82 @@
-import React, { useState,useEffect,useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Grid } from '@mui/material';
 import ProductCard from "./common/ProductCard";
 import image1 from '../assets/img/rush/pain1.png';
 import image12 from "../assets/img/rush/pain2.png";
 
-
-const ModeRushList = ({ ingredients }) => {
-
-    const images = useMemo(() => {
-        const reqImages = require.context('../assets/img/rush', false, /\.(png|jpe?g|svg)$/);
-        return reqImages.keys().reduce((imageObj, item) => {
-            const key = item.replace('./', '');
-            imageObj[key] = reqImages(item);
+const ModeRushList = ({ ingredients, drinks, desserts }) => {
+    // Combine all images into a single object for easier mapping
+    const allImages = useMemo(() => {
+        const contexts = [
+            require.context('../assets/img/rush', false, /\.(png|jpe?g|svg)$/),
+            require.context('../assets/img/boisson', false, /\.(png|jpe?g|svg)$/),
+            require.context('../assets/img/dessert', false, /\.(png|jpe?g|svg)$/)
+        ];
+        return contexts.reduce((imageObj, context) => {
+            context.keys().forEach(item => {
+                const key = item.replace('./', '');
+                imageObj[key] = context(item);
+            });
             return imageObj;
         }, {});
     }, []);
 
-   const [rushImages, setRushImages] = useState([]);
+    const [rushImages, setRushImages] = useState([]);
+    const [drinkImages, setDrinkImages] = useState([]);
+    const [dessertImages, setDessertImages] = useState([]);
 
+    // Handle the generation of images for each category
     useEffect(() => {
-        const generateImages = (ingredientsList) => {
-            return [
-                image1,
-                ...ingredientsList.map(ingredient => images[ingredient + '.png']).filter(Boolean),
-                image12
-            ];
-        };
-        
-        setRushImages(generateImages(ingredients));
-    }, [ingredients]); 
+        setRushImages([
+            image1,
+            ...ingredients.map(ingredient => allImages[ingredient + '.png']).filter(Boolean),
+            image12
+        ]);
+        setDrinkImages(drinks.map(drink => allImages[drink + '.png']).filter(Boolean));
+        setDessertImages(desserts.map(dessert => allImages[dessert + '.png']).filter(Boolean));
+    }, [ingredients, drinks, desserts, allImages]);
 
-    const handleRemove = (indexToRemove) => {
-        if (indexToRemove !== 0 && indexToRemove !== rushImages.length - 1) {
-            setRushImages(currentImages => currentImages.filter((_, index) => index !== indexToRemove));
-        }
+    // Handle removal of images
+    const handleRemove = (index, images, setImages) => {
+        setImages(currentImages => currentImages.filter((_, idx) => idx !== index));
     };
 
+    const generateCards = (images, setImages, canRemoveAll, isBurger = false) => {
+        return images.map((image, index) => {
+          const canRemove = isBurger ? index !== 0 && index !== images.length - 1 : canRemoveAll;
+      
+          return (
+            <ProductCard
+              key={`${image}-${index}`}
+              image={image}
+              onRemove={() => canRemove && handleRemove(index, images, setImages)}
+              canRemove={canRemove}
+            />
+          );
+        });
+      };
+
     return (
-        // <Grid container
-        //     direction="column"
-        //     justifyContent="center"
-        //     alignItems="center"
-        //     sx={{ width: '100%', minHeight: '100vh', backgroundColor: 'white', overflowY: 'auto' }}
-        // >
-        //     {rushImages.map((image, index) => (
-        //         <ProductCard
-        //             key={index}
-        //             image={image}
-        //             onRemove={handleRemove}
-        //             index={index}
-        //             isFirstItem={index === 0}
-        //             isLastItem={index === rushImages.length - 1}
-        //         />
-        //     ))}
-        // </Grid>
         <div style={{
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
             height: '100%',
             backgroundColor: 'white',
             overflowY: 'auto'
         }}>
-
-
-            {rushImages.map((image, index) => (
-                <ProductCard
-                    key={index}
-                    image={image}
-                    onRemove={() => handleRemove(index)}
-                    index={index}
-                    isFirstItem={index === 0}
-                    isLastItem={index === rushImages.length - 1}
-                />
-            ))}
+            <div style={{ marginRight: '40px' }}>
+                {generateCards(rushImages, setRushImages, false, true)} 
+            </div>
+            <div style={{ marginRight: '40px' }}>
+                {generateCards(drinkImages, setDrinkImages, true)} 
+            </div>
+            <div style={{ marginRight: '40px' }}>
+                {generateCards(dessertImages, setDessertImages, true)} 
+            </div>
         </div>
-    )
+    );
 };
 
 export default ModeRushList;
-
-
-

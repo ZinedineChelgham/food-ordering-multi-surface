@@ -17,7 +17,9 @@ function GlobalPageBorne(props) {
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
     const isLandscape = useMediaQuery("(orientation: landscape)");
     const [isRushMode, setIsRushMode] = React.useState(false);
-    const ingredients = ["tomate", "salade", "fromage"];
+    const ingredients = ["tomate", "oeuf", "fromage", "steak", "cornichon", "oignon", "pain", "salade", "fromage", "steak"];
+    const boissons = ["coca-cola", "sprite", "fanta"];
+    const desserts = ["fraise", "nature", "fraise"];
     const { cartItems } = React.useContext(CartContext);
 
     React.useEffect(() => {
@@ -64,7 +66,7 @@ function GlobalPageBorne(props) {
                     currCat={category}
                 /> */}
                 {isRushMode && cartItems.length === 0 ? (
-                    <ModeRush ingredients={ingredients} />
+                    <ModeRush ingredients={ingredients} drinks={boissons} desserts={desserts} />
                 ) : (
                     <NavPlusList 
                         handleCategoryChange={handleCategoryChange}
