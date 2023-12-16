@@ -41,7 +41,7 @@ const OrderContainer = () => {
         height: "85%",
         display: "flex",
         flexDirection: "column",
-        paddingBottom: "5px",
+        paddingBottom: "2vh",
       }}
     >
       <div style={{ height: "auto", flexShrink: 0 }}>
