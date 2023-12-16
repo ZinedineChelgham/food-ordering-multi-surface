@@ -60,7 +60,9 @@ function BasicCard({
       >
         <CardActionArea onClick={() => handleCardClick()}>
           {actionArea}
-          <CardContent sx={{ textAlign: "center" }}>{content}</CardContent>
+          <CardContent sx={{ textAlign: "center", padding: "0" }}>
+            {content}
+          </CardContent>
         </CardActionArea>
       </Card>
     );
