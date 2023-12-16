@@ -18,6 +18,7 @@ import AppBar from "@mui/material/AppBar";
 import {Slide, useScrollTrigger} from "@mui/material";
 import { useLocation } from 'react-router-dom';
 import CartContext from "../context/CartContext";
+import {useNavigate} from "react-router";
 
 
 
@@ -29,6 +30,7 @@ const OrderSummaryPage = () => {
     // Utilisez useMediaQuery pour détecter la taille de l'écran
     const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Définissez la taille maximale pour considérer comme mobile
     const [isScrolling, setIsScrolling] = useState(false);
+    const navigate = useNavigate();
 
     // Définissez le style conditionnel pour le bouton de paiement
     const paymentButtonStyle = {
@@ -46,6 +48,10 @@ const OrderSummaryPage = () => {
         setTotalPrice(newTotalPrice);
     }, [cartItems]);
 
+    const handleBackButtonClick = () => {
+        // Navigue à la page précédente
+        navigate(-1);
+    };
     const categorizeItems = () => {
         // Cette fonction devrait diviser les cartItems en différentes catégories
         console.log(cartItems)
@@ -105,7 +111,7 @@ const OrderSummaryPage = () => {
                     justifyContent: 'center'}}>
                     <Toolbar style={{justifyContent: 'space-between' }}>
                         <Typography variant="h6">Récapitulatif de commande</Typography>
-                        <Button color="inherit">Retour</Button>
+                        <Button color="inherit" onClick={handleBackButtonClick}>Retour</Button>
                     </Toolbar>
                 </AppBar>
             <Grid container spacing={2} className="order-summary-container" style={{marginTop:'0'}}>

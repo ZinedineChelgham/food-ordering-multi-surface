@@ -6,7 +6,11 @@ import AppBarMultiOrder from "./AppBarMultiOrder";
 import foodItems from "../../data";
 import NavPlusList from "../NavPlusListBorn";
 import OrderContainer from "../OrderContainer";
+import CartContext from "../../context/CartContext";
+import {useNavigate} from "react-router-dom";
 const MultiOrder = () => {
+    const navigate = useNavigate();
+    const { cartItems, removeItem } = React.useContext(CartContext);
   const [category1, setCategory1] = React.useState("menus");
   const [category2, setCategory2] = React.useState("menus");
   const [category3, setCategory3] = React.useState("menus");
@@ -24,26 +28,8 @@ const MultiOrder = () => {
     setCategory3(cat.toLowerCase());
     console.log("clicked" + cat);
   };
-  const handleAddItemToOrder1 = (item) => {
-        setOrder1Items(prevItems => [...prevItems, item]);
-  };
-
-  const handleAddItemToOrder2 = (item) => {
-        setOrder2Items(prevItems => [...prevItems, item]);
-  };
-
-  const handleAddItemToOrder3 = (item) => {
-        setOrder3Items(prevItems => [...prevItems, item]);
-  };
-
-    const allOrdersCombined = [...order1Items, ...order2Items, ...order3Items];
-
-    const handleBackButtonClick = () => {
-    // Logique pour le bouton Retour
-  };
-
   const handleViewOrderButtonClick = () => {
-    // Logique pour le bouton Voir la commande
+      //navigate('/ordersummary', { state: { cartItems } });
   };
   return (
     <div
@@ -73,8 +59,6 @@ const MultiOrder = () => {
         >
           <AppBarMultiOrder
             title="Commande 1"
-            showViewOrderButton
-            onViewOrderButtonClick={handleViewOrderButtonClick()}
           />
           <NavPlusList
             handleCategoryChange={handleCategoryChange1}
