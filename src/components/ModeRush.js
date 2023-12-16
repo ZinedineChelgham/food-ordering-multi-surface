@@ -37,23 +37,45 @@ const ModeRushList = ({ ingredients }) => {
     };
 
     return (
-        <Grid container
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            sx={{ width: '100%', minHeight: '100vh', backgroundColor: 'white', overflowY: 'auto' }}
-        >
+        // <Grid container
+        //     direction="column"
+        //     justifyContent="center"
+        //     alignItems="center"
+        //     sx={{ width: '100%', minHeight: '100vh', backgroundColor: 'white', overflowY: 'auto' }}
+        // >
+        //     {rushImages.map((image, index) => (
+        //         <ProductCard
+        //             key={index}
+        //             image={image}
+        //             onRemove={handleRemove}
+        //             index={index}
+        //             isFirstItem={index === 0}
+        //             isLastItem={index === rushImages.length - 1}
+        //         />
+        //     ))}
+        // </Grid>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+            backgroundColor: 'white',
+            overflowY: 'auto'
+        }}>
+
+
             {rushImages.map((image, index) => (
                 <ProductCard
                     key={index}
                     image={image}
-                    onRemove={handleRemove}
+                    onRemove={() => handleRemove(index)}
                     index={index}
                     isFirstItem={index === 0}
                     isLastItem={index === rushImages.length - 1}
                 />
             ))}
-        </Grid>
+        </div>
     )
 };
 

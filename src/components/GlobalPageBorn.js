@@ -10,6 +10,7 @@ import NavPlusList from "./NavPlusListBorn";
 import OrderContainer from "./OrderContainer";
 import foodItems from "../data";
 import ModeRush from "./ModeRush";
+import CartContext from "../context/CartContext";
 
 function GlobalPageBorne(props) {
     const theme = useTheme();
@@ -17,6 +18,7 @@ function GlobalPageBorne(props) {
     const isLandscape = useMediaQuery("(orientation: landscape)");
     const [isRushMode, setIsRushMode] = React.useState(false);
     const ingredients = ["tomate", "salade", "fromage"];
+    const { cartItems } = React.useContext(CartContext);
 
     React.useEffect(() => {
         const interval = setInterval(() => {
@@ -61,8 +63,8 @@ function GlobalPageBorne(props) {
                     foodItems={foodItems[category]}
                     currCat={category}
                 /> */}
-                {isRushMode ? (
-                    <ModeRush ingredients={ingredients}/>
+                {isRushMode && cartItems.length === 0 ? (
+                    <ModeRush ingredients={ingredients} />
                 ) : (
                     <NavPlusList 
                         handleCategoryChange={handleCategoryChange}
