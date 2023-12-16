@@ -38,7 +38,7 @@ function GlobalPageBorne(props) {
     const ingredients = ["tomate", "salade", "fromage"];
 
     React.useEffect(() => {
-        /**const interval = setInterval(() => {
+        /*const interval = setInterval(() => {
             fetch('http://localhost:3001/mode-rush')
                 .then(response => {
                     if (!response.ok) {
@@ -51,9 +51,8 @@ function GlobalPageBorne(props) {
                     setIsRushMode(data.isRushMode);
                 });
         }, 10000); // Vérifie toutes les 10 secondes
-
         return () => clearInterval(interval);
-         **/
+         */
     }, []);
 
 

@@ -58,8 +58,6 @@ const MultiOrder = () => {
         >
           <AppBarMultiOrder
             title="Commande 1"
-            showBackButton
-            onBackButtonClick={handleBackButtonClick}
             showViewOrderButton
             onViewOrderButtonClick={handleViewOrderButtonClick()}
           />
@@ -82,8 +80,6 @@ const MultiOrder = () => {
         >
           <AppBarMultiOrder
             title="Commande 2"
-            showBackButton
-            onBackButtonClick={handleBackButtonClick}
           />
           <NavPlusList
             handleCategoryChange={handleCategoryChange2}
@@ -104,8 +100,6 @@ const MultiOrder = () => {
         >
           <AppBarMultiOrder
             title="Commande 3"
-            showBackButton
-            onBackButtonClick={handleBackButtonClick}
           />
           <NavPlusList
             handleCategoryChange={handleCategoryChange3}
@@ -117,7 +111,7 @@ const MultiOrder = () => {
       </div>
 
       {/* Total partagé */}
-      <div style={{ height: "10%", overflow: "hidden" }}>
+      <div style={{ height: "35%", overflow: "hidden" }}>
         <OrderContainer />
       </div>
     </div>

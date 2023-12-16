@@ -1,5 +1,5 @@
 // OrderSummaryPage.js
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import OrderSection from './common/OrderSection';
 import burger from '../assets/img/burger/burger.png';
 import cheeseburger from '../assets/img/burger/cheeseburger.jpg';
@@ -20,24 +20,7 @@ import {Slide, useScrollTrigger} from "@mui/material";
 
 
 
-const OrderSummaryPage = () => {
-    const burgers = [
-        { id: 1, name: 'Hamburger', image: burger, price: 5.0  },
-        { id: 2, name: 'Cheeseburger', image: cheeseburger, price: 6.5 },
-        ];
-    const supplements = [
-        { id: 3, name: 'Frites', image: frites, price: 2 },
-        ];
-    const drinks = [
-        { id: 5, name: 'Coca', image: coca, price: 1.5 },
-        { id: 6, name: 'Coca', image: coca, price: 1.5 },
-        { id: 7, name: 'Coca', image: coca, price: 1.5 },
-        { id: 8, name: 'Coca', image: coca, price: 1.5 },
-        { id: 9, name: 'Coca', image: coca, price: 1.5 },
-        { id: 10, name: 'Coca', image: coca, price: 1.5 },
-        { id: 11, name: 'Coca', image: coca, price: 1.5 },
-
-        ];
+const OrderSummaryPage = ({ cartItems }) => {
     const theme = useTheme();
     // Utilisez useMediaQuery pour détecter la taille de l'écran
     const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Définissez la taille maximale pour considérer comme mobile
@@ -54,17 +37,21 @@ const OrderSummaryPage = () => {
     };
     // État pour stocker le prix total
     const [totalPrice, setTotalPrice] = useState(0);
-
-    // Effet pour recalculer le prix total à chaque changement d'articles
     useEffect(() => {
-        const calculateTotalPrice = () => {
-            const allItems = [...burgers, ...supplements, ...drinks];
-            const newTotalPrice = allItems.reduce((acc, item) => acc + item.price, 0);
-            setTotalPrice(newTotalPrice);
-        };
+        const newTotalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
+        setTotalPrice(newTotalPrice);
+    }, [cartItems]);
 
-        calculateTotalPrice();
-    }, [burgers, supplements, drinks]);
+    const categorizeItems = () => {
+        // Cette fonction devrait diviser les cartItems en différentes catégories
+        const categorized = {
+            burgers: cartItems.filter(item => item.category === 'burgers'),
+            menus: cartItems.filter(item => item.category === 'menus'),
+            // Répétez pour les autres catégories...
+        };
+        return categorized;
+    };
+    const categorizedItems = categorizeItems();
     useEffect(() => {
         let scrollTimer;
 
@@ -94,17 +81,17 @@ const OrderSummaryPage = () => {
             <Grid container spacing={2} className="order-summary-container">
                 <Grid item xs={12}>
                     <Paper className="order-section" elevation={3}>
-                        <OrderSection title="Burgers" items={burgers} />
+                        <OrderSection title="Burgers" />
                     </Paper>
                 </Grid>
                 <Grid item xs={12}>
                     <Paper className="order-section" elevation={3}>
-                        <OrderSection title="Suppléments" items={supplements} />
+                        <OrderSection title="Suppléments" />
                     </Paper>
                 </Grid>
                 <Grid item xs={12}>
                     <Paper className="order-section" elevation={3}>
-                        <OrderSection title="Boissons" items={drinks} />
+                        <OrderSection title="Boissons" />
                     </Paper>
                 </Grid>
             </Grid>

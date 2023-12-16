@@ -6,19 +6,12 @@ import Button from "@mui/material/Button";
 
 const AppBarMultiOrder = ({
   title,
-  showBackButton,
-  onBackButtonClick,
   showViewOrderButton,
   onViewOrderButtonClick,
 }) => {
   return (
     <AppBar position="sticky">
       <Toolbar>
-        {showBackButton && (
-          <Button color="inherit" onClick={onBackButtonClick}>
-            Retour
-          </Button>
-        )}
         <Typography variant="h6" style={{ flexGrow: 1 }}>
           {title}
         </Typography>
