@@ -10,6 +10,7 @@ function FoodItemCard({ item }) {
   const getActionArea = () => {
     return (
       <CardMedia
+          style={{borderRadius: 'inherit'}}
         component="img"
         height="100"
         image={item.url}

@@ -16,6 +16,9 @@ function OrderBar({ leftText, totalPrice, onClick }) {
 
   return (
     <Paper
+        style={{
+            display: 'flex',
+            alignItems: 'center'}}
       elevation={3}
       onClick={() => navigate('/ordersummary', { state: { cartItems } })}
       sx={{

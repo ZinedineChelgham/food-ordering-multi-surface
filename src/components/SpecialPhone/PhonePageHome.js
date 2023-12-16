@@ -13,7 +13,7 @@ function HomePhone(props) {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [category, setCategory] = React.useState("menus");
-  
+
   console.log("-----phone display-----");
 
   const handleCategoryChange = (cat) => {
@@ -40,7 +40,7 @@ function HomePhone(props) {
         {/* Le composant OrderBar prendra tout l'espace disponible */}
         <OrderBar />
       </div>
-      <div style={{ height: "7%" }}>
+      <div style={{ height: "10%", display: 'flex', flexWrap: 'wrap', alignContent: 'flex-end'}}>
         <NavBar
           handleCategoryChange={handleCategoryChange}
           currCat={category}
