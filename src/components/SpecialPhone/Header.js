@@ -11,10 +11,13 @@ function Header({ category }) {
   };
 
   return (
-    <AppBar position="static" style={{ height: "-webkit-fill-available" }}>
+    <AppBar
+      position="static"
+      style={{ height: "-webkit-fill-available", backgroundColor: "white" }}
+    >
       <Toolbar>
         <IconButton
-          style={{ position: "absolute" }}
+          style={{ position: "absolute", color: "black" }}
           edge="start"
           color="inherit"
           aria-label="back"
@@ -25,7 +28,7 @@ function Header({ category }) {
         <Typography
           variant="h5"
           component="div"
-          sx={{ flexGrow: 1, textAlign: "center" }}
+          sx={{ flexGrow: 1, textAlign: "center", color: "black" }}
         >
           {upperCasefirstLetter(category)}
         </Typography>
