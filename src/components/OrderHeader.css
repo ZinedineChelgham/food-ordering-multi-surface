@@ -13,6 +13,6 @@
 
 @media (min-width: 600px) {
   .order-header p {
-    margin-right: 100px;
+    margin-right: 1vw;
   }
 }

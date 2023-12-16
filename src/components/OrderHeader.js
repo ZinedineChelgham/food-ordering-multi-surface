@@ -31,12 +31,11 @@ const OrderHeader = ({ total }) => {
         <Typography
           variant="body1"
           color="#fffff"
-          marginRight={"1vh"}
+          marginRight={"5vh"}
           fontSize={isLandscape ? "4vh" : "5vw"}
         >
-          Total {total.toFixed(2)}€{" "}
+          Total {total.toFixed(2)}€
         </Typography>
-        <p></p>
       </div>
     </div>
   );
