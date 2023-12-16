@@ -6,12 +6,16 @@ import Typography from "@mui/material/Typography";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 function Header({ category }) {
+  const upperCasefirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   return (
-    <AppBar position="static" style={{height: "-webkit-fill-available"}}>
-      <Toolbar >
+    <AppBar position="static" style={{ height: "-webkit-fill-available" }}>
+      <Toolbar>
         <IconButton
-            style={{position: 'absolute'}}
-            edge="start"
+          style={{ position: "absolute" }}
+          edge="start"
           color="inherit"
           aria-label="back"
           onClick={() => console.log("Retour cliqué")}
@@ -23,7 +27,7 @@ function Header({ category }) {
           component="div"
           sx={{ flexGrow: 1, textAlign: "center" }}
         >
-          {category}
+          {upperCasefirstLetter(category)}
         </Typography>
       </Toolbar>
     </AppBar>
