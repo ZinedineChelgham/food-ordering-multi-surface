@@ -10,7 +10,8 @@ function Header({ category }) {
     <AppBar position="static">
       <Toolbar>
         <IconButton
-          edge="start"
+            style={{position: 'absolute'}}
+            edge="start"
           color="inherit"
           aria-label="back"
           onClick={() => console.log("Retour cliqué")}
