@@ -55,6 +55,7 @@ function BasicCard({
   } else {
     return (
       <Card
+        elevation={3}
         sx={{
           backgroundColor:
             fromIcon && currCat.toLowerCase() === category.toLowerCase()

@@ -84,7 +84,7 @@ function GlobalPageBorne(props) {
          */
   }, []);
 
-  const [category, setCategory] = React.useState("menus");
+  const [category, setCategory] = React.useState("burgers");
 
   console.log("item from borne", foodItems[category]);
 
