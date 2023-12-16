@@ -7,38 +7,38 @@ import FoodItemList from "./FoodItemList";
 import OrderBar from "./SpecialPhone/OrderBar";
 
 function NavPlusList({
-  foodItems,
-  currCat,
-  handleCategoryChange,
-  isMultiOrder,
-}) {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const isLandscape = useMediaQuery("(orientation: landscape)");
+                         foodItems,
+                         currCat,
+                         handleCategoryChange,
+                         isMultiOrder,
+                     }) {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+    const isLandscape = useMediaQuery("(orientation: landscape)");
 
-  return (
-    <div
-      style={{
-        width: isMultiOrder? undefined : "100vw",
-        height: "100%",
-        overflow: "hidden",
-        display: "flex",
-        flexdirection: "row",
-        justifyContent: "space-between",
-      }}
-    >
-      <div style={{ }}>
-        <NavBar
-          handleCategoryChange={handleCategoryChange}
-          currCat={currCat}
-          isMultiOrder={isMultiOrder}
-        />
-      </div>
-      <div style={{ width: "75%", overflow: "hidden" }}>
-        <FoodItemList foodItems={foodItems} />
-      </div>
-    </div>
-  );
+    return (
+        <div
+            style={{
+                width: isMultiOrder? undefined : "100vw",
+                height: "100%",
+                overflow: "hidden",
+                display: "flex",
+                flexdirection: "row",
+                justifyContent: "space-between",
+            }}
+        >
+            <div style={{ }}>
+                <NavBar
+                    handleCategoryChange={handleCategoryChange}
+                    currCat={currCat}
+                    isMultiOrder={isMultiOrder}
+                />
+            </div>
+            <div style={{ width: "75%", overflow: "hidden", display: 'contents'}}>
+                <FoodItemList foodItems={foodItems} />
+            </div>
+        </div>
+    );
 }
 
 export default NavPlusList;
