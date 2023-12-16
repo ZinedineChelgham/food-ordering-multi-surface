@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "../SpecialPhone/Header.js";
 import OrderHeader from "../OrderHeader.js";
 import CustomHeader from "./CustomHeader";
@@ -10,7 +10,9 @@ const MultiOrder = () => {
   const [category1, setCategory1] = React.useState("menus");
   const [category2, setCategory2] = React.useState("menus");
   const [category3, setCategory3] = React.useState("menus");
-
+  const [order1Items, setOrder1Items] = useState([]);
+  const [order2Items, setOrder2Items] = useState([]);
+  const [order3Items, setOrder3Items] = useState([]);
 
   const handleCategoryChange1 = (cat) => {
     setCategory1(cat.toLowerCase());
@@ -22,8 +24,21 @@ const MultiOrder = () => {
     setCategory3(cat.toLowerCase());
     console.log("clicked" + cat);
   };
+  const handleAddItemToOrder1 = (item) => {
+        setOrder1Items(prevItems => [...prevItems, item]);
+  };
 
-  const handleBackButtonClick = () => {
+  const handleAddItemToOrder2 = (item) => {
+        setOrder2Items(prevItems => [...prevItems, item]);
+  };
+
+  const handleAddItemToOrder3 = (item) => {
+        setOrder3Items(prevItems => [...prevItems, item]);
+  };
+
+    const allOrdersCombined = [...order1Items, ...order2Items, ...order3Items];
+
+    const handleBackButtonClick = () => {
     // Logique pour le bouton Retour
   };
 

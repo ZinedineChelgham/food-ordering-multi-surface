@@ -13,7 +13,7 @@ const OrderContainer = () => {
   const handleItemUpdate = (item, action) => {};
 
   const handleCancelOrder = () => {
-    // Logic to handle order cancellation
+   cartItems.forEach((item) => removeItem(item.id));
   };
 
   const handleValidateOrder = () => {
@@ -67,6 +67,7 @@ const OrderContainer = () => {
               opacity: cartItems.length === 0 ? 0.5 : 1,
               // Add any other styles you want to apply directly here
             }}
+            onClick={handleCancelOrder}
           >
             Abandonner la commande
           </button>

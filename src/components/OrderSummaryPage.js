@@ -17,6 +17,7 @@ import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import {Slide, useScrollTrigger} from "@mui/material";
 import { useLocation } from 'react-router-dom';
+import CartContext from "../context/CartContext";
 
 
 

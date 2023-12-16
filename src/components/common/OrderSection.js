@@ -14,7 +14,7 @@ const OrderSection = ({ title, items, onIncrease, onDecrease, onDelete }) => (
             {items.map(item => (
                 <div className="item" key={item.id} style={{display:'flex', justifyContent: 'space-between'}}>
                     <div style={{display:'flex', flexDirection: 'row'}}>
-                        <img src={item.image} alt={item.name} />
+                        <img src={item.url} alt={item.name} />
                         <div style={{display:'flex', flexDirection: 'column'}}>
                             <div className="item-description">{item.name} </div>
                             <div className="item-quantity">Quantité: {item.quantity}</div>
