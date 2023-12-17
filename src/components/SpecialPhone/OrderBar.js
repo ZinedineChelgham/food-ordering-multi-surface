@@ -9,7 +9,7 @@ function OrderBar({ leftText, totalPrice, onClick }) {
   const navigate = useNavigate();
 
   const getCartTotal = () => {
-    return cartItems.reduce((acc, item) => acc + item.price, 0);
+    return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
 
   console.log(cartItems);

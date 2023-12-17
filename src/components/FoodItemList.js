@@ -47,6 +47,7 @@ function FoodItemsList({
           type={supplementBurger[indexSupplement]}
           index={indexSupplement}
           setIndex={setIndexSupplement}
+          setIsSupplement={setIsSupplement}
         />
       ) : (
         foodItems.map((item, index) => (

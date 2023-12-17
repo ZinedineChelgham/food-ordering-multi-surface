@@ -13,7 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function BackButtonHeader({ decreaseFunction }) {
   const navigate = useNavigate();
@@ -70,6 +70,8 @@ function GlobalPageBorne(props) {
 
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [isSupplement, setIsSupplement] = useState(false);
+  
+    
 
   function decreaseFunction() {
     setCurrentIndex(currentIndex - 1);

@@ -15,7 +15,7 @@ function HomePhone({ decreaseFunction }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const [category, setCategory] = React.useState("menus");
+  const [category, setCategory] = React.useState("burgers");
 
   const [categoryItems, setCategoryItems] = React.useState([]);
 
