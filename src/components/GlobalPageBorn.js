@@ -108,7 +108,6 @@ function GlobalPageBorne(props) {
         >
           <ArrowBackIcon style={{ fontSize: "inherit" }} />
         </IconButton>
-        {/* Titre de l'application */}
         <Typography
           variant="h4"
           component="h1"

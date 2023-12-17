@@ -48,23 +48,29 @@ function SupplementList({ type, index, setIndex, setIsSupplement }) {
           />
         ))}
       </div>
-      <Button
-        variant="contained"
-        color="primary"
-        style={{ marginTop: "2vh", fontSize: isLandscape ? "2vw" : "2vh" }}
-        // Add an onClick handler if needed
-        onClick={() => {
-          console.log("Clicked");
-          if (index === 2) {
-            setIndex(-1);
-            setIsSupplement(false);
-          } else {
-            setIndex(index + 1);
-          }
-        }}
-      >
-        Passer à la suite
-      </Button>
+      <div style={{ textAlign: "end", width: "100%" }}>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{
+            marginTop: "2vh",
+            fontSize: isLandscape ? "2vw" : "2vh",
+            textTransform: "none",
+          }}
+          // Add an onClick handler if needed
+          onClick={() => {
+            console.log("Clicked");
+            if (index === 2) {
+              setIndex(-1);
+              setIsSupplement(false);
+            } else {
+              setIndex(index + 1);
+            }
+          }}
+        >
+          Suivant
+        </Button>
+      </div>
     </div>
   );
 }
