@@ -8,7 +8,7 @@ import LocalDrinkIcon from "@mui/icons-material/LocalDrink";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-
+import IcecreamIcon from "@mui/icons-material/Icecream";
 
 function NavBar({ handleCategoryChange, currCat, isMultiOrder }) {
   const theme = useTheme();
@@ -16,7 +16,7 @@ function NavBar({ handleCategoryChange, currCat, isMultiOrder }) {
   const isLandscape = useMediaQuery("(orientation: landscape)");
   const iconsInfos = [
     { icon: LunchDiningIcon, route: "/lunch", label: "Burgers" },
-    { icon: CookieIcon, route: "/cookie", label: "Desserts" },
+    { icon: IcecreamIcon, route: "/cookie", label: "Desserts" },
     { icon: LocalDrinkIcon, route: "/drink", label: "Boissons" },
     { icon: FastfoodIcon, route: "/fastfood", label: "Menus" },
   ];
@@ -36,7 +36,13 @@ function NavBar({ handleCategoryChange, currCat, isMultiOrder }) {
           xs={12}
           key={index}
           sx={{
-            width: isSmallScreen ? "20vw" :isMultiOrder?'10vw': isLandscape ? "25vw" : "15vh",
+            width: isSmallScreen
+              ? "20vw"
+              : isMultiOrder
+              ? "10vw"
+              : isLandscape
+              ? "25vw"
+              : "15vh",
             height: isSmallScreen ? "" : "14vh",
           }}
         >

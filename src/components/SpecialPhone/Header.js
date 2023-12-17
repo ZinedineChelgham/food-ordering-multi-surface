@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-function Header({ category }) {
+function Header({ category, decreaseFunction }) {
   const upperCasefirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
@@ -13,7 +13,11 @@ function Header({ category }) {
   return (
     <AppBar
       position="static"
-      style={{ height: "-webkit-fill-available", backgroundColor: "white",  justifyContent: 'center' }}
+      style={{
+        height: "-webkit-fill-available",
+        backgroundColor: "white",
+        justifyContent: "center",
+      }}
     >
       <Toolbar>
         <IconButton
@@ -21,7 +25,7 @@ function Header({ category }) {
           edge="start"
           color="inherit"
           aria-label="back"
-          onClick={() => console.log("Retour cliqué")}
+          onClick={() => decreaseFunction()}
         >
           <ArrowBackIcon />
         </IconButton>
