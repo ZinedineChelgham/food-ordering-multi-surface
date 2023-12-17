@@ -43,18 +43,49 @@ const ModeRushList = ({ ingredients, drinks, desserts }) => {
 
     const generateCards = (images, setImages, canRemoveAll, isBurger = false) => {
         return images.map((image, index) => {
-          const canRemove = isBurger ? index !== 0 && index !== images.length - 1 : canRemoveAll;
-      
-          return (
-            <ProductCard
-              key={`${image}-${index}`}
-              image={image}
-              onRemove={() => canRemove && handleRemove(index, images, setImages)}
-              canRemove={canRemove}
-            />
-          );
+            const canRemove = isBurger ? index !== 0 && index !== images.length - 1 : canRemoveAll;
+            return (
+                <div style={{ margin: '10px', textAlign: 'center' }}>
+                    <ProductCard
+                        key={`${image}-${index}`}
+                        image={image}
+                        onRemove={() => canRemove && handleRemove(index, images, setImages)}
+                        canRemove={canRemove}
+                    />
+                </div>
+            );
         });
-      };
+    };
+
+    // const generateCardsBoissonDessert = (items, setItems) => {
+    //     return items.map((item, index) => {
+    //         return (
+    //             <ProductCard
+    //                 key={item.id}
+    //                 item={item}
+    //                 onRemove={() => handleRemove(item.id, items, setItems)}
+    //             />
+    //         );
+    //     });
+    // };
+
+    const generateCardsBoissonDessert = (images, setImages) => {
+        return images.map((image, index) => {
+            const canRemove = true
+            return (
+                <div style={{ margin: '10px' }}>
+                    <ProductCard
+                        key={`${image}-${index}`}
+                        image={image}
+                        onRemove={() => canRemove && handleRemove(index, images, setImages)}
+                        canRemove={canRemove}
+                    />
+                    <div>test</div>
+                    <div >45</div>
+                </div>
+            );
+        });
+    };
 
     return (
         <div style={{
@@ -67,13 +98,13 @@ const ModeRushList = ({ ingredients, drinks, desserts }) => {
             overflowY: 'auto'
         }}>
             <div style={{ marginRight: '40px' }}>
-                {generateCards(rushImages, setRushImages, false, true)} 
+                {generateCards(rushImages, setRushImages, false, true)}
             </div>
             <div style={{ marginRight: '40px' }}>
-                {generateCards(drinkImages, setDrinkImages, true)} 
+                {generateCardsBoissonDessert(drinkImages, setDrinkImages)}
             </div>
             <div style={{ marginRight: '40px' }}>
-                {generateCards(dessertImages, setDessertImages, true)} 
+                {generateCardsBoissonDessert(dessertImages, setDessertImages)}
             </div>
         </div>
     );

@@ -20,6 +20,19 @@ function GlobalPageBorne(props) {
     const ingredients = ["tomate", "oeuf", "fromage", "steak", "cornichon", "oignon", "pain", "salade", "fromage", "steak"];
     const boissons = ["coca-cola", "sprite", "fanta"];
     const desserts = ["fraise", "nature", "fraise"];
+    // const boissons = [
+    //     { id: 1, name: "Coca-Cola", price: 1.50, imageName: "coca-cola" },
+    //     { id: 2, name: "Sprite", price: 1.50, imageName: "sprite" },
+    //     { id: 3, name: "Fanta", price: 1.50, imageName: "fanta" },
+    //     // ...
+    //   ];
+      
+    //   const desserts = [
+    //     { id: 1, name: "Gâteau à la fraise", price: 2.50, imageName: "gateau-fraise" },
+    //     { id: 2, name: "Glace nature", price: 2.00, imageName: "glace-nature" },
+    //     { id: 3, name: "Gâteau au chocolat", price: 2.50, imageName: "gateau-chocolat" },
+    //     // ...
+    //   ];
     const { cartItems } = React.useContext(CartContext);
 
     React.useEffect(() => {
@@ -59,14 +72,12 @@ function GlobalPageBorne(props) {
                 <Header />
             </div>
             <div style={{ height: "70%", overflow: "hidden" }}>
-                {/* Le composant OrderBar prendra tout l'espace disponible */}
-                {/* <NavPlusList
-                    handleCategoryChange={handleCategoryChange}
-                    foodItems={foodItems[category]}
-                    currCat={category}
-                /> */}
                 {isRushMode && cartItems.length === 0 ? (
-                    <ModeRush ingredients={ingredients} drinks={boissons} desserts={desserts} />
+                    <ModeRush 
+                        ingredients={ingredients} 
+                        drinks={boissons} 
+                        desserts={desserts} 
+                        />
                 ) : (
                     <NavPlusList 
                         handleCategoryChange={handleCategoryChange}
