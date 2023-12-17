@@ -1,10 +1,6 @@
 // OrderSummaryPage.js
 import React, {useEffect, useState, useContext} from 'react';
 import OrderSection from './common/OrderSection';
-import burger from '../assets/img/burger/burger.png';
-import cheeseburger from '../assets/img/burger/cheeseburger.jpg';
-import frites from '../assets/img/frites/frites.jpg';
-import coca from '../assets/img/boisson/cocacola.jpg';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -15,7 +11,6 @@ import {useTheme} from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
-import {Slide, useScrollTrigger} from "@mui/material";
 import { useLocation } from 'react-router-dom';
 import CartContext from "../context/CartContext";
 import {useNavigate} from "react-router";
@@ -107,6 +102,10 @@ const OrderSummaryPage = () => {
 
     };
 
+    const dropCart = () => {
+        cartItems2.dropCart();
+    }
+
     const categorizedItems = categorizeItems();
     useEffect(() => {
         let scrollTimer;
@@ -191,7 +190,7 @@ const OrderSummaryPage = () => {
                     size="large"
                     endIcon={<PaidIcon id="paid_icon" />}
                     style={paymentButtonStyle}  // Appliquez le style conditionnel ici
-                    onClick={() => navigate('/end')}
+                    onClick={() => { navigate('/end'); dropCart(); }}
                 >
                     Payer {totalPrice} €
                 </Button>
