@@ -4,7 +4,7 @@ import ProductCard from "./common/ProductCard";
 import image1 from '../assets/img/rush/pain1.png';
 import image12 from "../assets/img/rush/pain2.png";
 
-const ModeRushList = ({ ingredients, drinks, desserts,recipe }) => {
+const ModeRushList = ({ ingredients}) => {
     // Combine all images into a single object for easier mapping
     const allImages = useMemo(() => {
         const contexts = [
@@ -21,11 +21,9 @@ const ModeRushList = ({ ingredients, drinks, desserts,recipe }) => {
         }, {});
     }, []);
 
-    console.log("la recette :", recipe);
+    //console.log("la recette :", recipe);
 
     const [rushImages, setRushImages] = useState([]);
-    const [drinkImages, setDrinkImages] = useState([]);
-    const [dessertImages, setDessertImages] = useState([]);
     const [currentView, setCurrentView] = useState('ingredients'); // New state to control the view
 
 
@@ -38,30 +36,9 @@ const ModeRushList = ({ ingredients, drinks, desserts,recipe }) => {
             image12
         ]);
 
-        // Générer les images pour les boissons en utilisant `imageName`
-        setDrinkImages(drinks.map(drink => ({
-            ...drink,
-            src: allImages[`${drink.imageName}.png`]
-        })).filter(Boolean));
-
-        const loadedDrinks = drinks.map(drink => ({
-            ...drink,
-            src: allImages[`${drink.imageName}.png`]
-        })).filter(Boolean);
-
-        console.log("Boissons après mappage :", loadedDrinks);
-
-        const loadedDesserts = desserts.map(dessert => ({
-            ...dessert,
-            src: allImages[`${dessert.imageName}.png`]
-        })).filter(Boolean);
-
-        console.log("Desserts après mappage :", loadedDesserts);
-        setDrinkImages(loadedDrinks);
-        setDessertImages(loadedDesserts);
 
 
-    }, [ingredients, drinks, desserts, allImages]);
+    }, [ingredients, allImages]);
 
     // Handle removal of images
     const handleRemove = (index, images, setImages) => {
@@ -184,7 +161,7 @@ const ModeRushList = ({ ingredients, drinks, desserts,recipe }) => {
         //             marginTop: '100px', // Ajoutez de l'espace au-dessus du bouton
         //         }}
         //     >
-        //         Suivant 
+        //         Suivant
         //     </Button>
         // </div>
         // <div style={{
