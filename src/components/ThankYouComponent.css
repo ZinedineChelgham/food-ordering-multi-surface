@@ -1,0 +1,16 @@
+.thank-you-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #8b8f8f;
+}
+
+.thank-you-message {
+    font-size: 48px;
+    color: yellow;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px; /* Ajouter de l'espace au-dessus du message */
+}

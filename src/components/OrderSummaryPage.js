@@ -191,6 +191,7 @@ const OrderSummaryPage = () => {
                     size="large"
                     endIcon={<PaidIcon id="paid_icon" />}
                     style={paymentButtonStyle}  // Appliquez le style conditionnel ici
+                    onClick={() => navigate('/end')}
                 >
                     Payer {totalPrice} €
                 </Button>

@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartState from "./context/CartState.js";
 import MultiOrder from "./components/multi-order/Multi-order";
 import HomeBorne from "./components/HomeBorne.js";
+import ThankYouComponent from "./components/ThankYouComponent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +18,7 @@ root.render(
         <Route path="/start" element={<App />} />
         <Route path="/ordersummary" element={<OrderSummaryPage />} />
         <Route path="/multiorder" element={<MultiOrder />} />
+          <Route path="/end" element={<ThankYouComponent />} />
       </Routes>
     </BrowserRouter>
   </CartState>
