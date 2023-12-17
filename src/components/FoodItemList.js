@@ -5,16 +5,16 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import SupplementList from "./SupplementList";
 import { useState } from "react";
 
-function FoodItemsList({ foodItems, currCat }) {
+function FoodItemsList({ foodItems,
+                           currCat,
+                           indexSupplement,
+                           setIndexSupplement,
+                           isSupplement,
+                           setIsSupplement,}) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const [isSupplement, setIsSupplement] = useState(false);
-  const [currentIndexBurger, setcurrentIndexBurger] = useState(0);
   const supplementBurger = ["Fromage", "Viande", "Divers"];
 
-  function setSupplement(bool) {
-    setIsSupplement(bool);
-  }
 
   return (
     <Grid
@@ -43,9 +43,9 @@ function FoodItemsList({ foodItems, currCat }) {
     >
       {isSupplement ? (
         <SupplementList
-          type={supplementBurger[currentIndexBurger]}
-          index={currentIndexBurger}
-          setIndex={setcurrentIndexBurger}
+          type={supplementBurger[indexSupplement]}
+          index={indexSupplement}
+          setIndex={setIndexSupplement}
         />
       ) : (
         foodItems.map((item, index) => (
@@ -59,7 +59,7 @@ function FoodItemsList({ foodItems, currCat }) {
               marginTop: "2vh",
             }}
           >
-            <FoodItemCard item={item} setSupplement={setSupplement} />
+            <FoodItemCard item={item} setSupplement={setIsSupplement} indexBurger={setIndexSupplement} />
           </Grid>
         ))
       )}

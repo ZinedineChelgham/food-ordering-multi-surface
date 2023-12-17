@@ -4,7 +4,7 @@ import BasicCard from "./BasicCard";
 import React from "react";
 import CartContext from "../../context/CartContext";
 
-function FoodItemCard({item, setSupplement}) {
+function FoodItemCard({item, setSupplement,indexBurger}) {
     const {addToCart, cartItems} = React.useContext(CartContext);
 
     const getActionArea = () => {
@@ -54,6 +54,7 @@ function FoodItemCard({item, setSupplement}) {
             content={getContent()}
             onFoodItemClick={() => {
                 setSupplement(true);
+                indexBurger(0);
                 console.log("Adding item in the cart", item);
                 addToCart(item, 1);
                 console.log("Cart state", cartItems);

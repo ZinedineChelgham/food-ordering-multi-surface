@@ -12,7 +12,10 @@ function NavPlusList({
   currCat,
   handleCategoryChange,
   isMultiOrder,
-  isSupplement,
+  indexSupplement,
+    setIndexSupplement,
+    isSupplement,
+    setIsSupplement,
 }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -37,7 +40,7 @@ function NavPlusList({
         />
       </div>
       <div style={{ width: "75%", overflow: "hidden", display: "contents" }}>
-        <FoodItemList foodItems={foodItems} />
+        <FoodItemList foodItems={foodItems} indexSupplement={indexSupplement} setIndexSupplement={setIndexSupplement} isSupplement={isSupplement} setIsSupplement={setIsSupplement}/>
       </div>
     </div>
   );
