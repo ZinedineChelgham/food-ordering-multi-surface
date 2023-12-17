@@ -11,7 +11,9 @@ const OrderSection = ({ title, items, onIncrease, onDecrease, onDelete }) => (
       <div className="section-title">{title}</div>
     </div>
     <div className="img-container">
-      {items.map((item) => (
+      {items
+        .filter((item) => item.quantity > 0)
+          .map((item) => (
         <div
           className="item"
           key={item.id}

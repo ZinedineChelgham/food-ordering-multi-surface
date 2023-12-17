@@ -1,4 +1,3 @@
-import React from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "./SpecialPhone/Header";
@@ -14,6 +13,8 @@ import CartContext from "../context/CartContext";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router";
+import React, { useState } from "react";
 // function GlobalPageBorne(props) {
 //     const theme = useTheme();
 //     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -38,11 +39,13 @@ const ingredients = ["tomate", "oeuf", "fromage", "steak", "cornichon", "oignon"
  //const { cartItems } = React.useContext(CartContext);
 
 
-function BackButtonHeader() {
+
+function BackButtonHeader({ decreaseFunction }) {
+  const navigate = useNavigate();
   // Vous pouvez ajouter une fonction pour gérer l'événement onClick si nécessaire.
   const handleBack = () => {
-    // Par exemple, naviguer vers la page précédente.
-    console.log("Retour");
+    decreaseFunction();
+    navigate(-1);
   };
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -106,6 +109,16 @@ function GlobalPageBorne(props) {
     ];
   const { cartItems } = React.useContext(CartContext);
 
+  const [currentIndex, setCurrentIndex] = useState(-1);
+  const [isSupplement, setIsSupplement] = useState(false);
+
+  function decreaseFunction() {
+    setCurrentIndex(currentIndex - 1);
+    if (currentIndex === 0) {
+      setIsSupplement(false);
+    }
+  }
+
   React.useEffect(() => {
     const interval = setInterval(() => {
             fetch('http://localhost:3001/mode-rush')
@@ -121,7 +134,6 @@ function GlobalPageBorne(props) {
                 });
         }, 10000); // Vérifie toutes les 10 secondes
         return () => clearInterval(interval);
-         
   }, []);
 
   const [category, setCategory] = React.useState("burgers");
@@ -154,7 +166,7 @@ function GlobalPageBorne(props) {
   return (
     <div style={{ height: "100vh", overflow: "hidden" }}>
       <div style={{ height: "auto", overflow: "hidden" }}>
-        <BackButtonHeader />
+        <BackButtonHeader decreaseFunction={decreaseFunction} />
       </div>
       <div style={{ height: "65%", overflow: "hidden" }}>
     
@@ -163,6 +175,10 @@ function GlobalPageBorne(props) {
             foodItems={categoryItems}
             currCat={category}
             isRushMode={isRushMode}
+            indexSupplement={currentIndex}
+            setIndexSupplement={setCurrentIndex}
+            isSupplement={isSupplement}
+            setIsSupplement={setIsSupplement}
           />
 
       </div>

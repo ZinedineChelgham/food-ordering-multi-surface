@@ -4,7 +4,7 @@ import ProductCard from "./common/ProductCard";
 import image1 from '../assets/img/rush/pain1.png';
 import image12 from "../assets/img/rush/pain2.png";
 
-const ModeRushList = ({ ingredients, drinks, desserts }) => {
+const ModeRushList = ({ ingredients, drinks, desserts, addToCart }) => {
     // Combine all images into a single object for easier mapping
     const allImages = useMemo(() => {
         const contexts = [

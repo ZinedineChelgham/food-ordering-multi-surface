@@ -20,7 +20,7 @@ const CommandList = ({ orderItems, onItemUpdate, onDeleteItem }) => {
             >
               <span className="quantity">x{item.quantity}</span>
               <span className="name">{item.name}</span>
-              <span className="price">€{item.price.toFixed(2)}</span>
+              <span className="price">€{item.price}</span>
               <span
                 className="delete-icon"
                 onClick={() => onDeleteItem(item.id)}
