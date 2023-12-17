@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Header from "../SpecialPhone/Header.js";
 import OrderHeader from "../OrderHeader.js";
 import CustomHeader from "./CustomHeader";
@@ -7,10 +7,12 @@ import foodItems from "../../data";
 import NavPlusList from "../NavPlusListBorn";
 import OrderContainer from "../OrderContainer";
 import CartContext from "../../context/CartContext";
-import {useNavigate} from "react-router-dom";
+import { Divider } from "@mui/material";
+
+import { useNavigate } from "react-router-dom";
 const MultiOrder = () => {
-    const navigate = useNavigate();
-    const { cartItems, removeItem } = React.useContext(CartContext);
+  const navigate = useNavigate();
+  const { cartItems, removeItem } = React.useContext(CartContext);
   const [category1, setCategory1] = React.useState("menus");
   const [category2, setCategory2] = React.useState("menus");
   const [category3, setCategory3] = React.useState("menus");
@@ -21,15 +23,17 @@ const MultiOrder = () => {
   const handleCategoryChange1 = (cat) => {
     setCategory1(cat.toLowerCase());
     console.log("clicked" + cat);
-  };  const handleCategoryChange2 = (cat) => {
+  };
+  const handleCategoryChange2 = (cat) => {
     setCategory2(cat.toLowerCase());
     console.log("clicked" + cat);
-  };  const handleCategoryChange3 = (cat) => {
+  };
+  const handleCategoryChange3 = (cat) => {
     setCategory3(cat.toLowerCase());
     console.log("clicked" + cat);
   };
   const handleViewOrderButtonClick = () => {
-      //navigate('/ordersummary', { state: { cartItems } });
+    //navigate('/ordersummary', { state: { cartItems } });
   };
   return (
     <div
@@ -57,9 +61,7 @@ const MultiOrder = () => {
             overflow: "hidden",
           }}
         >
-          <AppBarMultiOrder
-            title="Commande 1"
-          />
+          <AppBarMultiOrder title="Commande du gérant 👑" />
           <NavPlusList
             handleCategoryChange={handleCategoryChange1}
             foodItems={foodItems[category1]}
@@ -67,6 +69,12 @@ const MultiOrder = () => {
             isMultiOrder={true}
           />
         </div>
+
+        <Divider
+          orientation="vertical"
+          flexItem
+          sx={{ width: "1vw", backgroundColor: "black" }}
+        />
 
         {/* Deuxième commande */}
         <div
@@ -77,9 +85,7 @@ const MultiOrder = () => {
             overflow: "hidden",
           }}
         >
-          <AppBarMultiOrder
-            title="Commande 2"
-          />
+          <AppBarMultiOrder title="Commande 2" />
           <NavPlusList
             handleCategoryChange={handleCategoryChange2}
             foodItems={foodItems[category2]}
@@ -89,6 +95,12 @@ const MultiOrder = () => {
         </div>
 
         {/* Troisième commande */}
+        <Divider
+          orientation="vertical"
+          flexItem
+          sx={{ width: "1vw", backgroundColor: "black" }}
+        />
+
         <div
           style={{
             flex: 1,
@@ -97,9 +109,7 @@ const MultiOrder = () => {
             overflow: "hidden",
           }}
         >
-          <AppBarMultiOrder
-            title="Commande 3"
-          />
+          <AppBarMultiOrder title="Commande 3" />
           <NavPlusList
             handleCategoryChange={handleCategoryChange3}
             foodItems={foodItems[category3]}

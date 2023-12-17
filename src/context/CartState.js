@@ -2,7 +2,7 @@ import React from "react";
 import { useReducer } from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM,DECREASE_QUANTITY } from "./types";
+import {SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, DECREASE_QUANTITY, DROP_CART} from "./types";
 import cartContext from "./CartContext";
 
 const CartState = ({ children }) => {
@@ -27,6 +27,9 @@ const CartState = ({ children }) => {
   const removeItem = (id) => {
     dispatch({ type: REMOVE_ITEM, payload: id });
   };
+  const dropCart = () => {
+    dispatch({ type: DROP_CART });
+  }
 
   return (
     <CartContext.Provider
@@ -37,6 +40,7 @@ const CartState = ({ children }) => {
         showHideCart,
         removeItem,
         decreaseQuantity,
+        dropCart,
       }}
     >
       {children}

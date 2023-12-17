@@ -1,4 +1,4 @@
-import {SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, DECREASE_QUANTITY} from "./types";
+import {SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, DECREASE_QUANTITY,DROP_CART} from "./types";
 
 const CartReducer = (state, action) => {
   switch (action.type) {
@@ -46,6 +46,12 @@ const CartReducer = (state, action) => {
             ...state,
             cartItems: [...state.cartItems, action.payload],
             };
+        }
+    }
+    case DROP_CART: {
+        return {
+            ...state,
+            cartItems: [],
         }
     }
 
