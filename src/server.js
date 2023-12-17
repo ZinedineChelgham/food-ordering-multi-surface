@@ -332,7 +332,7 @@ const supplements = [
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
-    id: 9,
+    id: 208,
     name: "Nom du produit 1",
     type: "Viande",
     price: "20",
@@ -340,7 +340,7 @@ const supplements = [
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
   {
-    id: 10,
+    id: 209,
     name: "Nom du produit 2",
     type: "Fromage",
     price: "20",
@@ -348,7 +348,7 @@ const supplements = [
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
-    id: 11,
+    id: 210,
     name: "Nom du produit 1",
     type: "Viande",
     price: "20",
@@ -356,7 +356,7 @@ const supplements = [
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
   {
-    id: 12,
+    id: 211,
     name: "Nom du produit 1",
     type: "Viande",
     price: "20",
@@ -364,7 +364,7 @@ const supplements = [
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
   {
-    id: 13,
+    id: 212,
     name: "Nom du produit 1",
     type: "Viande",
     price: "50",
