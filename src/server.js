@@ -269,107 +269,91 @@ const foodItems = {
 const supplements = [
   {
     id: 200,
-    name: "Nom du produit 1",
+    name: "Emmental",
     type: "Fromage",
-    price: "1.50",
+    price: "1",
     url:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+      "https://www.tonpanier.fr/1936-home_default/emmental-tranches-500-gr.jpg",
   },
   {
     id: 201,
-    name: "Nom du produit 1",
+    name: "Cheddar",
     type: "Fromage",
-    price: "20",
+    price: "0.5",
     url:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+      "https://www.tonpanier.fr/1931-home_default/tranche-cheddar-fondu-1082-kg.jpg",
   },
   {
     id: 202,
-    name: "Nom du produit 1",
+    name: "Comté",
     type: "Fromage",
-    price: "20",
+    price: "1.99",
     url:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+      "https://assets.afcdn.com/story/20190219/1333702_w6016h3384c1cx3018cy1999cxt1830cyt0cxb6016cyb3999.jpg",
   },
   {
     id: 203,
-    name: "Nom du produit 1",
+    name: "Raclette",
     type: "Fromage",
-    price: "20",
+    price: "1.5",
     url:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+      "https://fridg-front.s3.amazonaws.com/media/CACHE/images/products/raclette-copy_KhTEWtZ/da2939608f873624cc321a4d07a6c03c.jpg",
   },
   {
     id: 204,
-    name: "Nom du produit 1",
+    name: "Kebab",
     type: "Viande",
-    price: "20",
+    price: "2",
     url:
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
-  },
-  {
-    id: 205,
-    name: "Nom du produit 1",
-    type: "Fromage",
-    price: "20",
-    url:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
     id: 206,
-    name: "Nom du produit 1",
+    name: "Chorizo",
     type: "Viande",
-    price: "20",
+    price: "1.50",
     url:
-      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
-  },
-  {
-    id: 207,
-    name: "Nom du produit 1",
-    type: "Fromage",
-    price: "20",
-    url:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+      "https://www.jbfrance.fr/wp-content/uploads/2020/09/15-Chorizo-scaled.jpg",
   },
   {
     id: 208,
-    name: "Nom du produit 1",
+    name: "Bacon",
     type: "Viande",
-    price: "20",
+    price: "1.50",
     url:
-      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
-  },
-  {
-    id: 209,
-    name: "Nom du produit 2",
-    type: "Fromage",
-    price: "20",
-    url:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3c-wgU4nsEityWXshj7lGL_6xLqqLOJWIAQ&usqp=CAU",
   },
   {
     id: 210,
-    name: "Nom du produit 1",
+    name: "Cordon bleu",
     type: "Viande",
-    price: "20",
+    price: "1",
     url:
-      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
+      "https://www.distram.com/7983-large_default/cordon-bleu-de-dinde-halal-cuit-125g-colis-de-51-kg-surg-iqf.jpg",
   },
   {
     id: 211,
-    name: "Nom du produit 1",
+    name: "Tenders",
     type: "Viande",
-    price: "20",
-    url:
-      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
+    price: "1",
+    url: "https://staffpizza.fr/193-product_default/tenders.jpg",
   },
   {
-    id: 212,
-    name: "Nom du produit 1",
+    id: 300,
+    name: "Poulet spicy",
     type: "Viande",
-    price: "50",
+    price: "1",
     url:
-      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
+      "https://static.youmiam.com/images/recipe/1500x1000/spicy-chicken-wings-rice-with-yogourt-22090?placeholder=web_recipe&sig=0a754086421c5988501c5b41da859249ee170df3&v3",
+  },
+
+  {
+    id: 212,
+    name: "Onion rings",
+    type: "Divers",
+    price: "1.5",
+    url:
+      "https://grandbaby-cakes.com/wp-content/uploads/2015/06/fried-onion-rings-recipe.jpg",
   },
 
   // ...d'autres produits

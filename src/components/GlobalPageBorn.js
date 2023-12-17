@@ -20,7 +20,7 @@ function BackButtonHeader({ decreaseFunction }) {
   // Vous pouvez ajouter une fonction pour gérer l'événement onClick si nécessaire.
   const handleBack = () => {
     decreaseFunction();
-    navigate(-1);
+    //navigate(-1);
   };
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
