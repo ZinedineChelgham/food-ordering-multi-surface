@@ -9,6 +9,9 @@ function FoodItemsList({foodItems, currCat}) {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
     const [isSupplement, setIsSupplement] = useState(false);
+    const [currentIndexBurger, setcurrentIndexBurger] = useState(0);
+    const supplementBurger = ["Fromage","Viande","Divers"];
+
 
 
     function setSupplement(bool) {
@@ -40,7 +43,7 @@ function FoodItemsList({foodItems, currCat}) {
                 },
             }}
         >{isSupplement ?
-            <SupplementList/>
+            <SupplementList type={supplementBurger[currentIndexBurger]} index={currentIndexBurger} setIndex={setcurrentIndexBurger}/>
             : foodItems.map((item, index) => (
                 <Grid
                     key={index}
