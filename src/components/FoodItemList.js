@@ -1,9 +1,9 @@
 import Grid from "@mui/material/Grid";
 import FoodItemCard from "./common/FoodItemCard";
-import { useTheme } from "@mui/material/styles";
+import {useTheme} from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import SupplementList from "./SupplementList";
-import { useState } from "react";
+import {useState} from "react";
 import ModeRush from "./ModeRush";
 
 function FoodItemsList({
@@ -96,22 +96,55 @@ function FoodItemsList({
             item
             xs={isSmallScreen ? 12 : 2.75}
             style={{
-              padding: "0",
-              marginBottom: isSmallScreen ? "0" : "2vh",
-              marginTop: "2vh",
+                display: isSmallScreen ? "" : "flex",
+                justifyContent: isSmallScreen ? "" : "space-around",
+                alignContent: isSmallScreen ? "" : "flex-start",
+                overflow: isSupplement ? "hidden" : "",
             }}
-          >
-            <FoodItemCard
-              item={item}
-              setSupplement={setIsSupplement}
-              indexBurger={setIndexSupplement}
-              setRecipe={setRecipe}
-            />
-          </Grid>
-        ))
-      )}
-    </Grid>
-  );
+            sx={{
+                height: "100%",
+                marginLeft: "0",
+                marginTop: "0",
+                backgroundColor: "#8b8f8f",
+                overflow: "auto",
+                "&::-webkit-scrollbar": {
+                    display: "none",
+                },
+            }}
+        >
+            {isSupplement ? (isRushMode ?
+                    <ModeRush
+                        recipe={recipe}
+                        ingredients={recipe}></ModeRush> :
+                    <SupplementList
+                        type={supplementBurger[indexSupplement]}
+                        index={indexSupplement}
+                        setIndex={setIndexSupplement}
+                        setIsSupplement={setIsSupplement}
+                    />
+            ) : (
+                foodItems.map((item, index) => (
+                    <Grid
+                        key={index}
+                        item
+                        xs={isSmallScreen ? 12 : 2.75}
+                        style={{
+                            padding: "0",
+                            marginBottom: isSmallScreen ? "0" : "2vh",
+                            marginTop: "2vh",
+                        }}
+                    >
+                        <FoodItemCard
+                            item={item}
+                            setSupplement={setIsSupplement}
+                            indexBurger={setIndexSupplement}
+                            setRecipe={setRecipe}
+                        />
+                    </Grid>
+                ))
+            )}
+        </Grid>
+    );
 }
 
 export default FoodItemsList;

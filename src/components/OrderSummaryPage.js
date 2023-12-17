@@ -57,7 +57,7 @@ const OrderSummaryPage = () => {
             menus: cartItems.filter(item => item.type === 'menu'),
             desserts: cartItems.filter(item => item.type === 'dessert'),
             boissons: cartItems.filter(item => item.type === 'boisson'),
-            supplements: cartItems.filter(item => item.type === 'Fromage' || item.type === 'Viande' || item.type === 'divers'),
+            supplements: cartItems.filter(item => item.type === 'Fromage' || item.type === 'Viande' || item.type === 'Divers'),
 
             // Répétez pour les autres catégories...
         };
