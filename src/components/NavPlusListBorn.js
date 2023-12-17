@@ -1,45 +1,27 @@
-import React from "react";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import React from 'react';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Header from "./SpecialPhone/Header";
 import NavBar from "./NavBar";
 import FoodItemList from "./FoodItemList";
 import OrderBar from "./SpecialPhone/OrderBar";
-import SupplementList from "./SupplementList";
 
-function NavPlusList({
-  foodItems,
-  currCat,
-  handleCategoryChange,
-  isMultiOrder, isSupplement,
-}) {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const isLandscape = useMediaQuery("(orientation: landscape)");
+function NavPlusList(props) {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isLandscape = useMediaQuery('(orientation: landscape)');
 
-  return (
-    <div
-      style={{
-        width: isMultiOrder ? undefined : "100vw",
-        height: "100%",
-        overflow: "hidden",
-        display: "flex",
-        flexdirection: "row",
-        justifyContent: "space-between",
-      }}
-    >
-      <div style={{}}>
-        <NavBar
-          handleCategoryChange={handleCategoryChange}
-          currCat={currCat}
-          isMultiOrder={isMultiOrder}
-        />
-      </div>
-      <div style={{ width: "75%", overflow: "hidden", display:"contents" }}>
-          <FoodItemList foodItems={foodItems} />}
-      </div>
-    </div>
-  );
+    return (
+        <div style={{ width: '100vw', height:'100%', overflow: 'hidden',display: 'flex',
+            flexdirection: 'row', justifyContent: 'space-between'}}>
+            <div style={{ height: '20%', }}>
+                <NavBar />
+            </div>
+            <div style={{ width: '75%', overflow: 'hidden' }}>
+                <FoodItemList />
+            </div>
+        </div>
+    );
 }
 
 export default NavPlusList;

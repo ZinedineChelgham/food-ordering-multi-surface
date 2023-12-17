@@ -19,9 +19,9 @@ import Typography from "@mui/material/Typography";
 //     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 //     const isLandscape = useMediaQuery("(orientation: landscape)");
 //     const [isRushMode, setIsRushMode] = React.useState(false);
-//     const ingredients = ["tomate", "oeuf", "fromage", "steak", "cornichon", "oignon", "pain", "salade", "fromage", "steak"];
-//     const boissons = ["coca-cola", "sprite", "fanta"];
-//     const desserts = ["fraise", "nature", "fraise"];
+const ingredients = ["tomate", "oeuf", "fromage", "steak", "cornichon", "oignon", "pain", "salade", "fromage", "steak"];
+    // const boissons = ["coca-cola", "sprite", "fanta"];
+    // const desserts = ["fraise", "nature", "fraise"];
 //     // const boissons = [
 //     //     { id: 1, name: "Coca-Cola", price: 1.50, imageName: "coca-cola" },
 //     //     { id: 2, name: "Sprite", price: 1.50, imageName: "sprite" },
@@ -35,7 +35,7 @@ import Typography from "@mui/material/Typography";
 //     //     { id: 3, name: "Gâteau au chocolat", price: 2.50, imageName: "gateau-chocolat" },
 //     //     // ...
 //     //   ];
-//     const { cartItems } = React.useContext(CartContext);
+ //const { cartItems } = React.useContext(CartContext);
 
 
 function BackButtonHeader() {
@@ -89,25 +89,25 @@ function GlobalPageBorne(props) {
   const isLandscape = useMediaQuery("(orientation: landscape)");
   const [isRushMode, setIsRushMode] = React.useState(false);
   const ingredients = ["tomate", "oeuf", "fromage", "steak", "cornichon", "oignon", "pain", "salade", "fromage", "steak"];
-  const boissons = ["coca-cola", "sprite", "fanta"];
-  const desserts = ["fraise", "nature", "fraise"];
-  // const boissons = [
-  //     { id: 1, name: "Coca-Cola", price: 1.50, imageName: "coca-cola" },
-  //     { id: 2, name: "Sprite", price: 1.50, imageName: "sprite" },
-  //     { id: 3, name: "Fanta", price: 1.50, imageName: "fanta" },
-  //     // ...
-  //   ];
+//   const boissons = ["coca-cola", "sprite", "fanta"];
+//   const desserts = ["fraise", "nature", "fraise"];
+  const boissons = [
+      { id: 1, name: "Coca-Cola", price: 1.50, imageName: "coca-cola" },
+      { id: 2, name: "Sprite", price: 1.50, imageName: "sprite" },
+      { id: 3, name: "Fanta", price: 1.50, imageName: "fanta" },
+      // ...
+    ];
     
-  //   const desserts = [
-  //     { id: 1, name: "Gâteau à la fraise", price: 2.50, imageName: "gateau-fraise" },
-  //     { id: 2, name: "Glace nature", price: 2.00, imageName: "glace-nature" },
-  //     { id: 3, name: "Gâteau au chocolat", price: 2.50, imageName: "gateau-chocolat" },
-  //     // ...
-  //   ];
+    const desserts = [
+      { id: 1, name: "Gâteau à la fraise", price: 2.50, imageName: "fraise" },
+      { id: 2, name: "Glace nature", price: 2.00, imageName: "nature" },
+      { id: 3, name: "Gâteau au chocolat", price: 2.50, imageName: "fraise" },
+      // ...
+    ];
   const { cartItems } = React.useContext(CartContext);
 
   React.useEffect(() => {
-    /*const interval = setInterval(() => {
+    const interval = setInterval(() => {
             fetch('http://localhost:3001/mode-rush')
                 .then(response => {
                     if (!response.ok) {
@@ -121,7 +121,7 @@ function GlobalPageBorne(props) {
                 });
         }, 10000); // Vérifie toutes les 10 secondes
         return () => clearInterval(interval);
-         */
+         
   }, []);
 
   const [category, setCategory] = React.useState("burgers");
@@ -157,19 +157,14 @@ function GlobalPageBorne(props) {
         <BackButtonHeader />
       </div>
       <div style={{ height: "65%", overflow: "hidden" }}>
-      {isRushMode && cartItems.length === 0 ? (
-                    <ModeRush 
-                        ingredients={ingredients} 
-                        drinks={boissons} 
-                        desserts={desserts} 
-                        />
-                ) : (
+    
           <NavPlusList
             handleCategoryChange={handleCategoryChange}
             foodItems={categoryItems}
             currCat={category}
+            isRushMode={isRushMode}
           />
-        )}
+
       </div>
       <div style={{ height: "25%" }}>
         <OrderContainer />

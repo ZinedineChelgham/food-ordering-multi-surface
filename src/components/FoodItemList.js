@@ -4,11 +4,42 @@ import {useTheme} from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import SupplementList from "./SupplementList";
 import {useState} from "react";
+import ModeRush from "./ModeRush";
+
+const ingredients = ["tomate", "oeuf", "fromage", "steak", "cornichon", "oignon", "pain", "salade", "fromage", "steak"];
+const boissons = [
+  { id: 1, name: "Coca-Cola", price: 1.50, imageName: "coca-cola" },
+  { id: 2, name: "Sprite", price: 1.50, imageName: "sprite" },
+  { id: 3, name: "Fanta", price: 1.50, imageName: "fanta" },
+  // ...
+];
+
+const desserts = [
+  { id: 1, name: "Gâteau à la fraise", price: 2.50, imageName: "fraise" },
+  { id: 2, name: "Glace nature", price: 2.00, imageName: "nature" },
+  { id: 3, name: "Gâteau au chocolat", price: 2.50, imageName: "fraise" },
+  // ...
+];
 
 function FoodItemsList({foodItems, currCat}) {
+
+  const boissons = [
+    { id: 1, name: "Coca-Cola", price: 1.50, imageName: "coca-cola" },
+    { id: 2, name: "Sprite", price: 1.50, imageName: "sprite" },
+    { id: 3, name: "Fanta", price: 1.50, imageName: "fanta" },
+    // ...
+  ];
+  
+  const desserts = [
+    { id: 1, name: "Gâteau à la fraise", price: 2.50, imageName: "fraise" },
+    { id: 2, name: "Glace nature", price: 2.00, imageName: "nature" },
+    { id: 3, name: "Gâteau au chocolat", price: 2.50, imageName: "fraise" },
+    // ...
+  ];
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
     const [isSupplement, setIsSupplement] = useState(false);
+    const isRushMode = true;
 
 
     function setSupplement(bool) {
@@ -39,8 +70,12 @@ function FoodItemsList({foodItems, currCat}) {
                     display: "none",
                 },
             }}
-        >{isSupplement ?
-            <SupplementList/>
+        >{isSupplement?(isRushMode?
+        <ModeRush
+          ingredients={ingredients} 
+                        drinks={boissons} 
+                        desserts={desserts} ></ModeRush>
+            :<SupplementList/>)
             : foodItems.map((item, index) => (
                 <Grid
                     key={index}
