@@ -5,7 +5,7 @@ import React from "react";
 import CartContext from "../../context/CartContext";
 import { cloneNode } from "@babel/types";
 
-function FoodItemCard({ item, setSupplement, indexBurger,setRecipe }) {
+function FoodItemCard({ item, setSupplement, indexBurger, setRecipe }) {
   const { addToCart, cartItems } = React.useContext(CartContext);
 
   const getActionArea = () => {

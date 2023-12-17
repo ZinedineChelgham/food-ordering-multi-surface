@@ -5,6 +5,7 @@ import {
   DECREASE_QUANTITY,
   DROP_CART,
   UPDATE_RECIPE,
+  SET_ID,
 } from "./types";
 
 const CartReducer = (state, action) => {
@@ -69,6 +70,12 @@ const CartReducer = (state, action) => {
             ? { ...item, recipe: action.payload.recipe }
             : item
         ),
+      };
+    }
+    case SET_ID: {
+      return {
+        ...state,
+        id: action.payload,
       };
     }
 

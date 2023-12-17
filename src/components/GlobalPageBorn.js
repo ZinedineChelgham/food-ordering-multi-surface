@@ -7,7 +7,6 @@ import OrderBar from "./SpecialPhone/OrderBar";
 import OrderHeader from "./OrderHeader";
 import NavPlusList from "./NavPlusListBorn";
 import OrderContainer from "./OrderContainer";
-import foodItems from "../data";
 import ModeRush from "./ModeRush";
 import CartContext from "../context/CartContext";
 import IconButton from "@mui/material/IconButton";
@@ -20,25 +19,34 @@ import React, { useState } from "react";
 //     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 //     const isLandscape = useMediaQuery("(orientation: landscape)");
 //     const [isRushMode, setIsRushMode] = React.useState(false);
-const ingredients = ["tomate", "oeuf", "fromage", "steak", "cornichon", "oignon", "pain", "salade", "fromage", "steak"];
-    // const boissons = ["coca-cola", "sprite", "fanta"];
-    // const desserts = ["fraise", "nature", "fraise"];
+const ingredients = [
+  "tomate",
+  "oeuf",
+  "fromage",
+  "steak",
+  "cornichon",
+  "oignon",
+  "pain",
+  "salade",
+  "fromage",
+  "steak",
+];
+// const boissons = ["coca-cola", "sprite", "fanta"];
+// const desserts = ["fraise", "nature", "fraise"];
 //     // const boissons = [
 //     //     { id: 1, name: "Coca-Cola", price: 1.50, imageName: "coca-cola" },
 //     //     { id: 2, name: "Sprite", price: 1.50, imageName: "sprite" },
 //     //     { id: 3, name: "Fanta", price: 1.50, imageName: "fanta" },
 //     //     // ...
 //     //   ];
-      
+
 //     //   const desserts = [
 //     //     { id: 1, name: "Gâteau à la fraise", price: 2.50, imageName: "gateau-fraise" },
 //     //     { id: 2, name: "Glace nature", price: 2.00, imageName: "glace-nature" },
 //     //     { id: 3, name: "Gâteau au chocolat", price: 2.50, imageName: "gateau-chocolat" },
 //     //     // ...
 //     //   ];
- //const { cartItems } = React.useContext(CartContext);
-
-
+//const { cartItems } = React.useContext(CartContext);
 
 function BackButtonHeader({ decreaseFunction }) {
   const navigate = useNavigate();
@@ -91,22 +99,33 @@ function GlobalPageBorne(props) {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLandscape = useMediaQuery("(orientation: landscape)");
   const [isRushMode, setIsRushMode] = React.useState(false);
-  const ingredients = ["tomate", "oeuf", "fromage", "steak", "cornichon", "oignon", "pain", "salade", "fromage", "steak"];
-//   const boissons = ["coca-cola", "sprite", "fanta"];
-//   const desserts = ["fraise", "nature", "fraise"];
+  const ingredients = [
+    "tomate",
+    "oeuf",
+    "fromage",
+    "steak",
+    "cornichon",
+    "oignon",
+    "pain",
+    "salade",
+    "fromage",
+    "steak",
+  ];
+  //   const boissons = ["coca-cola", "sprite", "fanta"];
+  //   const desserts = ["fraise", "nature", "fraise"];
   const boissons = [
-      { id: 1, name: "Coca-Cola", price: 1.50, imageName: "coca-cola" },
-      { id: 2, name: "Sprite", price: 1.50, imageName: "sprite" },
-      { id: 3, name: "Fanta", price: 1.50, imageName: "fanta" },
-      // ...
-    ];
-    
-    const desserts = [
-      { id: 1, name: "Gâteau à la fraise", price: 2.50, imageName: "fraise" },
-      { id: 2, name: "Glace nature", price: 2.00, imageName: "nature" },
-      { id: 3, name: "Gâteau au chocolat", price: 2.50, imageName: "fraise" },
-      // ...
-    ];
+    { id: 1, name: "Coca-Cola", price: 1.5, imageName: "coca-cola" },
+    { id: 2, name: "Sprite", price: 1.5, imageName: "sprite" },
+    { id: 3, name: "Fanta", price: 1.5, imageName: "fanta" },
+    // ...
+  ];
+
+  const desserts = [
+    { id: 1, name: "Gâteau à la fraise", price: 2.5, imageName: "fraise" },
+    { id: 2, name: "Glace nature", price: 2.0, imageName: "nature" },
+    { id: 3, name: "Gâteau au chocolat", price: 2.5, imageName: "fraise" },
+    // ...
+  ];
   const { cartItems } = React.useContext(CartContext);
 
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -121,19 +140,19 @@ function GlobalPageBorne(props) {
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-            fetch('http://localhost:3001/mode-rush')
-                .then(response => {
-                    if (!response.ok) {
-                      throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                  })
-                .then(data => {
-                    console.log('Données reçues de /mode-rush', data);
-                    setIsRushMode(data.isRushMode);
-                });
-        }, 10000); // Vérifie toutes les 10 secondes
-        return () => clearInterval(interval);
+      fetch("http://localhost:3001/mode-rush")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Données reçues de /mode-rush", data);
+          setIsRushMode(data.isRushMode);
+        });
+    }, 10000); // Vérifie toutes les 10 secondes
+    return () => clearInterval(interval);
   }, []);
 
   const [category, setCategory] = React.useState("burgers");
@@ -153,8 +172,6 @@ function GlobalPageBorne(props) {
         setCategoryItems(data);
       });
   }, [category]);
-
-  console.log("item from borne", foodItems[category]);
 
   const handleCategoryChange = (cat) => {
     setCategory(cat.toLowerCase());
@@ -218,18 +235,16 @@ function GlobalPageBorne(props) {
         <BackButtonHeader decreaseFunction={decreaseFunction} />
       </div>
       <div style={{ height: "65%", overflow: "hidden" }}>
-    
-          <NavPlusList
-            handleCategoryChange={handleCategoryChange}
-            foodItems={categoryItems}
-            currCat={category}
-            isRushMode={isRushMode}
-            indexSupplement={currentIndex}
-            setIndexSupplement={setCurrentIndex}
-            isSupplement={isSupplement}
-            setIsSupplement={setIsSupplement}
-          />
-
+        <NavPlusList
+          handleCategoryChange={handleCategoryChange}
+          foodItems={categoryItems}
+          currCat={category}
+          isRushMode={isRushMode}
+          indexSupplement={currentIndex}
+          setIndexSupplement={setCurrentIndex}
+          isSupplement={isSupplement}
+          setIsSupplement={setIsSupplement}
+        />
       </div>
       <div style={{ height: "25%" }}>
         <OrderContainer />

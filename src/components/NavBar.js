@@ -11,7 +11,12 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import IcecreamIcon from "@mui/icons-material/Icecream";
 import LocalPizzaIcon from "@mui/icons-material/LocalPizza";
 
-function NavBar({ handleCategoryChange, currCat, isMultiOrder, indexSupplement }) {
+function NavBar({
+  handleCategoryChange,
+  currCat,
+  isMultiOrder,
+  indexSupplement,
+}) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLandscape = useMediaQuery("(orientation: landscape)");
@@ -40,7 +45,7 @@ function NavBar({ handleCategoryChange, currCat, isMultiOrder, indexSupplement }
             width: isSmallScreen
               ? "20vw"
               : isMultiOrder
-              ? "10vw"
+              ? "6vw"
               : isLandscape
               ? "25vw"
               : "15vh",
@@ -51,6 +56,7 @@ function NavBar({ handleCategoryChange, currCat, isMultiOrder, indexSupplement }
             props={icoInfo}
             handleCategoryChange={handleCategoryChange}
             currCat={currCat}
+            isMultiOrder={isMultiOrder}
           />
         </Grid>
       ))}

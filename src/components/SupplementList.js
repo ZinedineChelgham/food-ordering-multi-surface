@@ -6,7 +6,13 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import SupplementItem from "./common/Supplement";
 import Button from "@mui/material/Button";
 
-function SupplementList({ type, index, setIndex, setIsSupplement }) {
+function SupplementList({
+  type,
+  index,
+  setIndex,
+  setIsSupplement,
+  isMultiOrder,
+}) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLandscape = useMediaQuery("(orientation: landscape)");
@@ -45,6 +51,7 @@ function SupplementList({ type, index, setIndex, setIsSupplement }) {
             price={supplement.price}
             url={supplement.url}
             item={supplement}
+            isMultiOrder={isMultiOrder}
           />
         ))}
       </div>

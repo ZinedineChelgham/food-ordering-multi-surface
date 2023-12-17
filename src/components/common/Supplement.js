@@ -3,11 +3,10 @@ import CartContext from "../../context/CartContext";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-const SupplementItem = ({ name, price, url, item }) => {
+const SupplementItem = ({ name, price, url, item, isMultiOrder }) => {
   const cart = React.useContext(CartContext);
 
   const targetItem = cart.cartItems.find((cartItem) => cartItem.id === item.id);
-  console.log("issou", targetItem);
 
   const [quantity, setQuantity] = useState(targetItem?.quantity || 0);
   const theme = useTheme();
@@ -37,12 +36,18 @@ const SupplementItem = ({ name, price, url, item }) => {
     <div
       style={{
         display: "flex",
-        alignItems: "center",
+        //alignItems: "center",
         justifyContent: "space-between",
         marginRight: "10vw",
+        marginRight: isMultiOrder ? "0vw" : "10vw",
       }}
     >
-      <div style={{ flex: "1", marginRight: isLandscape ? "1vw" : "1vh" }}>
+      <div
+        style={{
+          flex: "1",
+          marginRight: isLandscape ? "1vw" : "1vh",
+        }}
+      >
         {console.log(url)}
         <img
           src={url}
@@ -50,6 +55,8 @@ const SupplementItem = ({ name, price, url, item }) => {
           style={{
             width: isLandscape ? "9vw" : "11vh",
             height: isLandscape ? "9vw" : "11vh",
+            width: isMultiOrder ? "6vw" : isLandscape ? "9vw" : "11vh",
+            height: isMultiOrder ? "7vh" : isLandscape ? "9vw" : "11vh",
             borderRadius: "10px",
             boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.75)",
             marginBottom: isLandscape ? "1vw" : "1vh",
@@ -63,8 +70,19 @@ const SupplementItem = ({ name, price, url, item }) => {
           fontSize: isLandscape ? "2vw" : "2vh",
         }}
       >
-        <div>{name}</div>
-        <div>{price} €</div>
+        <div style={{ fontSize: isMultiOrder ? "1.5vw" : undefined }}>
+          {name}
+        </div>
+        <div
+          style={{
+            fontSize: isMultiOrder ? "1.5vw" : undefined,
+            backgroundColor: "yellow",
+            width: "fit-content",
+            borderRadius: "5px",
+          }}
+        >
+          {price}€
+        </div>
       </div>
       <div
         style={{
@@ -82,7 +100,7 @@ const SupplementItem = ({ name, price, url, item }) => {
             justifyContent: "center", // Horizontally center content
             textAlign: "center",
             width: isLandscape ? "2vw" : "2vh",
-            padding: "0.5em 1em", // Added padding
+            // padding: "0.5em 1em", // Added padding
             marginRight: isLandscape ? "1vw" : "1vh",
             fontSize: isLandscape ? "2vw" : "2vh",
             backgroundColor: "#F44336", // Softer red
@@ -104,7 +122,7 @@ const SupplementItem = ({ name, price, url, item }) => {
             alignItems: "center", // Vertically center content
             justifyContent: "center", // Horizontally center content
             width: isLandscape ? "2vw" : "2vh",
-            padding: "0.5em 1em", // Added padding
+            // padding: "0.5em 1em", // Added padding
             marginLeft: isLandscape ? "1vw" : "1vh",
             fontSize: isLandscape ? "2vw" : "2vh",
             backgroundColor: "#4CAF50", // Softer green
