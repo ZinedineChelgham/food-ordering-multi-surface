@@ -163,6 +163,56 @@ function GlobalPageBorne(props) {
 
   console.log("-----borne display-----");
 
+  function BackButtonHeader({ decreaseFunction }) {
+    const navigate = useNavigate();
+    // Vous pouvez ajouter une fonction pour gérer l'événement onClick si nécessaire.
+    const handleBack = () => {
+      if (currentIndex === -1) {
+        navigate("/");
+      }
+
+      decreaseFunction();
+      //navigate(-1);
+    };
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+    const isLandscape = useMediaQuery("(orientation: landscape)");
+
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "1vh",
+        }}
+      >
+        {/* Vous pouvez toujours garder l'IconButton si vous souhaitez avoir un bouton de retour */}
+        <IconButton
+          onClick={handleBack}
+          style={{ position: "absolute", left: 0, fontSize: "5vh" }}
+        >
+          <ArrowBackIcon style={{ fontSize: "inherit" }} />
+        </IconButton>
+        {/* Titre de l'application */}
+        <Typography
+          variant="h4"
+          component="h1"
+          style={{
+            flexGrow: 1,
+            textAlign: "center",
+            letterSpacing: "0.1em",
+            textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+            fontSize: isSmallScreen ? "5vw" : isLandscape ? "5vh" : "6vw",
+            fontWeight: "bold",
+          }}
+        >
+          Borne'n'Go
+        </Typography>
+      </div>
+    );
+  }
+
   return (
     <div style={{ height: "100vh", overflow: "hidden" }}>
       <div style={{ height: "auto", overflow: "hidden" }}>

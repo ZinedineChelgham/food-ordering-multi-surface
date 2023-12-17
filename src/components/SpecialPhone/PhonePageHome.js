@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -7,11 +7,15 @@ import FoodItemList from "../FoodItemList";
 import OrderBar from "./OrderBar";
 import Header from "./Header";
 
-function HomePhone(props) {
+function HomePhone({ decreaseFunction }) {
+  const handleBack = () => {
+    decreaseFunction();
+    //navigate(-1);
+  };
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const [category, setCategory] = React.useState("menus");
+  const [category, setCategory] = React.useState("burgers");
 
   const [categoryItems, setCategoryItems] = React.useState([]);
 
@@ -37,10 +41,24 @@ function HomePhone(props) {
     console.log("clicked" + cat);
   };
 
+  const [currentIndex, setCurrentIndex] = useState(-1);
+  const [isSupplement, setIsSupplement] = useState(false);
+
+  function decreaseFunction() {
+    setCurrentIndex(currentIndex - 1);
+    if (currentIndex === 0) {
+      setIsSupplement(false);
+    }
+  }
+
   return (
     <div style={{ height: "100vh", overflow: "hidden" }}>
       <div style={{ height: "7%", overflow: "hidden" }}>
-        <Header category={category} />
+        <Header
+          category={category}
+          decreaseFunction={decreaseFunction}
+          index={currentIndex}
+        />
       </div>
       <div
         style={{
@@ -50,7 +68,14 @@ function HomePhone(props) {
           justifyContent: "center",
         }}
       >
-        <FoodItemList foodItems={categoryItems} currCat={category} />
+        <FoodItemList
+          foodItems={categoryItems}
+          currCat={category}
+          indexSupplement={currentIndex}
+          setIndexSupplement={setCurrentIndex}
+          isSupplement={isSupplement}
+          setIsSupplement={setIsSupplement}
+        />
       </div>
       <div style={{ height: "7%", overflow: "hidden" }}>
         {/* Le composant OrderBar prendra tout l'espace disponible */}

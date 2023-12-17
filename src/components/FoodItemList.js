@@ -8,15 +8,19 @@ import ModeRush from "./ModeRush";
 
 
 
-function FoodItemsList({ foodItems,
-                           currCat,
-                           indexSupplement,
-                           setIndexSupplement,
-                           isSupplement,
-                           setIsSupplement,}) {
+function FoodItemsList({
+  foodItems,
+  currCat,
+  indexSupplement,
+  setIndexSupplement,
+  isSupplement,
+  setIsSupplement,
+}) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const supplementBurger = ["Fromage", "Viande", "Divers"];
+
+  
 
   
   const isRushMode = true;
@@ -33,6 +37,8 @@ const desserts = [
   { id: 3, name: "Gâteau au chocolat", price: 2.50, imageName: "fraise" },
   // ...
 ];
+
+const [recipe, setRecipe] = useState([]);
 
 
   return (
@@ -62,13 +68,15 @@ const desserts = [
     >
       {isSupplement ?(isRushMode?
         <ModeRush
-          ingredients={ingredients} 
+        recipe={recipe}
+          ingredients={recipe} 
                         drinks={boissons} 
                         desserts={desserts} ></ModeRush>: 
         <SupplementList
           type={supplementBurger[indexSupplement]}
           index={indexSupplement}
           setIndex={setIndexSupplement}
+          setIsSupplement={setIsSupplement}
         />
       ) : (
         foodItems.map((item, index) => (
@@ -82,7 +90,12 @@ const desserts = [
               marginTop: "2vh",
             }}
           >
-            <FoodItemCard item={item} setSupplement={setIsSupplement} indexBurger={setIndexSupplement} />
+            <FoodItemCard
+              item={item}
+              setSupplement={setIsSupplement}
+              indexBurger={setIndexSupplement}
+              setRecipe={setRecipe}
+            />
           </Grid>
         ))
       )}

@@ -4,7 +4,7 @@ import ProductCard from "./common/ProductCard";
 import image1 from '../assets/img/rush/pain1.png';
 import image12 from "../assets/img/rush/pain2.png";
 
-const ModeRushList = ({ ingredients, drinks, desserts, addToCart }) => {
+const ModeRushList = ({ ingredients, drinks, desserts,recipe }) => {
     // Combine all images into a single object for easier mapping
     const allImages = useMemo(() => {
         const contexts = [
@@ -21,10 +21,14 @@ const ModeRushList = ({ ingredients, drinks, desserts, addToCart }) => {
         }, {});
     }, []);
 
+    console.log("la recette :", recipe);
+
     const [rushImages, setRushImages] = useState([]);
     const [drinkImages, setDrinkImages] = useState([]);
     const [dessertImages, setDessertImages] = useState([]);
     const [currentView, setCurrentView] = useState('ingredients'); // New state to control the view
+
+
 
     // Handle the generation of images for each category
     useEffect(() => {
@@ -33,24 +37,12 @@ const ModeRushList = ({ ingredients, drinks, desserts, addToCart }) => {
             ...ingredients.map(ingredient => allImages[ingredient + '.png']).filter(Boolean),
             image12
         ]);
-        // const loadedDrinks = drinks.map(drink => allImages[drink + '.png']).filter(Boolean)
-        // setDrinkImages(drinks.map(drink => allImages[drink + '.png']).filter(Boolean));
-        // setDessertImages(desserts.map(dessert => allImages[dessert + '.png']).filter(Boolean));
-        // console.log("Boissons après mappage :", loadedDrinks);
-
-
 
         // Générer les images pour les boissons en utilisant `imageName`
         setDrinkImages(drinks.map(drink => ({
             ...drink,
             src: allImages[`${drink.imageName}.png`]
         })).filter(Boolean));
-
-        // Générer les images pour les desserts en utilisant `imageName`
-        // setDessertImages(desserts.map(dessert => ({
-        //     ...dessert,
-        //     src: allImages[`${dessert.imageName}.png`]
-        // })).filter(Boolean));
 
         const loadedDrinks = drinks.map(drink => ({
             ...drink,
@@ -99,7 +91,7 @@ const ModeRushList = ({ ingredients, drinks, desserts, addToCart }) => {
                     <ProductCard
                         key={item.id}
                         image={item.src} // Utilisez la propriété src pour l'image
-                        canRemove={false} // Ou votre logique de condition de suppression
+                        canRemove={true} // Ou votre logique de condition de suppression
                         onRemove={() => handleRemove(item.id, items, setItems)} // Votre fonction de suppression
                     />
                     <div>{item.name} </div>
@@ -124,10 +116,10 @@ const ModeRushList = ({ ingredients, drinks, desserts, addToCart }) => {
         switch (currentView) {
             case 'ingredients':
                 return generateCards(rushImages, setRushImages, true);
-            case 'drinks':
-                return generateCardsBoissonDessert(drinkImages, setDrinkImages);
-            case 'desserts':
-                return generateCardsBoissonDessert(dessertImages, setDessertImages);
+            // case 'drinks':
+            //     return generateCardsBoissonDessert(drinkImages, setDrinkImages);
+            // case 'desserts':
+            //     return generateCardsBoissonDessert(dessertImages, setDessertImages);
             // Add more cases for other views if necessary
             default:
                 return null;
@@ -166,17 +158,69 @@ const ModeRushList = ({ ingredients, drinks, desserts, addToCart }) => {
     };
 
     return (
+        // <div style={{
+        //     display: 'flex',
+        //     flexDirection: 'column', // Changé en 'column' pour aligner les éléments verticalement
+        //     justifyContent: 'center',
+        //     alignItems: 'center',
+        //     height: '100%',
+        //     backgroundColor: 'white',
+        //     overflowY: 'auto'
+        // }}>
+        //     <div style={{ marginRight: '40px' }}>
+        //         {generateCards(rushImages, setRushImages, false, true)}
+        //     </div>
+        //     {/* <div style={{ marginRight: '40px' }}>
+        //         {generateCardsBoissonDessert(drinkImages, setDrinkImages)}
+        //     </div>
+        //     <div style={{ marginRight: '40px' }}>
+        //         {generateCardsBoissonDessert(dessertImages, setDessertImages)}
+        //     </div> */}
+        //     <Button
+        //         variant="contained"
+        //         color="primary"
+        //         onClick={updateRush(drinkImages,setDrinkImages)}
+        //         style={{
+        //             marginTop: '100px', // Ajoutez de l'espace au-dessus du bouton
+        //         }}
+        //     >
+        //         Suivant 
+        //     </Button>
+        // </div>
+        // <div style={{
+        //     display: 'flex',
+        //     flexDirection: 'column',
+        //     justifyContent: 'center',
+        //     alignItems: 'center',
+        //     height: '100%',
+        //     backgroundColor: 'white',
+        //     overflowY: 'auto'
+        // }}>
+        //     {renderView()}
+        //     {currentView === 'ingredients' && (
+        //         <Button
+        //             variant="contained"
+        //             color="primary"
+        //             onClick={updateRush}
+        //             style={{ marginTop: '20px' }}
+        //         >
+        //             Suivant
+        //         </Button>
+        //     )}
+        //     {/* Add more buttons for other views if necessary */}
+        // </div>
+
         <div style={{
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
+            //justifyContent: 'center',
             alignItems: 'center',
             height: '100%',
             backgroundColor: 'white',
             overflowY: 'auto'
         }}>
             {renderView()}
-            {renderNextButton()}
+           {/* {renderNextButton()} */}
         </div>
     );
 };
