@@ -13,7 +13,7 @@ function Header({ category }) {
   return (
     <AppBar
       position="static"
-      style={{ height: "-webkit-fill-available", backgroundColor: "white" }}
+      style={{ height: "-webkit-fill-available", backgroundColor: "white",  justifyContent: 'center' }}
     >
       <Toolbar>
         <IconButton
