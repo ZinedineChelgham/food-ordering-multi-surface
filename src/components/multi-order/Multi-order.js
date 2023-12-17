@@ -61,6 +61,8 @@ const MultiOrder = () => {
             overflow: "hidden",
           }}
         >
+          
+          
           <AppBarMultiOrder title="Commande du gérant 👑" />
           <NavPlusList
             handleCategoryChange={handleCategoryChange1}

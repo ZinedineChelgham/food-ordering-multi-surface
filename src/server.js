@@ -89,7 +89,16 @@ const foodItems = {
       name: "Classic Smash Burger",
       price: 10,
       type: "burger",
-      recipe: ["mayo","tomate","cornichon","steak","tomate","salade", "chedar","ketchup"],
+      recipe: [
+        "mayo",
+        "tomate",
+        "cornichon",
+        "steak",
+        "tomate",
+        "salade",
+        "fromage",
+        "ketchup",
+      ],
       url:
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
@@ -98,7 +107,7 @@ const foodItems = {
       name: "Spicy Texan Burger",
       price: 15,
       type: "burger",
-      recipe: ["sauce spicy","oignon","tomate","steak","salade"],
+      recipe: ["sauce spicy", "oignon", "tomate", "steak", "salade"],
       url:
         "https://embed.widencdn.net/img/mccormick/tusx7ezwnh/840x840px/Spicy-Texas-Burgers?crop=true&q=80&u=o2hyef",
     },
@@ -108,11 +117,19 @@ const foodItems = {
       name: "Ultimate Burger Deluxe",
       price: 20,
       type: "burger",
-      recipe: ["mayo","oignon","tomate","steak","tomate","cornichon","salade", "oignon"],
+      recipe: [
+        "mayo",
+        "oignon",
+        "tomate",
+        "steak",
+        "tomate",
+        "cornichon",
+        "salade",
+        "oignon",
+      ],
       url:
         "https://prairiemeats.ca/wp-content/uploads/2019/12/Burger-Stock3.jpg",
     },
-
   ],
   pizzas: [
     {
@@ -120,7 +137,7 @@ const foodItems = {
       name: "Margherita",
       price: 7,
       type: "pizza",
-      recipe: ["tomate","mozzarella","basilic"],
+      recipe: ["tomate", "mozzarella", "basilic"],
       url:
         "https://www.hearthandfirepizza.com/cdn/shop/products/product-beauty-the-margherita_1500x.png?v=1656423819",
     },
@@ -129,7 +146,7 @@ const foodItems = {
       name: "Royale",
       price: 9,
       type: "pizza",
-      recipe: ["tomate","mozzarella","jambon","champignon"],
+      recipe: ["tomate", "mozzarella", "jambon", "champignon"],
       url:
         "https://tb-static.uber.com/prod/image-proc/processed_images/bad4f535e2666917e204c1f9ba91bbb7/97ef7458dde62fa918635bc21265d9f5.jpeg",
     },
@@ -139,7 +156,7 @@ const foodItems = {
       name: "Tonnarella",
       price: 7.5,
       type: "pizza",
-      recipe: ["tomate","mozzarella","thon","oignon"],
+      recipe: ["tomate", "mozzarella", "thon", "oignon"],
       url:
         "https://as2.ftcdn.net/v2/jpg/02/45/43/03/1000_F_245430300_jlX8s1IaH0pUD4lQKz4ApMZ32jjsPfHz.jpg",
     },
@@ -148,7 +165,7 @@ const foodItems = {
       name: "Neptune",
       price: 8,
       type: "pizza",
-      recipe: ["tomate","mozzarella","thon","crevette","oignon"],
+      recipe: ["tomate", "mozzarella", "thon", "crevette", "oignon"],
       url:
         "https://www.herta.fr/sites/default/files/styles/scale_crop_720_500/public/2022-04/DSCF1765.JPG.webp?itok=QDGQKE1r",
     },
@@ -158,7 +175,7 @@ const foodItems = {
       name: "Americaine",
       price: 8.5,
       type: "pizza",
-      recipe: ["tomate","mozzarella","jambon","champignon","oeuf"],
+      recipe: ["tomate", "mozzarella", "jambon", "champignon", "oeuf"],
       url:
         "https://www.pariszigzag.fr/wp-content/uploads/2019/12/Capture-d%E2%80%99e%CC%81cran-2019-12-16-a%CC%80-18.03.37.png",
     },
@@ -168,7 +185,7 @@ const foodItems = {
       name: "Norvegienne",
       price: 8.2,
       type: "pizza",
-      recipe: ["tomate","mozzarella","saumon","crevette","oignon"],
+      recipe: ["tomate", "mozzarella", "saumon", "crevette", "oignon"],
       url:
         "https://cdn.pizzamatch.com/1/28/1371560084-pizza-saumon-630.JPG?1371560096",
     },
