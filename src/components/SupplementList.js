@@ -14,15 +14,17 @@ function SupplementList(props) {
     { id: 1, name: "Nom du produit 1", price: "1.50" },
     { id: 2, name: "Nom du produit 1", price: "20" },
     { id: 3, name: "Nom du produit 1", price: "20" },
-    { id: 1, name: "Nom du produit 1", price: "1.50" },
-    { id: 2, name: "Nom du produit 1", price: "20" },
-    { id: 3, name: "Nom du produit 1", price: "20" },
-    { id: 1, name: "Nom du produit 1", price: "1.50" },
-    { id: 2, name: "Nom du produit 1", price: "20" },
-    { id: 3, name: "Nom du produit 1", price: "20" },
-    { id: 1, name: "Nom du produit 1", price: "1.50" },
-    { id: 2, name: "Nom du produit 1", price: "20" },
-    { id: 3, name: "Nom du produit 1", price: "20" },
+    { id: 4, name: "Nom du produit 1", price: "20" },
+    { id: 5, name: "Nom du produit 1", price: "20" },
+    { id: 6, name: "Nom du produit 1", price: "20" },
+    { id: 7, name: "Nom du produit 1", price: "20" },
+    { id: 8, name: "Nom du produit 1", price: "20" },
+    { id: 9, name: "Nom du produit 1", price: "20" },
+    { id: 10, name: "Nom du produit 1", price: "20" },
+    { id: 11, name: "Nom du produit 1", price: "20" },
+    { id: 12, name: "Nom du produit 1", price: "20" },
+    { id: 13, name: "Nom du produit 1", price: "20" },
+
     // ...d'autres produits
   ];
 
