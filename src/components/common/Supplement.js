@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import CartContext from "../../context/CartContext";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -14,6 +14,10 @@ const SupplementItem = ({ name, price, url, item }) => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLandscape = useMediaQuery("(orientation: landscape)");
 
+  useEffect(() => {
+    setQuantity(targetItem?.quantity || 0);
+  }, [targetItem]);
+
   const handleIncrease = () => {
     cart.addToCart(item, 1);
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -26,7 +30,6 @@ const SupplementItem = ({ name, price, url, item }) => {
       cart.decreaseQuantity(item);
     } else {
       setQuantity(0);
-      console.log("pass");
       cart.removeItem(item.id);
     }
   };
