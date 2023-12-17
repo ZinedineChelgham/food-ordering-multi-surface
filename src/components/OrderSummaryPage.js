@@ -73,9 +73,13 @@ const OrderSummaryPage = () => {
         const updatedItems = cartItems.map(item =>
             item.id === id ? { ...item, quantity: item.quantity + 1 } : item
         );
-        cartItems.map(item => {
-            cartItems2.addToCart(item,1);
-        });
+
+        // Appliquer addToCart uniquement à l'élément spécifié
+        const itemToAdd = updatedItems.find(item => item.id === id);
+        if (itemToAdd) {
+            cartItems2.addToCart(itemToAdd, 1);
+        }
+
         setCartItems(updatedItems);
     };
 
@@ -84,9 +88,15 @@ const OrderSummaryPage = () => {
         const updatedItems = cartItems.map(item =>
             item.id === id ? { ...item, quantity: Math.max(item.quantity - 1, 0) } : item
         );
-        cartItems.map(item => {
-            cartItems2.decreaseQuantity(item);
-        });
+
+        // Appliquer decreaseQuantity uniquement à l'élément spécifié
+        const itemToDecrease = updatedItems.find(item => item.id === id);
+        if (itemToDecrease.quantity >= 1) {
+            cartItems2.decreaseQuantity(itemToDecrease);
+        } else if (itemToDecrease.quantity === 0) {
+            handleDelete(id);
+        }
+
         setCartItems(updatedItems);
     };
 
