@@ -8,7 +8,6 @@ import CartState from "./context/CartState.js";
 import MultiOrder from "./components/multi-order/Multi-order";
 import HomeBorne from "./components/HomeBorne.js";
 import ThankYouComponent from "./components/ThankYouComponent";
-import HomeBorne from "./components/HomeBorne.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,11 +15,10 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeBorne />} />
-        <Route path="/start" element={<HomeBorne />} />
         <Route path="/start" element={<App />} />
         <Route path="/ordersummary" element={<OrderSummaryPage />} />
         <Route path="/multiorder" element={<MultiOrder />} />
-          <Route path="/end" element={<ThankYouComponent />} />
+        <Route path="/end" element={<ThankYouComponent />} />
       </Routes>
     </BrowserRouter>
   </CartState>
