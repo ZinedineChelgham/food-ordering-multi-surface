@@ -37,6 +37,7 @@ function NavPlusList({
           handleCategoryChange={handleCategoryChange}
           currCat={currCat}
           isMultiOrder={isMultiOrder}
+          indexSupplement={indexSupplement}
         />
       </div>
       <div style={{ width: "75%", overflow: "hidden", display: "contents" }}>

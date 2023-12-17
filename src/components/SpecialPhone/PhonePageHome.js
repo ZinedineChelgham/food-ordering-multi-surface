@@ -54,7 +54,11 @@ function HomePhone({ decreaseFunction }) {
   return (
     <div style={{ height: "100vh", overflow: "hidden" }}>
       <div style={{ height: "7%", overflow: "hidden" }}>
-        <Header category={category} decreaseFunction={decreaseFunction} />
+        <Header
+          category={category}
+          decreaseFunction={decreaseFunction}
+          index={currentIndex}
+        />
       </div>
       <div
         style={{

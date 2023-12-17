@@ -5,10 +5,12 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-function Header({ category, decreaseFunction }) {
+function Header({ category, decreaseFunction, index }) {
   const upperCasefirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
+
+  console.log("current inx", index);
 
   return (
     <AppBar
@@ -21,7 +23,11 @@ function Header({ category, decreaseFunction }) {
     >
       <Toolbar>
         <IconButton
-          style={{ position: "absolute", color: "black" }}
+          style={{
+            position: "absolute",
+            color: "black",
+            display: index === -1 ? "none" : "block",
+          }}
           edge="start"
           color="inherit"
           aria-label="back"
