@@ -23,7 +23,9 @@ import {useNavigate} from "react-router";
 
 
 
+
 const OrderSummaryPage = () => {
+    const cartItems2 = useContext(CartContext);
     const location = useLocation();
     const [cartItems, setCartItems] = useState(location.state?.cartItems || []);
     const theme = useTheme();
@@ -70,6 +72,9 @@ const OrderSummaryPage = () => {
         const updatedItems = cartItems.map(item =>
             item.id === id ? { ...item, quantity: item.quantity + 1 } : item
         );
+        cartItems.map(item => {
+            cartItems2.addToCart(item,1);
+        });
         setCartItems(updatedItems);
     };
 
@@ -78,10 +83,14 @@ const OrderSummaryPage = () => {
         const updatedItems = cartItems.map(item =>
             item.id === id ? { ...item, quantity: Math.max(item.quantity - 1, 0) } : item
         );
+        cartItems.map(item => {
+            cartItems2.decreaseQuantity(item);
+        });
         setCartItems(updatedItems);
     };
 
     const handleDelete = (id) => {
+        cartItems2.removeItem(id);
         const updatedItems = cartItems.filter(item => item.id !== id);
         setCartItems(updatedItems);
     };
