@@ -52,6 +52,7 @@ const CartState = ({ children }) => {
         removeItem,
         decreaseQuantity,
         dropCart,
+        updateRecipe,
       }}
     >
       {children}
