@@ -1,20 +1,18 @@
 .order-header {
-    background-color: black;
-    color: white;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
+  background-color: rgb(250, 242, 1);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-header p {
+  margin-right: 20px;
+}
+
+@media (min-width: 600px) {
   .order-header p {
-    margin-right: 20px; 
+    margin-right: 1vw;
   }
-  
-  @media (min-width: 600px) {
-    .order-header p {
-      margin-right: 100px; 
-    }
-  }
-  
-  
+}

@@ -19,7 +19,7 @@ function NavPlusList({
   return (
     <div
       style={{
-        width: isMultiOrder? undefined : "100vw",
+        width: isMultiOrder ? undefined : "100vw",
         height: "100%",
         overflow: "hidden",
         display: "flex",
@@ -27,14 +27,14 @@ function NavPlusList({
         justifyContent: "space-between",
       }}
     >
-      <div style={{ height: "20%" }}>
+      <div style={{}}>
         <NavBar
           handleCategoryChange={handleCategoryChange}
           currCat={currCat}
           isMultiOrder={isMultiOrder}
         />
       </div>
-      <div style={{ width: "75%", overflow: "hidden" }}>
+      <div style={{ width: "75%", overflow: "hidden", display: "contents" }}>
         <FoodItemList foodItems={foodItems} />
       </div>
     </div>

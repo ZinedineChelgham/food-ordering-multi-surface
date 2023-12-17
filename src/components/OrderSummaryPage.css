@@ -13,6 +13,8 @@
 }
 .order-summary-container{
     background-color: purple;
+    height: 90vh;
+
 }
 .payment-button-container {
     position: fixed;

@@ -2,7 +2,8 @@ import React from "react";
 import { useReducer } from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM } from "./types";
+import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM,DECREASE_QUANTITY } from "./types";
+import cartContext from "./CartContext";
 
 const CartState = ({ children }) => {
   const initalState = {
@@ -14,6 +15,9 @@ const CartState = ({ children }) => {
 
   const addToCart = (item, quantity) => {
     dispatch({ type: ADD_TO_CART, payload: { ...item, quantity: quantity } });
+  };
+  const decreaseQuantity = (item) => {
+    dispatch({ type: DECREASE_QUANTITY, payload: item });
   };
 
   const showHideCart = () => {
@@ -32,6 +36,7 @@ const CartState = ({ children }) => {
         addToCart,
         showHideCart,
         removeItem,
+        decreaseQuantity,
       }}
     >
       {children}
