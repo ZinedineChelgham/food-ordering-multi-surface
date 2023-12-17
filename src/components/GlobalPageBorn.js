@@ -85,6 +85,22 @@ function GlobalPageBorne(props) {
   }, []);
 
   const [category, setCategory] = React.useState("burgers");
+  const [categoryItems, setCategoryItems] = React.useState([]);
+
+  const API_URL = "http://localhost:3001/items/";
+  React.useEffect(() => {
+    fetch(API_URL + category.toLowerCase())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Données reçues de /items/" + category, data);
+        setCategoryItems(data);
+      });
+  }, [category]);
 
   console.log("item from borne", foodItems[category]);
 
@@ -101,18 +117,12 @@ function GlobalPageBorne(props) {
         <BackButtonHeader />
       </div>
       <div style={{ height: "65%", overflow: "hidden" }}>
-        {/* Le composant OrderBar prendra tout l'espace disponible */}
-        {/* <NavPlusList
-                    handleCategoryChange={handleCategoryChange}
-                    foodItems={foodItems[category]}
-                    currCat={category}
-                /> */}
         {isRushMode ? (
           <ModeRush ingredients={ingredients} />
         ) : (
           <NavPlusList
             handleCategoryChange={handleCategoryChange}
-            foodItems={foodItems[category]}
+            foodItems={categoryItems}
             currCat={category}
           />
         )}
