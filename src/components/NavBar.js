@@ -11,7 +11,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import IcecreamIcon from "@mui/icons-material/Icecream";
 import LocalPizzaIcon from "@mui/icons-material/LocalPizza";
 
-function NavBar({ handleCategoryChange, currCat, isMultiOrder }) {
+function NavBar({ handleCategoryChange, currCat, isMultiOrder, indexSupplement }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLandscape = useMediaQuery("(orientation: landscape)");
