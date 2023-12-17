@@ -1,4 +1,5 @@
 import GlobalPage from "./components/GlobalPage.js";
+import SupplementList from "./components/SupplementList";
 
 //<PhonePageHome/>
 //<GlobalPageBorn/>
