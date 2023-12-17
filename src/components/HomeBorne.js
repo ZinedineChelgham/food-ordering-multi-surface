@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router";
 
 const HomeBorne = () => {
-  // This state will hold the order items and could be updated when items are added or removed
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLandscape = useMediaQuery("(orientation: landscape)");
@@ -17,37 +16,57 @@ const HomeBorne = () => {
     navigate("/start");
   }
 
-  function BackButtonHeaderr() {
-    // Vous pouvez ajouter une fonction pour gérer l'événement onClick si nécessaire.
-    const handleBack = () => {
-      // Par exemple, naviguer vers la page précédente.
-      console.log("Retour");
-    };
-    const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-    const isLandscape = useMediaQuery("(orientation: landscape)");
+  const styles = {
+    backButtonHeader: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "1vh",
+    },
+    title: {
+      flexGrow: 1,
+      textAlign: "center",
+      letterSpacing: "0.1em",
+      textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+      fontSize: isSmallScreen ? "5vw" : isLandscape ? "6vh" : "6vw",
+      fontWeight: "bold",
+    },
+    mainContainer: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "80vh",
+      width: "100vw",
+      fontSize: "24px",
+      backgroundColor: "#f5f5f5",
+    },
+    header: {
+      fontSize: "2.1vw",
+    },
+    buttonContainer: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-around",
+      width: "100%",
+    },
+    button: {
+      padding: "10vw 10vw",
+      margin: "1em",
+      borderRadius: "15px",
+      border: "2px solid black",
+      fontSize: "4vw",
+      cursor: "pointer",
+      fontWeight: "bold",
+      boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.75)",
+      backgroundColor: "green",
+    },
+  };
 
+  function BackButtonHeaderr() {
     return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "1vh",
-        }}
-      >
-        <Typography
-          variant="h4"
-          component="h1"
-          style={{
-            flexGrow: 1,
-            textAlign: "center",
-            letterSpacing: "0.1em",
-            textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
-            fontSize: isSmallScreen ? "5vw" : isLandscape ? "5vh" : "6vw",
-            fontWeight: "bold",
-          }}
-        >
+      <div style={styles.backButtonHeader}>
+        <Typography variant="h4" component="h1" style={styles.title}>
           Borne'n'Go
         </Typography>
       </div>
@@ -57,59 +76,13 @@ const HomeBorne = () => {
   return (
     <>
       <BackButtonHeaderr />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100%",
-          width: "100vw",
-          fontSize: "24px",
-          backgroundColor: "#f5f5f5",
-        }}
-      >
-        <h1 style={{ fontSize: "1.3em", marginTop: "1.5em" }}>Commander ici</h1>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-around",
-            width: "100%",
-
-            //maxWidth: "600px",
-          }}
-        >
-          <button
-            style={{
-              padding: "5em 5em",
-              margin: "1em",
-              borderRadius: "15px",
-              border: "2px solid black",
-              fontSize: "1.5em",
-              cursor: "pointer",
-              fontWeight: "bold",
-              boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.75)",
-              backgroundColor: "green",
-            }}
-            onClick={onCardClick}
-          >
+      <div style={styles.mainContainer}>
+        <h1 style={styles.header}>Commander ici</h1>
+        <div style={styles.buttonContainer}>
+          <button style={styles.button} onClick={onCardClick}>
             Sur place
           </button>
-          <button
-            style={{
-              padding: "5em 5em",
-              margin: "1em",
-              borderRadius: "15px",
-              border: "2px solid black",
-              fontSize: "1.5em",
-              cursor: "pointer",
-              fontWeight: "bold",
-              boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.75)",
-              backgroundColor: "green",
-            }}
-            onClick={onCardClick}
-          >
+          <button style={styles.button} onClick={onCardClick}>
             À emporter
           </button>
         </div>
