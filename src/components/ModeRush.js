@@ -4,7 +4,7 @@ import ProductCard from "./common/ProductCard";
 import image1 from '../assets/img/rush/pain1.png';
 import image12 from "../assets/img/rush/pain2.png";
 
-const ModeRushList = ({ ingredients}) => {
+const ModeRushList = ({ ingredients }) => {
     // Combine all images into a single object for easier mapping
     const allImages = useMemo(() => {
         const contexts = [
@@ -21,9 +21,11 @@ const ModeRushList = ({ ingredients}) => {
         }, {});
     }, []);
 
-    //console.log("la recette :", recipe);
+    console.log("la recette :", ingredients);
 
     const [rushImages, setRushImages] = useState([]);
+    const [drinkImages, setDrinkImages] = useState([]);
+    const [dessertImages, setDessertImages] = useState([]);
     const [currentView, setCurrentView] = useState('ingredients'); // New state to control the view
 
 
@@ -36,13 +38,12 @@ const ModeRushList = ({ ingredients}) => {
             image12
         ]);
 
-
-
-    }, [ingredients, allImages]);
+    }, [ingredients]);
 
     // Handle removal of images
     const handleRemove = (index, images, setImages) => {
         setImages(currentImages => currentImages.filter((_, idx) => idx !== index));
+
     };
 
     const generateCards = (images, setImages, canRemoveAll, isBurger = false) => {
@@ -80,13 +81,6 @@ const ModeRushList = ({ ingredients}) => {
 
     // const updateOrder = () => {
     // };
-
-    const updateRush = () => {
-        // You would call this when you want to transition to the drinks view
-        setCurrentView('drinks');
-        //setCurrentView('ingredients');
-
-    };
 
     // Conditional rendering based on the current view
     const renderView = () => {
@@ -127,7 +121,7 @@ const ModeRushList = ({ ingredients}) => {
                     onClick={handleNext}
                     style={{ marginTop: '20px' }}
                 >
-                    Suivant
+                    Valider
                 </Button>
             );
         }
@@ -135,58 +129,6 @@ const ModeRushList = ({ ingredients}) => {
     };
 
     return (
-        // <div style={{
-        //     display: 'flex',
-        //     flexDirection: 'column', // Changé en 'column' pour aligner les éléments verticalement
-        //     justifyContent: 'center',
-        //     alignItems: 'center',
-        //     height: '100%',
-        //     backgroundColor: 'white',
-        //     overflowY: 'auto'
-        // }}>
-        //     <div style={{ marginRight: '40px' }}>
-        //         {generateCards(rushImages, setRushImages, false, true)}
-        //     </div>
-        //     {/* <div style={{ marginRight: '40px' }}>
-        //         {generateCardsBoissonDessert(drinkImages, setDrinkImages)}
-        //     </div>
-        //     <div style={{ marginRight: '40px' }}>
-        //         {generateCardsBoissonDessert(dessertImages, setDessertImages)}
-        //     </div> */}
-        //     <Button
-        //         variant="contained"
-        //         color="primary"
-        //         onClick={updateRush(drinkImages,setDrinkImages)}
-        //         style={{
-        //             marginTop: '100px', // Ajoutez de l'espace au-dessus du bouton
-        //         }}
-        //     >
-        //         Suivant
-        //     </Button>
-        // </div>
-        // <div style={{
-        //     display: 'flex',
-        //     flexDirection: 'column',
-        //     justifyContent: 'center',
-        //     alignItems: 'center',
-        //     height: '100%',
-        //     backgroundColor: 'white',
-        //     overflowY: 'auto'
-        // }}>
-        //     {renderView()}
-        //     {currentView === 'ingredients' && (
-        //         <Button
-        //             variant="contained"
-        //             color="primary"
-        //             onClick={updateRush}
-        //             style={{ marginTop: '20px' }}
-        //         >
-        //             Suivant
-        //         </Button>
-        //     )}
-        //     {/* Add more buttons for other views if necessary */}
-        // </div>
-
         <div style={{
             display: 'flex',
             flexDirection: 'column',
@@ -197,7 +139,7 @@ const ModeRushList = ({ ingredients}) => {
             overflowY: 'auto'
         }}>
             {renderView()}
-           {/* {renderNextButton()} */}
+           {renderNextButton()} 
         </div>
     );
 };

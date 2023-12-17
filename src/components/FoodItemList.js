@@ -46,6 +46,47 @@ function FoodItemsList({
             justifyContent="center"
             alignItems="center"
             xs={12}
+  return (
+    <Grid
+      container
+      spacing={2}
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      xs={12}
+      style={{
+        display: isSmallScreen ? "" : "flex",
+        justifyContent: isSmallScreen ? "" : "space-around",
+        alignContent: isSmallScreen ? "" : "flex-start",
+        overflow: isSupplement ? "hidden" : "",
+      }}
+      sx={{
+        height: "100%",
+        marginLeft: "0",
+        marginTop: "0",
+        backgroundColor: "#8b8f8f",
+        overflow: "auto",
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
+      }}
+    >
+      {isSupplement ?(isRushMode?
+        <ModeRush
+        recipe={recipe}
+          ingredients={recipe} ></ModeRush>: 
+        <SupplementList
+          type={supplementBurger[indexSupplement]}
+          index={indexSupplement}
+          setIndex={setIndexSupplement}
+          setIsSupplement={setIsSupplement}
+        />
+      ) : (
+        foodItems.map((item, index) => (
+          <Grid
+            key={index}
+            item
+            xs={isSmallScreen ? 12 : 2.75}
             style={{
                 display: isSmallScreen ? "" : "flex",
                 justifyContent: isSmallScreen ? "" : "space-around",
