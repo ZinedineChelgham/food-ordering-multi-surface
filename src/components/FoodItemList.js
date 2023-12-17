@@ -20,7 +20,7 @@ function FoodItemsList({
     const supplementBurger = ["Fromage", "Viande", "Divers"];
 
 
-    const isRushMode = true;
+    const isRushMode = false;
     const ingredients = ["tomate", "oeuf", "fromage", "steak", "cornichon", "oignon", "pain", "salade", "fromage", "steak"];
     const boissons = [
         {id: 1, name: "Coca-Cola", price: 1.50, imageName: "coca-cola"},
