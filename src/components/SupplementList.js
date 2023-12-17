@@ -35,7 +35,7 @@ function SupplementList({ type, index, setIndex, setIsSupplement }) {
           marginBottom: isLandscape ? "1vw" : "1vh",
         }}
       >
-        <p>{type}</p>
+        <p>{type === "Divers" ? type : type + "s"}</p>
       </div>
       <div style={{ height: isLandscape ? "45%" : "52%", overflow: "auto" }}>
         {supplements.map((supplement) => (

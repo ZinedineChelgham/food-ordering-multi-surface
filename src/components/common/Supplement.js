@@ -50,6 +50,9 @@ const SupplementItem = ({ name, price, url, item }) => {
           style={{
             width: isLandscape ? "9vw" : "11vh",
             height: isLandscape ? "9vw" : "11vh",
+            borderRadius: "10px",
+            boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.75)",
+            marginBottom: isLandscape ? "1vw" : "1vh",
           }}
         />
       </div>
@@ -63,13 +66,32 @@ const SupplementItem = ({ name, price, url, item }) => {
         <div>{name}</div>
         <div>{price} €</div>
       </div>
-      <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
+      <div
+        style={{
+          flex: "1",
+          display: "flex",
+          alignItems: "center",
+          marginLeft: " 3vw",
+        }}
+      >
         <button
           onClick={handleDecrease}
           style={{
+            display: "inline-flex", // Adjust display
+            alignItems: "center", // Vertically center content
+            justifyContent: "center", // Horizontally center content
+            textAlign: "center",
             width: isLandscape ? "2vw" : "2vh",
+            padding: "0.5em 1em", // Added padding
             marginRight: isLandscape ? "1vw" : "1vh",
             fontSize: isLandscape ? "2vw" : "2vh",
+            backgroundColor: "#F44336", // Softer red
+            borderRadius: "8px", // Rounded corners
+            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)", // Shadow
+            transition: "background-color 0.3s", // Transition for hover effect
+            ":hover": {
+              backgroundColor: "#d32f2f", // Darker red on hover
+            },
           }}
         >
           -
@@ -78,9 +100,20 @@ const SupplementItem = ({ name, price, url, item }) => {
         <button
           onClick={handleIncrease}
           style={{
+            display: "inline-flex", // Adjust display
+            alignItems: "center", // Vertically center content
+            justifyContent: "center", // Horizontally center content
             width: isLandscape ? "2vw" : "2vh",
+            padding: "0.5em 1em", // Added padding
             marginLeft: isLandscape ? "1vw" : "1vh",
             fontSize: isLandscape ? "2vw" : "2vh",
+            backgroundColor: "#4CAF50", // Softer green
+            borderRadius: "8px", // Rounded corners
+            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)", // Shadow
+            transition: "background-color 0.3s", // Transition for hover effect
+            ":hover": {
+              backgroundColor: "#45a049", // Darker green on hover
+            },
           }}
         >
           +
