@@ -19,6 +19,30 @@ app.get("/mode-rush", (req, res) => {
   res.json({ isRushMode });
 });
 
+app.get("/supplements/divers", (req, res) => {
+  res.json(
+    supplements.filter(
+      (supplement) => supplement.type.toLocaleLowerCase() === "divers"
+    )
+  );
+});
+
+app.get("/supplements/fromage", (req, res) => {
+  res.json(
+    supplements.filter(
+      (supplement) => supplement.type.toLocaleLowerCase() === "fromage"
+    )
+  );
+});
+
+app.get("/supplements/viande", (req, res) => {
+  res.json(
+    supplements.filter(
+      (supplement) => supplement.type.toLocaleLowerCase() === "viande"
+    )
+  );
+});
+
 app.get("/items/burgers", (req, res) => {
   res.json(foodItems.burgers);
 });
@@ -241,3 +265,112 @@ const foodItems = {
     },
   ],
 };
+
+const supplements = [
+  {
+    id: 200,
+    name: "Nom du produit 1",
+    type: "Fromage",
+    price: "1.50",
+    urlImage:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+  },
+  {
+    id: 2001,
+    name: "Nom du produit 1",
+    type: "Fromage",
+    price: "20",
+    urlImage:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+  },
+  {
+    id: 3,
+    name: "Nom du produit 1",
+    type: "Fromage",
+    price: "20",
+    urlImage:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+  },
+  {
+    id: 4,
+    name: "Nom du produit 1",
+    type: "Fromage",
+    price: "20",
+    urlImage:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+  },
+  {
+    id: 5,
+    name: "Nom du produit 1",
+    type: "Viande",
+    price: "20",
+    urlImage:
+      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
+  },
+  {
+    id: 6,
+    name: "Nom du produit 1",
+    type: "Fromage",
+    price: "20",
+    urlImage:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+  },
+  {
+    id: 7,
+    name: "Nom du produit 1",
+    type: "Viande",
+    price: "20",
+    urlImage:
+      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
+  },
+  {
+    id: 8,
+    name: "Nom du produit 1",
+    type: "Fromage",
+    price: "20",
+    urlImage:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+  },
+  {
+    id: 9,
+    name: "Nom du produit 1",
+    type: "Viande",
+    price: "20",
+    urlImage:
+      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
+  },
+  {
+    id: 10,
+    name: "Nom du produit 2",
+    type: "Fromage",
+    price: "20",
+    urlImage:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
+  },
+  {
+    id: 11,
+    name: "Nom du produit 1",
+    type: "Viande",
+    price: "20",
+    urlImage:
+      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
+  },
+  {
+    id: 12,
+    name: "Nom du produit 1",
+    type: "Viande",
+    price: "20",
+    urlImage:
+      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
+  },
+  {
+    id: 13,
+    name: "Nom du produit 1",
+    type: "Viande",
+    price: "50",
+    urlImage:
+      "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
+  },
+
+  // ...d'autres produits
+];
