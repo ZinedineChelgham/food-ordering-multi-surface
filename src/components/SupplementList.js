@@ -42,10 +42,10 @@ function SupplementList({type, index, setIndex}) {
             alignItems: "center",
           }}
       >
-        <div style={{ height: "auto" }}>
+        <div style={{ height: "auto", fontSize:isLandscape? '3vw':'3vh',marginBottom:isLandscape? '1vw':'1vh' }}>
           <p>{type}</p>
         </div>
-        <div style={{ height: "50%", overflow: "auto" }}>
+        <div style={{ height:isLandscape?'45%': '52%', overflow: "auto" }}>
           {filteredSupplements.map((supplement) => (
               <SupplementItem
                   key={supplement.id}
@@ -58,7 +58,7 @@ function SupplementList({type, index, setIndex}) {
         <Button
             variant="contained"
             color="primary"
-            style={{ marginTop: '2vh' }}
+            style={{ marginTop: '2vh' ,fontSize:isLandscape? '2vw':'2vh'}}
             // Add an onClick handler if needed
             onClick={() =>{
               console.log("Clicked");
