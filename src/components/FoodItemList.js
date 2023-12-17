@@ -69,9 +69,7 @@ const [recipe, setRecipe] = useState([]);
       {isSupplement ?(isRushMode?
         <ModeRush
         recipe={recipe}
-          ingredients={recipe} 
-                        drinks={boissons} 
-                        desserts={desserts} ></ModeRush>: 
+          ingredients={recipe} ></ModeRush>: 
         <SupplementList
           type={supplementBurger[indexSupplement]}
           index={indexSupplement}
