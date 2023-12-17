@@ -62,6 +62,7 @@ const OrderSummaryPage = () => {
             menus: cartItems.filter(item => item.type === 'menu'),
             desserts: cartItems.filter(item => item.type === 'dessert'),
             boissons: cartItems.filter(item => item.type === 'boisson'),
+            supplements: cartItems.filter(item => item.type === 'Fromage' || item.type === 'Viande' || item.type === 'divers'),
 
             // Répétez pour les autres catégories...
         };
@@ -93,6 +94,7 @@ const OrderSummaryPage = () => {
         cartItems2.removeItem(id);
         const updatedItems = cartItems.filter(item => item.id !== id);
         setCartItems(updatedItems);
+
     };
 
     const categorizedItems = categorizeItems();
@@ -160,7 +162,15 @@ const OrderSummaryPage = () => {
                                       onDelete={handleDelete}/>
                     </Paper>
                 </Grid>
-
+                <Grid item xs={12} sx={{display: 'flex',
+                    justifyContent: 'center'}}>
+                    <Paper className="order-section" elevation={3}>
+                        <OrderSection title="Supplements" items={categorizedItems.supplements}
+                                      onIncrease={handleIncrease}
+                                      onDecrease={handleDecrease}
+                                      onDelete={handleDelete}/>
+                    </Paper>
+                </Grid>
             </Grid>
             {/* Ajoutez le bouton de paiement en bas à droite */}
             <div className="payment-button-container">

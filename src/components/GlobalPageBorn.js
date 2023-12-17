@@ -13,12 +13,14 @@ import ModeRush from "./ModeRush";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Typography from "@mui/material/Typography";
+import {useNavigate} from "react-router";
 
 function BackButtonHeader() {
+    const navigate = useNavigate();
   // Vous pouvez ajouter une fonction pour gérer l'événement onClick si nécessaire.
   const handleBack = () => {
-    // Par exemple, naviguer vers la page précédente.
-    console.log("Retour");
+    // Navigue à la page précédente
+    navigate(-1);
   };
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));

@@ -272,7 +272,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Fromage",
     price: "1.50",
-    urlImage:
+    url:
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
@@ -280,7 +280,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Fromage",
     price: "20",
-    urlImage:
+    url:
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
@@ -288,7 +288,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Fromage",
     price: "20",
-    urlImage:
+    url:
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
@@ -296,7 +296,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Fromage",
     price: "20",
-    urlImage:
+    url:
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
@@ -304,7 +304,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Viande",
     price: "20",
-    urlImage:
+    url:
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
   {
@@ -312,7 +312,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Fromage",
     price: "20",
-    urlImage:
+    url:
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
@@ -320,7 +320,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Viande",
     price: "20",
-    urlImage:
+    url:
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
   {
@@ -328,7 +328,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Fromage",
     price: "20",
-    urlImage:
+    url:
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
@@ -336,7 +336,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Viande",
     price: "20",
-    urlImage:
+    url:
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
   {
@@ -344,7 +344,7 @@ const supplements = [
     name: "Nom du produit 2",
     type: "Fromage",
     price: "20",
-    urlImage:
+    url:
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
@@ -352,7 +352,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Viande",
     price: "20",
-    urlImage:
+    url:
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
   {
@@ -360,7 +360,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Viande",
     price: "20",
-    urlImage:
+    url:
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
   {
@@ -368,7 +368,7 @@ const supplements = [
     name: "Nom du produit 1",
     type: "Viande",
     price: "50",
-    urlImage:
+    url:
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
 

@@ -37,7 +37,7 @@ function SupplementList({ type, index, setIndex }) {
                     key={supplement.id}
                     name={supplement.name}
                     price={supplement.price}
-                    url={supplement.urlImage}
+                    url={supplement.url}
                     item={supplement}
                 />
           ))}
