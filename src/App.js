@@ -6,10 +6,7 @@ import SupplementList from "./components/SupplementList";
 //<OrderContainer/>
 function App() {
   const ingredients = ["tomate", "salade", "fromage"];
-  return (
-    // <ModeRush ingredients={ingredients}/>
-    <GlobalPage />
-  );
+  return <GlobalPage />;
 }
 
 export default App;
