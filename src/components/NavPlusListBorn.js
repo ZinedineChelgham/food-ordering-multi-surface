@@ -5,12 +5,13 @@ import Header from "./SpecialPhone/Header";
 import NavBar from "./NavBar";
 import FoodItemList from "./FoodItemList";
 import OrderBar from "./SpecialPhone/OrderBar";
+import SupplementList from "./SupplementList";
 
 function NavPlusList({
   foodItems,
   currCat,
   handleCategoryChange,
-  isMultiOrder,
+  isMultiOrder, isSupplement,
 }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -34,8 +35,8 @@ function NavPlusList({
           isMultiOrder={isMultiOrder}
         />
       </div>
-      <div style={{ width: "75%", overflow: "hidden", display: "contents" }}>
-        <FoodItemList foodItems={foodItems} />
+      <div style={{ width: "75%", overflow: "hidden", display:"contents" }}>
+          <FoodItemList foodItems={foodItems} />}
       </div>
     </div>
   );
