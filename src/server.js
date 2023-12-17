@@ -93,7 +93,7 @@ const foodItems = {
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
     {
-      id: 1,
+      id: 2,
       name: "Classic Smash Burger",
       price: 10,
       type: "burger",
@@ -101,7 +101,7 @@ const foodItems = {
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
     {
-      id: 1,
+      id: 3,
       name: "Classic Smash Burger",
       price: 10,
       type: "burger",
@@ -109,7 +109,7 @@ const foodItems = {
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
     {
-      id: 1,
+      id: 4,
       name: "Classic Smash Burger",
       price: 10,
       type: "burger",
@@ -117,7 +117,7 @@ const foodItems = {
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
     {
-      id: 1,
+      id: 5,
       name: "Classic Smash Burger",
       price: 10,
       type: "burger",
@@ -125,7 +125,7 @@ const foodItems = {
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
     {
-      id: 1,
+      id: 6,
       name: "Classic Smash Burger",
       price: 10,
       type: "burger",
@@ -133,7 +133,7 @@ const foodItems = {
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
     {
-      id: 1,
+      id: 7,
       name: "Classic Smash Burger",
       price: 10,
       type: "burger",
@@ -141,7 +141,7 @@ const foodItems = {
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
     {
-      id: 1,
+      id: 8,
       name: "Classic Smash Burger",
       price: 10,
       type: "burger",
@@ -149,7 +149,7 @@ const foodItems = {
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
     {
-      id: 1,
+      id: 9,
       name: "Classic Smash Burger",
       price: 10,
       type: "burger",
@@ -157,7 +157,7 @@ const foodItems = {
         "https://i.pinimg.com/736x/32/03/40/3203400cabe243a1d7fea0be683dfe4e.jpg",
     },
     {
-      id: 1,
+      id: 10,
       name: "Classic Smash Burger",
       price: 10,
       type: "burger",
@@ -166,7 +166,7 @@ const foodItems = {
     },
 
     {
-      id: 2,
+      id: 11,
       name: "Spicy Texan Burger",
       price: 15,
       type: "burger",
@@ -276,7 +276,7 @@ const supplements = [
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
-    id: 2001,
+    id: 201,
     name: "Nom du produit 1",
     type: "Fromage",
     price: "20",
@@ -284,7 +284,7 @@ const supplements = [
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
-    id: 3,
+    id: 202,
     name: "Nom du produit 1",
     type: "Fromage",
     price: "20",
@@ -292,7 +292,7 @@ const supplements = [
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
-    id: 4,
+    id: 203,
     name: "Nom du produit 1",
     type: "Fromage",
     price: "20",
@@ -300,7 +300,7 @@ const supplements = [
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
-    id: 5,
+    id: 204,
     name: "Nom du produit 1",
     type: "Viande",
     price: "20",
@@ -308,7 +308,7 @@ const supplements = [
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
   {
-    id: 6,
+    id: 205,
     name: "Nom du produit 1",
     type: "Fromage",
     price: "20",
@@ -316,7 +316,7 @@ const supplements = [
       "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQS8o97J7lEbF0s02-u743soPj1o5wbj88xIZzt7j1IY9LWg-KxPmsJ4GTNs05biVqOvghSuDPqeiVQn0qfJgNhLcBmvKVahjfeyZIc8IpqrhZ8JqmwSAVicB5FtjY-SSEEUoBNYzRLUz0&usqp=CAc",
   },
   {
-    id: 7,
+    id: 206,
     name: "Nom du produit 1",
     type: "Viande",
     price: "20",
@@ -324,7 +324,7 @@ const supplements = [
       "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/XXGRF3PB5RBT5CMHODHTA4LMQI.jpg",
   },
   {
-    id: 8,
+    id: 207,
     name: "Nom du produit 1",
     type: "Fromage",
     price: "20",
