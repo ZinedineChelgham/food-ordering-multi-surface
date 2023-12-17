@@ -69,3 +69,9 @@
 .delete-icon {
   display: flex;
 }
+
+.quantity,
+.name,
+.price {
+  font-size: 2vw;
+}
