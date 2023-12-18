@@ -31,10 +31,9 @@ const OrderSummaryPage = () => {
 
     // Définissez le style conditionnel pour le bouton de paiement
     const paymentButtonStyle = {
-        width: isMobile ? '100%' : 'auto',
+        width: isMobile ? '100%' : '',
         marginLeft: isMobile ? 0 : '10px', // Supprime la marge à gauche en mode mobile
         backgroundColor: isScrolling ? 'transparent' : '',
-        fontSize: isMobile ? '14px' : '16px', // Ajuste la taille de la police en mode mobile
         transition: 'background-color 0.3s ease', // Ajoutez une transition pour une animation fluide
 
     };
@@ -180,6 +179,12 @@ const OrderSummaryPage = () => {
                                       onDelete={handleDelete}/>
                     </Paper>
                 </Grid>
+                <Grid>
+            <div className="total-price-container">
+                        <div className="total-price-text">              </div>
+                    </div>
+
+                </Grid>
             </Grid>
             {/* Ajoutez le bouton de paiement en bas à droite */}
             <div className="payment-button-container">
@@ -187,7 +192,6 @@ const OrderSummaryPage = () => {
                     id="payment_button"
                     variant="contained"
                     color="success"
-                    size="large"
                     endIcon={<PaidIcon id="paid_icon" />}
                     style={paymentButtonStyle}  // Appliquez le style conditionnel ici
                     onClick={() => { navigate('/end'); dropCart(); }}
