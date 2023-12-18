@@ -60,7 +60,7 @@ const [currentChoice, setCurrentChoice] = useState();
         )
       ) : (
         foodItems.map((item, index) => (
-          <Grid item key={index} xs={isSmallScreen ? 12 : 2.75}>
+          <Grid item key={index} xs={isSmallScreen ? 12 : 2.75} style={{padding:isSmallScreen? '0':''}}>
             <Grid
               sx={{
                 padding: "0",
