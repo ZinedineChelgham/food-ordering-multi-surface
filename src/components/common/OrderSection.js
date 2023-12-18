@@ -30,46 +30,10 @@ const OrderSection = ({ title, items, onIncrease, onDecrease, onDelete }) => (
             <div>
               <button
                 onClick={() => onDecrease(item.id)}
-                style={{
-                  display: "inline-flex", // Adjust display
-                  alignItems: "center", // Vertically center content
-                  justifyContent: "center", // Horizontally center content
-                  textAlign: "center",
-                  width: "2vw",
-                  height: "3vh",
-                  // padding: "0.5em 1em", // Added padding
-                  marginRight: "1vw ",
-                  fontSize: "3vw",
-                  backgroundColor: "#F44336", // Softer red
-                  borderRadius: "8px", // Rounded corners
-                  boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)", // Shadow
-                  transition: "background-color 0.3s", // Transition for hover effect
-                  ":hover": {
-                    backgroundColor: "#d32f2f", // Darker red on hover
-                  },
-                }}
               >
                 <RemoveIcon />
               </button>
               <button
-                style={{
-                  display: "inline-flex", // Adjust display
-                  alignItems: "center", // Vertically center content
-                  justifyContent: "center", // Horizontally center content
-                  textAlign: "center",
-                  width: "2vw",
-                  height: "3vh",
-                  // padding: "0.5em 1em", // Added padding
-                  marginRight: "1vw ",
-                  fontSize: "3vw",
-                  backgroundColor: "green", // Softer red
-                  borderRadius: "8px", // Rounded corners
-                  boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)", // Shadow
-                  transition: "background-color 0.3s", // Transition for hover effect
-                  ":hover": {
-                    backgroundColor: "#d32f2f", // Darker red on hover
-                  },
-                }}
                 onClick={() => onIncrease(item.id)}
               >
                 <AddIcon />
