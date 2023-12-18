@@ -23,7 +23,7 @@ function IconWithLabelCard({
       <CardMedia
         sx={{
           fontSize: isSmallScreen ? "10vw" : "5vh",
-          fontSize: isMultiOrder ? "2vw" : isSmallScreen ? "10vw" : "5vh",
+          // fontSize: isMultiOrder ? "2vw" : isSmallScreen ? "10vw" : "5vh",
           margin: "auto",
           marginTop: isSmallScreen ? "" : "",
           width: "inherit",
@@ -35,6 +35,18 @@ function IconWithLabelCard({
   };
 
   const getContent = () => {
+    const getfontSize = () => {
+      if (isMultiOrder) {
+        return "1.2vw";
+      } else if (isSmallScreen) {
+        return "4vw";
+      } else if (isLandscape) {
+        return "4vh";
+      } else {
+        return "5vw";
+      }
+    };
+
     return (
       <Typography
         gutterBottom
@@ -43,7 +55,7 @@ function IconWithLabelCard({
         sx={{
           textAlign: "center",
           fontSize: isSmallScreen ? "4vw" : isLandscape ? "4vh" : "5vw",
-          fontSize: isMultiOrder ? "1.2vw" : isSmallScreen ? "4vw" : "5vw",
+          fontSize: getfontSize(),
         }}
       >
         {icoInfo.label}
