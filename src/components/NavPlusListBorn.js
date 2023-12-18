@@ -15,6 +15,7 @@ function NavPlusList({
   setIndexSupplement,
   isSupplement,
   setIsSupplement,
+  isRushMode,
 }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -46,6 +47,7 @@ function NavPlusList({
           setIndexSupplement={setIndexSupplement}
           isSupplement={isSupplement}
           setIsSupplement={setIsSupplement}
+          isRushMode={isRushMode}
         />
       </div>
     </div>

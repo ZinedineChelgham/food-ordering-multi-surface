@@ -123,6 +123,7 @@ function GlobalPageBorne(props) {
     const interval = setInterval(() => {
             fetch('http://localhost:3001/mode-rush')
                 .then(response => {
+                    console.log("EST CE QUE ?????", response);
                     if (!response.ok) {
                       throw new Error(`HTTP error! status: ${response.status}`);
                     }
@@ -131,8 +132,9 @@ function GlobalPageBorne(props) {
                 .then(data => {
                     console.log('Données reçues de /mode-rush', data);
                     setIsRushMode(data.isRushMode);
+                    console.log("isRushMode", isRushMode);
                 });
-        }, 10000); // Vérifie toutes les 10 secondes
+        }, 1000); // Vérifie toutes les 10 secondes
         return () => clearInterval(interval);
   }, []);
 

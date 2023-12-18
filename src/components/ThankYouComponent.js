@@ -26,13 +26,13 @@ const ThankYouComponent = () => {
         <div className="thank-you-container">
             {isLoading ? (
                 <>
-                    <CircularProgress style={{ color: 'yellow', fontSize: 100 }} />
-                    <h1 className="thank-you-message">Commande en cours de traitement</h1>
+                    <CircularProgress style={{ color: 'yellow', fontSize: 100, }} />
+                    <h1 className="thank-you-message" style={{textAlign: 'center'}}>Commande en cours de traitement</h1>
                 </>
             ) : (
                 <>
-                    <CheckCircleIcon style={{ color: 'green', fontSize: 100 }} />
-                    <h1 className="thank-you-message">Merci pour votre commande</h1>
+                    <CheckCircleIcon style={{ color: 'green', fontSize: 100 , }} />
+                    <h1 className="thank-you-message" style={{textAlign: 'center'}}>Merci pour votre commande</h1>
                 </>
             )}
         </div>

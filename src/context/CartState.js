@@ -2,7 +2,14 @@ import React from "react";
 import { useReducer } from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
-import {SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, DECREASE_QUANTITY, DROP_CART} from "./types";
+import {
+  SHOW_HIDE_CART,
+  ADD_TO_CART,
+  REMOVE_ITEM,
+  DECREASE_QUANTITY,
+  DROP_CART,
+  UPDATE_RECIPE,
+} from "./types";
 import cartContext from "./CartContext";
 
 const CartState = ({ children }) => {
@@ -29,7 +36,11 @@ const CartState = ({ children }) => {
   };
   const dropCart = () => {
     dispatch({ type: DROP_CART });
-  }
+  };
+
+  const updateRecipe = (id, recipe) => {
+    dispatch({ type: UPDATE_RECIPE, payload: { id, recipe } });
+  };
 
   return (
     <CartContext.Provider
@@ -41,6 +52,7 @@ const CartState = ({ children }) => {
         removeItem,
         decreaseQuantity,
         dropCart,
+        updateRecipe,
       }}
     >
       {children}
