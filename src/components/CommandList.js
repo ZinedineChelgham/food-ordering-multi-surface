@@ -28,8 +28,8 @@ const CommandList = ({ orderItems, onItemUpdate, onDeleteItem }) => {
                 {/* SVG for the red cross icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="2vw"
+                  height="2vw"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="red"

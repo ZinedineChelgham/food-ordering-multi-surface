@@ -5,17 +5,25 @@ import BasicCard from "./BasicCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-function IconWithLabelCard({ props, handleCategoryChange, currCat }) {
+function IconWithLabelCard({
+  props,
+  handleCategoryChange,
+  currCat,
+  isMultiOrder,
+}) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLandscape = useMediaQuery("(orientation: landscape)");
   const icoInfo = props;
+
+  console.log("object", isMultiOrder);
 
   const getActionArea = () => {
     return (
       <CardMedia
         sx={{
           fontSize: isSmallScreen ? "10vw" : "5vh",
+          fontSize: isMultiOrder ? "2vw" : isSmallScreen ? "10vw" : "5vh",
           margin: "auto",
           marginTop: isSmallScreen ? "" : "",
           width: "inherit",
@@ -35,6 +43,7 @@ function IconWithLabelCard({ props, handleCategoryChange, currCat }) {
         sx={{
           textAlign: "center",
           fontSize: isSmallScreen ? "4vw" : isLandscape ? "4vh" : "5vw",
+          fontSize: isMultiOrder ? "1.2vw" : isSmallScreen ? "4vw" : "5vw",
         }}
       >
         {icoInfo.label}
@@ -52,6 +61,7 @@ function IconWithLabelCard({ props, handleCategoryChange, currCat }) {
       category={icoInfo.label}
       currCat={currCat}
       fromIcon={true}
+      isMultiOrder={isMultiOrder}
     />
   );
 }

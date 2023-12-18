@@ -9,6 +9,7 @@ import {
   DECREASE_QUANTITY,
   DROP_CART,
   UPDATE_RECIPE,
+  SET_ID,
 } from "./types";
 import cartContext from "./CartContext";
 
@@ -42,9 +43,14 @@ const CartState = ({ children }) => {
     dispatch({ type: UPDATE_RECIPE, payload: { id, recipe } });
   };
 
+  const setId = (id) => {
+    dispatch({ type: SET_ID, payload: id });
+  };
+
   return (
     <CartContext.Provider
       value={{
+        id: undefined,
         showCart: state.showCart,
         cartItems: state.cartItems,
         addToCart,

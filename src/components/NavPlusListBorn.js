@@ -47,6 +47,7 @@ function NavPlusList({
           setIndexSupplement={setIndexSupplement}
           isSupplement={isSupplement}
           setIsSupplement={setIsSupplement}
+          isMultiOrder={isMultiOrder}
           isRushMode={isRushMode}
         />
       </div>

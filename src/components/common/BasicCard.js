@@ -13,6 +13,7 @@ function BasicCard({
   currCat,
   fromIcon,
   onFoodItemClick,
+  isMultiOrder,
 }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -24,10 +25,6 @@ function BasicCard({
       onFoodItemClick();
     }
   };
-
-  console.log("fromIcon: " + fromIcon);
-  console.log("currCat: " + currCat);
-  console.log("category: " + category);
 
   if (isSmallScreen) {
     return (
