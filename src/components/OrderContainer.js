@@ -19,7 +19,7 @@ const OrderContainer = () => {
   const handleItemUpdate = (item, action) => {};
 
   const handleCancelOrder = () => {
-    cartItems.forEach((item) => removeItem(item.id));
+    cartItems.forEach((item) => removeItem(item._id));
   };
 
   const handleValidateOrder = () => {
