@@ -17,11 +17,11 @@ const CartReducer = (state, action) => {
       };
     }
     case ADD_TO_CART: {
-      if (state.cartItems.find((item) => item.id === action.payload.id)) {
+      if (state.cartItems.find((item) => item._id === action.payload._id)) {
         return {
           ...state,
           cartItems: state.cartItems.map((item) =>
-            item.id === action.payload.id
+            item._id === action.payload._id
               ? { ...item, quantity: item.quantity + 1 }
               : item
           ),
@@ -36,15 +36,17 @@ const CartReducer = (state, action) => {
     case REMOVE_ITEM: {
       return {
         ...state,
-        cartItems: state.cartItems.filter((item) => item.id !== action.payload),
+        cartItems: state.cartItems.filter(
+          (item) => item._id !== action.payload
+        ),
       };
     }
     case DECREASE_QUANTITY: {
-      if (state.cartItems.find((item) => item.id === action.payload.id)) {
+      if (state.cartItems.find((item) => item._id === action.payload._id)) {
         return {
           ...state,
           cartItems: state.cartItems.map((item) =>
-            item.id === action.payload.id
+            item._id === action.payload._id
               ? { ...item, quantity: item.quantity - 1 }
               : item
           ),
@@ -66,7 +68,7 @@ const CartReducer = (state, action) => {
       return {
         ...state,
         cartItems: state.cartItems.map((item) =>
-          item.id === action.payload.id
+          item._id === action.payload._id
             ? { ...item, recipe: action.payload.recipe }
             : item
         ),

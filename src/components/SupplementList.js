@@ -5,6 +5,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import SupplementItem from "./common/Supplement";
 import Button from "@mui/material/Button";
+import { getSupplementsFromCategory } from "../DataFetcher";
 
 function SupplementList({
   type,
@@ -19,10 +20,24 @@ function SupplementList({
 
   const [supplements, setSupplements] = React.useState([]);
 
+  console.log("on supléments");
+
   React.useEffect(() => {
-    fetch("http://localhost:3001/supplements/" + type)
-      .then((res) => res.json())
-      .then((data) => setSupplements(data));
+    const getSupplements = async () => {
+      try {
+        const data = await getSupplementsFromCategory(type.toLocaleLowerCase());
+        return data;
+      } catch (error) {
+        console.error(error);
+        return []; // return an empty array in case of error
+      }
+    };
+    const fetchData = async () => {
+      const items = await getSupplements();
+      console.log(items);
+      setSupplements(items);
+    };
+    fetchData();
   }, [type]);
 
   return (
@@ -46,10 +61,10 @@ function SupplementList({
       <div style={{ height: isLandscape ? "45%" : "52%", overflow: "auto" }}>
         {supplements.map((supplement) => (
           <SupplementItem
-            key={supplement.id}
-            name={supplement.name}
+            key={supplement._id}
+            name={supplement.shortName}
             price={supplement.price}
-            url={supplement.url}
+            url={supplement.image}
             item={supplement}
             isMultiOrder={isMultiOrder}
           />

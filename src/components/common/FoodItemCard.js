@@ -5,7 +5,13 @@ import React from "react";
 import CartContext from "../../context/CartContext";
 import { cloneNode } from "@babel/types";
 
-function FoodItemCard({ item, setSupplement, indexBurger,setRecipe, setCurrentChoice }) {
+function FoodItemCard({
+  item,
+  setSupplement,
+  indexBurger,
+  setRecipe,
+  setCurrentChoice,
+}) {
   const { addToCart, cartItems } = React.useContext(CartContext);
 
   const getActionArea = () => {
@@ -13,7 +19,7 @@ function FoodItemCard({ item, setSupplement, indexBurger,setRecipe, setCurrentCh
       <CardMedia
         style={{ borderRadius: "inherit", height: "14vh" }}
         component="img"
-        image={item.url}
+        image={item.image}
         alt="big burger"
       />
     );
@@ -28,7 +34,7 @@ function FoodItemCard({ item, setSupplement, indexBurger,setRecipe, setCurrentCh
           component="div"
           marginBottom={0.1}
         >
-          {item.name}
+          {item.shortName}
         </Typography>
         <div style={{ textAlign: "center" }}>
           <Typography
@@ -54,12 +60,12 @@ function FoodItemCard({ item, setSupplement, indexBurger,setRecipe, setCurrentCh
       actionArea={getActionArea()}
       content={getContent()}
       onFoodItemClick={() => {
-        if ((item.type === "burger") | (item.type === "pizza")) {
-          setSupplement(true);
-          indexBurger(0);
-          setRecipe(item.recipe);
-          setCurrentChoice(item);
-        }
+        // if (item.shortName === "pizza") { // Remove notion of supplement
+        //   setSupplement(true);
+        //   indexBurger(0);
+        //   setRecipe(item.recipe);
+        //   setCurrentChoice(item);
+        // }
         console.log("Adding item in the cart", item);
         addToCart(item, 1);
         console.log("Cart state", cartItems);

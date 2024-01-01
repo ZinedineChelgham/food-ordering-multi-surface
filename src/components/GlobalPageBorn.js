@@ -14,6 +14,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router";
 import React, { useState } from "react";
+import { getMenuFromCategory } from "../DataFetcher.js";
 // function GlobalPageBorne(props) {
 //     const theme = useTheme();
 //     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -111,21 +112,7 @@ function GlobalPageBorne(props) {
     "fromage",
     "steak",
   ];
-  //   const boissons = ["coca-cola", "sprite", "fanta"];
-  //   const desserts = ["fraise", "nature", "fraise"];
-  const boissons = [
-    { id: 1, name: "Coca-Cola", price: 1.5, imageName: "coca-cola" },
-    { id: 2, name: "Sprite", price: 1.5, imageName: "sprite" },
-    { id: 3, name: "Fanta", price: 1.5, imageName: "fanta" },
-    // ...
-  ];
 
-  const desserts = [
-    { id: 1, name: "Gâteau à la fraise", price: 2.5, imageName: "fraise" },
-    { id: 2, name: "Glace nature", price: 2.0, imageName: "nature" },
-    { id: 3, name: "Gâteau au chocolat", price: 2.5, imageName: "fraise" },
-    // ...
-  ];
   const { cartItems } = React.useContext(CartContext);
 
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -138,39 +125,43 @@ function GlobalPageBorne(props) {
     }
   }
 
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      fetch("http://localhost:3001/mode-rush")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log("Données reçues de /mode-rush", data);
-          setIsRushMode(data.isRushMode);
-        });
-    }, 10000); // Vérifie toutes les 10 secondes
-    return () => clearInterval(interval);
-  }, []);
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     fetch("http://localhost:3001/mode-rush")
+  //       .then((response) => {
+  //         if (!response.ok) {
+  //           throw new Error(`HTTP error! status: ${response.status}`);
+  //         }
+  //         return response.json();
+  //       })
+  //       .then((data) => {
+  //         console.log("Données reçues de /mode-rush", data);
+  //         setIsRushMode(data.isRushMode);
+  //       });
+  //   }, 10000); // Vérifie toutes les 10 secondes
+  //   return () => clearInterval(interval);
+  // }, []);
 
-  const [category, setCategory] = React.useState("burgers");
+  const [category, setCategory] = React.useState("entrées");
   const [categoryItems, setCategoryItems] = React.useState([]);
 
-  const API_URL = "http://localhost:3001/items/";
+  //const API_URL = "http://localhost:3001/items/";
   React.useEffect(() => {
-    fetch(API_URL + category.toLowerCase())
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Données reçues de /items/" + category, data);
-        setCategoryItems(data);
-      });
+    const getItems = async () => {
+      try {
+        const data = await getMenuFromCategory(category.toLocaleLowerCase());
+        return data;
+      } catch (error) {
+        console.error(error);
+        return []; // return an empty array in case of error
+      }
+    };
+    const fetchData = async () => {
+      const items = await getItems();
+      console.log(items);
+      setCategoryItems(items);
+    };
+    fetchData();
   }, [category]);
 
   const handleCategoryChange = (cat) => {

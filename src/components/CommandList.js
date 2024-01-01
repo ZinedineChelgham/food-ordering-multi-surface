@@ -14,7 +14,7 @@ const CommandList = ({ orderItems, onItemUpdate, onDeleteItem }) => {
         <div className="command-list-container">
           {orderItems.map((item) => (
             <div
-              key={item.id}
+              key={item._id}
               className="command-item"
               onClick={() => onItemUpdate(item, true)}
             >

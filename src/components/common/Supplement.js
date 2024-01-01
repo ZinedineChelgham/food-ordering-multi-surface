@@ -48,7 +48,6 @@ const SupplementItem = ({ name, price, url, item, isMultiOrder }) => {
           marginRight: isLandscape ? "1vw" : "1vh",
         }}
       >
-        {console.log(url)}
         <img
           src={url}
           alt={name}

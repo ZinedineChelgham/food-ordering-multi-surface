@@ -7,22 +7,21 @@ import { useState } from "react";
 import ModeRush from "./ModeRush";
 
 function FoodItemsList({
-                           foodItems,
-                           currCat,
-                           indexSupplement,
-                           setIndexSupplement,
-                           isSupplement,
-                           setIsSupplement,
-                           isRushMode,
-                           isMultiOrder,
-                       }) {
-    const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-    const supplementBurger = ["Fromage", "Viande", "Divers"];
+  foodItems,
+  currCat,
+  indexSupplement,
+  setIndexSupplement,
+  isSupplement,
+  setIsSupplement,
+  isRushMode,
+  isMultiOrder,
+}) {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const supplementBurger = ["Fromage", "Viande", "Divers"];
 
-
-const [recipe, setRecipe] = useState([]);
-const [currentChoice, setCurrentChoice] = useState();
+  const [recipe, setRecipe] = useState([]);
+  const [currentChoice, setCurrentChoice] = useState();
 
   return (
     <Grid
@@ -60,7 +59,12 @@ const [currentChoice, setCurrentChoice] = useState();
         )
       ) : (
         foodItems.map((item, index) => (
-          <Grid item key={index} xs={isSmallScreen ? 12 : 2.75} style={{padding:isSmallScreen? '0':''}}>
+          <Grid
+            item
+            key={index}
+            xs={isSmallScreen ? 12 : 2.75}
+            style={{ padding: isSmallScreen ? "0" : "" }}
+          >
             <Grid
               sx={{
                 padding: "0",

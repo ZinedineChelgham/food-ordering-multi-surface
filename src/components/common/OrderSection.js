@@ -16,31 +16,27 @@ const OrderSection = ({ title, items, onIncrease, onDecrease, onDelete }) => (
         .map((item) => (
           <div
             className="item"
-            key={item.id}
+            key={item._id}
             style={{ display: "flex", justifyContent: "space-between" }}
           >
             <div style={{ display: "flex", flexDirection: "row" }}>
-              <img src={item.url} alt={item.name} />
+              <img src={item.image} alt={item.shortName} />
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <div className="item-description">{item.name} </div>
+                <div className="item-description">{item.fullName} </div>
                 <div className="item-quantity">Quantité: {item.quantity}</div>
                 <div className="item-price">Prix unitaire: {item.price} € </div>
               </div>
             </div>
             <div>
-              <button
-                onClick={() => onDecrease(item.id)}
-              >
+              <button onClick={() => onDecrease(item._id)}>
                 <RemoveIcon />
               </button>
-              <button
-                onClick={() => onIncrease(item.id)}
-              >
+              <button onClick={() => onIncrease(item._id)}>
                 <AddIcon />
               </button>
               <button
                 className="delete-button"
-                onClick={() => onDelete(item.id)}
+                onClick={() => onDelete(item._id)}
               >
                 <ClearIcon />
               </button>

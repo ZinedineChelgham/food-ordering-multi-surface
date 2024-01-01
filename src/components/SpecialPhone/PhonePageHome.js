@@ -6,6 +6,7 @@ import NavBar from "../NavBar";
 import FoodItemList from "../FoodItemList";
 import OrderBar from "./OrderBar";
 import Header from "./Header";
+import {getMenuFromCategory} from "../../DataFetcher";
 
 function HomePhone({ decreaseFunction }) {
   const handleBack = () => {
@@ -15,23 +16,28 @@ function HomePhone({ decreaseFunction }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const [category, setCategory] = React.useState("burgers");
+  const [category, setCategory] = React.useState("entrées");
 
   const [categoryItems, setCategoryItems] = React.useState([]);
 
-  const API_URL = "http://localhost:3001/items/";
+  const getItems = async () => {
+    try {
+      const data = await getMenuFromCategory(category.toLocaleLowerCase());
+      return data;
+    } catch (error) {
+      console.error(error);
+      return []; // return an empty array in case of error
+    }
+  };
+
+  //const API_URL = "http://localhost:3001/items/";
   React.useEffect(() => {
-    fetch(API_URL + category.toLowerCase())
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Données reçues de /items/" + category, data);
-        setCategoryItems(data);
-      });
+    const fetchData = async () => {
+      const items = await getItems();
+      console.log(items);
+      setCategoryItems(items);
+    };
+    fetchData();
   }, [category]);
 
   console.log("-----phone display-----");

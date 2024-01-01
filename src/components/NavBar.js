@@ -10,6 +10,8 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import IcecreamIcon from "@mui/icons-material/Icecream";
 import LocalPizzaIcon from "@mui/icons-material/LocalPizza";
+import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import TapasIcon from '@mui/icons-material/Tapas';
 
 function NavBar({
   handleCategoryChange,
@@ -21,8 +23,8 @@ function NavBar({
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLandscape = useMediaQuery("(orientation: landscape)");
   const iconsInfos = [
-    { icon: LunchDiningIcon, route: "/lunch", label: "Burgers" },
-    { icon: LocalPizzaIcon, route: "/fastfood", label: "Pizzas" },
+    { icon: TapasIcon, route: "/lunch", label: "Entrées" },
+    { icon: DinnerDiningIcon, route: "/fastfood", label: "Plats" },
     { icon: LocalDrinkIcon, route: "/drink", label: "Boissons" },
     { icon: IcecreamIcon, route: "/cookie", label: "Desserts" },
   ];

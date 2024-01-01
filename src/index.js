@@ -9,6 +9,7 @@ import MultiOrder from "./components/multi-order/Multi-order";
 import HomeBorne from "./components/HomeBorne.js";
 import ThankYouComponent from "./components/ThankYouComponent";
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <CartState>
