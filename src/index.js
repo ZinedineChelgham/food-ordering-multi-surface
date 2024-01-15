@@ -8,14 +8,14 @@ import CartState from "./context/CartState.js";
 import MultiOrder from "./components/multi-order/Multi-order";
 import HomeBorne from "./components/HomeBorne.js";
 import ThankYouComponent from "./components/ThankYouComponent";
-
+import StartingLayout from "./components/part2/StartingLayout.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <CartState>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomeBorne />} />
+        <Route path="/" element={<StartingLayout />} />
         <Route path="/start" element={<App />} />
         <Route path="/ordersummary" element={<OrderSummaryPage />} />
         <Route path="/multiorder" element={<MultiOrder />} />
