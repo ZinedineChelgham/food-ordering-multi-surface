@@ -1,174 +1,129 @@
-import React, { useState, useEffect } from 'react';
-import CommandList from './CommandList';
-import OrderHeader from './OrderHeader';
+import React, { useState, useEffect } from "react";
+import CommandList from "./CommandList";
+import OrderHeader from "./OrderHeader";
+import CartContext from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 const OrderContainer = () => {
-    // This state will hold the order items and could be updated when items are added or removed
-    const [orderItems, setOrderItems] = useState([]);
+  // This state will hold the order items and could be updated when items are added or removed
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLandscape = useMediaQuery("(orientation: landscape)");
 
-    const burgerItems = [
-        { id: 1, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 2, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 3, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 4, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 5, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 6, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 7, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 8, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 9, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 10, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 11, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 12, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 13, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 14, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 15, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 16, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 17, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 18, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 19, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 20, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 21, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 22, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 23, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 24, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 25, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 26, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 27, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 28, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 29, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 30, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 31, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 32, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 33, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 34, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 35, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 36, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 37, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 38, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 39, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 40, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 41, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 42, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 43, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 44, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 45, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 46, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 47, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 48, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 49, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 50, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 51, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 52, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 53, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 54, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 55, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 56, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 57, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 58, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 59, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 60, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 61, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 62, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 63, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 64, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 65, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 66, name: 'boisson', price: 2.50, quantity: 2 },
-        { id: 67, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 68, name: 'frites', price: 0.99, quantity: 1 },
-        { id: 69, name: 'Burger', price: 7.20, quantity: 1 },
-        { id: 70, name: 'boisson', price: 2.50, quantity: 2 }
-    ];
-    // const burgerItems = [];
+  const { cartItems, removeItem } = React.useContext(CartContext);
+  const navigate = useNavigate();
 
-    const handleItemUpdate = (item, action) => {
-    };
+  const handleItemUpdate = (item, action) => {};
 
-    const handleCancelOrder = () => {
-        // Logic to handle order cancellation
-    };
+  const handleCancelOrder = () => {
+    cartItems.forEach((item) => removeItem(item._id));
+  };
 
-    const handleValidateOrder = () => {
-        // Logic to handle order validation
-    };
-    const onDeleteItem = (id) => {
-        // Logic to delete the item from the order
-        setOrderItems(prevItems => prevItems.filter(item => item.id !== id));
-    };
+  const handleValidateOrder = () => {
+    navigate("/ordersummary", { state: { cartItems } });
+  };
 
+  const onDeleteItem = (id) => {
+    // Logic to delete the item from the order
+    removeItem(id);
+  };
 
-    const addItemToOrder = item => {
-        setOrderItems(prevItems => {
-            // Check if the item is already in the order
-            const existingItem = prevItems.find(i => i.id === item.id);
-            if (existingItem) {
-                // If it is, update the quantity
-                return prevItems.map(i =>
-                    i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i
-                );
-            } else {
-                // If it's not, add the new item with its original quantity
-                return [...prevItems, item];
-            }
-        });
-    };
+  // Calculate the total amount of the order
+  const calculateTotal = (items) =>
+    items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
+  return (
+    <div
+      style={{
+        height: "85%",
+        display: "flex",
+        flexDirection: "column",
+        paddingBottom: "2vh",
+      }}
+    >
+      <div style={{ height: "auto", flexShrink: 0 }}>
+        <OrderHeader total={calculateTotal(cartItems)} />
+      </div>
+      <div
+        style={{
+          height: "100%",
+          overflowY: "auto",
+          flexGrow: 1,
+          marginLeft: "40px",
+        }}
+      >
+        <CommandList
+          orderItems={cartItems}
+          onItemUpdate={handleItemUpdate}
+          onDeleteItem={onDeleteItem}
+        />
+      </div>
+      <div style={{ height: "10%", flexShrink: 0, padding: "10px" }}>
+        <div className="command-actions">
+          <button
+            className="cancel-button"
+            disabled={cartItems.length === 0}
+            style={{
+              backgroundColor: "#d9534f", // Red color
+              color: "white", // White text
+              border: "none",
+              borderRadius: "5px",
+              padding: "10px 20px",
+              fontWeight: "bold",
+              marginRight: "10px",
+              cursor: cartItems.length === 0 ? "not-allowed" : "pointer",
+              opacity: cartItems.length === 0 ? 0.6 : 1,
+              width: "50%",
+              height: "100%",
 
-    // Calculate the total amount of the order
-    const calculateTotal = items => items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+              // Add any other styles you want to apply directly here
+            }}
+            onClick={handleCancelOrder}
+          >
+            <Typography
+              variant="body1"
+              color="#fffff"
+              fontWeight={"bold"}
+              fontSize={isLandscape ? "3vh" : "3.5vw"}
+            >
+              Abandonner la commande
+            </Typography>
+          </button>
+          <button
+            className="validate-button"
+            disabled={cartItems.length === 0}
+            style={{
+              backgroundColor: "#5cb85c", // Green color
+              color: "white", // White text
+              border: "none",
+              borderRadius: "5px",
+              padding: "10px 20px",
+              fontWeight: "bold",
+              cursor: cartItems.length === 0 ? "not-allowed" : "pointer",
+              opacity: cartItems.length === 0 ? 0.6 : 1,
+              width: "50%",
+              height: "100%",
 
-    // Simulate adding items after component mounts
-    useEffect(() => {
-        burgerItems.forEach(item => {
-            addItemToOrder(item);
-        });
-    }, []);
-
-    return (
-        <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ height: '20%', flexShrink: 0 }}>
-                <OrderHeader total={calculateTotal(orderItems)} />
-            </div>
-            <div style={{ height: '70%', overflowY: 'auto', flexGrow: 1, marginLeft: '40px' }} >
-                <CommandList
-                    orderItems={orderItems}
-                    onItemUpdate={handleItemUpdate}
-                    onDeleteItem={onDeleteItem}
-                />
-            </div>
-            <div style={{ height: '30%', flexShrink: 0 }}>
-                <div className="command-actions">
-                    <button className="cancel-button" style={{
-                        backgroundColor: '#d9534f', // Red color
-                        color: 'white', // White text
-                        border: 'none',
-                        borderRadius: '5px',
-                        padding: '10px 20px',
-                        fontWeight: 'bold',
-                        marginRight: '10px',
-                        cursor: 'pointer',
-                        cursor: orderItems.length === 0 ? 'default' : 'pointer',
-                        opacity: orderItems.length === 0 ? 0.5 : 1,
-                        // Add any other styles you want to apply directly here
-                    }} >
-                        Abandonner la commande
-                    </button>
-                    <button className="validate-button" style={{
-                        backgroundColor: '#5cb85c', // Green color
-                        color: 'white', // White text
-                        border: 'none',
-                        borderRadius: '5px',
-                        padding: '10px 20px',
-                        fontWeight: 'bold',
-                        cursor: orderItems.length === 0 ? 'default' : 'pointer',
-                        opacity: orderItems.length === 0 ? 0.5 : 1,
-                        // Add any other styles you want to apply directly here
-                    }}>
-                        Valider la commande
-                    </button>
-                </div>
-            </div>
+              // Add any other styles you want to apply directly here
+            }}
+            onClick={handleValidateOrder}
+          >
+            <Typography
+              variant="body1"
+              color="#fffff"
+              fontWeight={"bold"}
+              fontSize={isLandscape ? "3vh" : "3.5vw"}
+            >
+              Valider
+            </Typography>
+          </button>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default OrderContainer;

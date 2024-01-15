@@ -6,22 +6,53 @@ import NavBar from "./NavBar";
 import FoodItemList from "./FoodItemList";
 import OrderBar from "./SpecialPhone/OrderBar";
 
-function NavPlusList(props) {
-    const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-    const isLandscape = useMediaQuery('(orientation: landscape)');
+function NavPlusList({
+  foodItems,
+  currCat,
+  handleCategoryChange,
+  isMultiOrder,
+  indexSupplement,
+  setIndexSupplement,
+  isSupplement,
+  setIsSupplement,
+  isRushMode,
+}) {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLandscape = useMediaQuery("(orientation: landscape)");
 
-    return (
-        <div style={{ width: '100vw', height:'100%', overflow: 'hidden',display: 'flex',
-            flexdirection: 'row', justifyContent: 'space-between'}}>
-            <div style={{ height: '20%', }}>
-                <NavBar />
-            </div>
-            <div style={{ width: '75%', overflow: 'hidden' }}>
-                <FoodItemList />
-            </div>
-        </div>
-    );
+  return (
+    <div
+      style={{
+        width: isMultiOrder ? undefined : "100vw",
+        height: "100%",
+        overflow: "hidden",
+        display: "flex",
+        flexdirection: "row",
+        justifyContent: "space-between",
+      }}
+    >
+      <div style={{}}>
+        <NavBar
+          handleCategoryChange={handleCategoryChange}
+          currCat={currCat}
+          isMultiOrder={isMultiOrder}
+          indexSupplement={indexSupplement}
+        />
+      </div>
+      <div style={{ width: "75%", overflow: "hidden", display: "contents" }}>
+        <FoodItemList
+          foodItems={foodItems}
+          indexSupplement={indexSupplement}
+          setIndexSupplement={setIndexSupplement}
+          isSupplement={isSupplement}
+          setIsSupplement={setIsSupplement}
+          isMultiOrder={isMultiOrder}
+          isRushMode={isRushMode}
+        />
+      </div>
+    </div>
+  );
 }
 
 export default NavPlusList;

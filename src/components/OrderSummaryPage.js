@@ -1,121 +1,235 @@
 // OrderSummaryPage.js
-import React, {useEffect, useState} from 'react';
-import OrderSection from './common/OrderSection';
-import burger from '../assets/img/burger/burger.png';
-import cheeseburger from '../assets/img/burger/cheeseburger.jpg';
-import frites from '../assets/img/frites/frites.jpg';
-import coca from '../assets/img/boisson/cocacola.jpg';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import  './OrderSummaryPage.css'
-import PaidIcon from '@mui/icons-material/Paid';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import {useTheme} from "@mui/material/styles";
-
-
-
+import React, { useEffect, useState, useContext } from "react";
+import OrderSection from "./common/OrderSection";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import "./OrderSummaryPage.css";
+import PaidIcon from "@mui/icons-material/Paid";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import Toolbar from "@mui/material/Toolbar";
+import AppBar from "@mui/material/AppBar";
+import { useLocation } from "react-router-dom";
+import CartContext from "../context/CartContext";
+import { useNavigate } from "react-router";
+import { startReservation, fillCommand } from "../DataPoster";
 
 const OrderSummaryPage = () => {
-    const burgers = [
-        { id: 1, name: 'Hamburger', image: burger, price: 5.0  },
-        { id: 2, name: 'Cheeseburger', image: cheeseburger, price: 6.5 },
-        ];
-    const supplements = [
-        { id: 3, name: 'Frites', image: frites, price: 2 },
-        ];
-    const drinks = [
-        { id: 5, name: 'Coca', image: coca, price: 1.5 },
-        { id: 6, name: 'Coca', image: coca, price: 1.5 },
-        { id: 7, name: 'Coca', image: coca, price: 1.5 },
-        { id: 8, name: 'Coca', image: coca, price: 1.5 },
-        { id: 9, name: 'Coca', image: coca, price: 1.5 },
-        { id: 10, name: 'Coca', image: coca, price: 1.5 },
-        { id: 11, name: 'Coca', image: coca, price: 1.5 },
+  const cartItems2 = useContext(CartContext);
+  const location = useLocation();
+  const [cartItems, setCartItems] = useState(location.state?.cartItems || []);
+  const theme = useTheme();
+  // Utilisez useMediaQuery pour détecter la taille de l'écran
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // Définissez la taille maximale pour considérer comme mobile
+  const [isScrolling, setIsScrolling] = useState(false);
+  const navigate = useNavigate();
 
-        ];
-    const theme = useTheme();
-    // Utilisez useMediaQuery pour détecter la taille de l'écran
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Définissez la taille maximale pour considérer comme mobile
-    const [isScrolling, setIsScrolling] = useState(false);
-
-    // Définissez le style conditionnel pour le bouton de paiement
-    const paymentButtonStyle = {
-        width: isMobile ? '100%' : 'auto',
-        marginLeft: isMobile ? 0 : '10px', // Supprime la marge à gauche en mode mobile
-        backgroundColor: isScrolling ? 'transparent' : '',
-        fontSize: isMobile ? '14px' : '16px', // Ajuste la taille de la police en mode mobile
-        transition: 'background-color 0.3s ease', // Ajoutez une transition pour une animation fluide
-
-    };
-    // État pour stocker le prix total
-    const [totalPrice, setTotalPrice] = useState(0);
-
-    // Effet pour recalculer le prix total à chaque changement d'articles
-    useEffect(() => {
-        const calculateTotalPrice = () => {
-            const allItems = [...burgers, ...supplements, ...drinks];
-            const newTotalPrice = allItems.reduce((acc, item) => acc + item.price, 0);
-            setTotalPrice(newTotalPrice);
-        };
-
-        calculateTotalPrice();
-    }, [burgers, supplements, drinks]);
-    useEffect(() => {
-        let scrollTimer;
-
-        const handleScroll = () => {
-            setIsScrolling(true);
-            clearTimeout(scrollTimer);
-
-            scrollTimer = setTimeout(() => {
-                setIsScrolling(false);
-            }, 200); // Ajustez la durée du délai selon vos besoins
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-
-    return (
-        <div style={{ overflowX: 'hidden'}}>
-            <h1>Récapitulatif de la commande </h1>
-            <Grid container spacing={2} className="order-summary-container">
-                <Grid item xs={12}>
-                    <Paper className="order-section" elevation={3}>
-                        <OrderSection title="Burgers" items={burgers} />
-                    </Paper>
-                </Grid>
-                <Grid item xs={12}>
-                    <Paper className="order-section" elevation={3}>
-                        <OrderSection title="Suppléments" items={supplements} />
-                    </Paper>
-                </Grid>
-                <Grid item xs={12}>
-                    <Paper className="order-section" elevation={3}>
-                        <OrderSection title="Boissons" items={drinks} />
-                    </Paper>
-                </Grid>
-            </Grid>
-            {/* Ajoutez le bouton de paiement en bas à droite */}
-            <div className="payment-button-container">
-                <Button
-                    id="payment_button"
-                    variant="contained"
-                    color="success"
-                    size="large"
-                    endIcon={<PaidIcon id="paid_icon" />}
-                    style={paymentButtonStyle}  // Appliquez le style conditionnel ici
-                >
-                    Payer {totalPrice} €
-                </Button>
-            </div>
-        </div>
+  // Définissez le style conditionnel pour le bouton de paiement
+  const paymentButtonStyle = {
+    width: isMobile ? "100%" : "",
+    marginLeft: isMobile ? 0 : "10px", // Supprime la marge à gauche en mode mobile
+    backgroundColor: isScrolling ? "transparent" : "",
+    transition: "background-color 0.3s ease", // Ajoutez une transition pour une animation fluide
+  };
+  // État pour stocker le prix total
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    const newTotalPrice = cartItems.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
     );
+    setTotalPrice(newTotalPrice);
+  }, [cartItems]);
+
+  const handleBackButtonClick = () => {
+    // Navigue à la page précédente
+    navigate(-1);
+  };
+  const categorizeItems = () => {
+    // Cette fonction devrait diviser les cartItems en différentes catégories
+    console.log(cartItems);
+    const categorized = {
+      entrees: cartItems.filter((item) => item.category === "STARTER"),
+      plats: cartItems.filter((item) => item.category === "MAIN"),
+      desserts: cartItems.filter((item) => item.category === "DESSERT"),
+      boissons: cartItems.filter((item) => item.category === "BEVERAGE"),
+      //   supplements: cartItems.filter(
+      //     (item) =>
+      //       item.category === "Fromage" ||
+      //       item.category === "Viande" ||
+      //       item.category === "Divers"
+      //   ),
+
+      // Répétez pour les autres catégories...
+    };
+    return categorized;
+  };
+
+  const handleIncrease = (id) => {
+    const updatedItems = cartItems.map((item) =>
+      item._id === id ? { ...item, quantity: item.quantity + 1 } : item
+    );
+
+    // Appliquer addToCart uniquement à l'élément spécifié
+    const itemToAdd = updatedItems.find((item) => item._id === id);
+    if (itemToAdd) {
+      cartItems2.addToCart(itemToAdd, 1);
+    }
+
+    setCartItems(updatedItems);
+  };
+
+  const handleDecrease = (id) => {
+    const updatedItems = cartItems.map((item) =>
+      item._id === id
+        ? { ...item, quantity: Math.max(item.quantity - 1, 0) }
+        : item
+    );
+
+    // Appliquer decreaseQuantity uniquement à l'élément spécifié
+    const itemToDecrease = updatedItems.find((item) => item._id === id);
+    if (itemToDecrease.quantity >= 1) {
+      cartItems2.decreaseQuantity(itemToDecrease);
+    } else if (itemToDecrease.quantity === 0) {
+      handleDelete(id);
+    }
+
+    setCartItems(updatedItems);
+  };
+
+  const handleDelete = (id) => {
+    cartItems2.removeItem(id);
+    const updatedItems = cartItems.filter((item) => item._id !== id);
+    setCartItems(updatedItems);
+  };
+
+  const dropCart = () => {
+    cartItems2.dropCart();
+  };
+
+  const categorizedItems = categorizeItems();
+  useEffect(() => {
+    let scrollTimer;
+
+    const handleScroll = () => {
+      setIsScrolling(true);
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        console.log("Stopped scrolling.");
+        setIsScrolling(false);
+      }, 200); // Ajustez la durée du délai selon vos besoins
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  return (
+    <div style={{ overflowX: "hidden", marginTop: "10vh" }}>
+      <AppBar
+        position="fixed"
+        style={{ height: "10vh", display: "flex", justifyContent: "center" }}
+      >
+        <Toolbar style={{ justifyContent: "space-between" }}>
+          <Typography variant="h6">Récapitulatif de commande</Typography>
+          <Button color="inherit" onClick={handleBackButtonClick}>
+            Retour
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <Grid
+        container
+        spacing={2}
+        className="order-summary-container"
+        style={{ marginTop: "0" }}
+      >
+        <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
+          <Paper className="order-section" elevation={3}>
+            <OrderSection
+              title="Entrées"
+              items={categorizedItems.entrees}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+              onDelete={handleDelete}
+            />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
+          <Paper className="order-section" elevation={3}>
+            <OrderSection
+              title="Plats"
+              items={categorizedItems.plats}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+              onDelete={handleDelete}
+            />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
+          <Paper className="order-section" elevation={3}>
+            <OrderSection
+              title="Desserts"
+              items={categorizedItems.desserts}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+              onDelete={handleDelete}
+            />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
+          <Paper className="order-section" elevation={3}>
+            <OrderSection
+              title="Boissons"
+              items={categorizedItems.boissons}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+              onDelete={handleDelete}
+            />
+          </Paper>
+        </Grid>
+        {/* <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
+          <Paper className="order-section" elevation={3}>
+            <OrderSection
+              title="Supplements"
+              items={categorizedItems.supplements}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+              onDelete={handleDelete}
+            />
+          </Paper>
+        </Grid> */}
+        <Grid>
+          <div className="total-price-container">
+            <div className="total-price-text"> </div>
+          </div>
+        </Grid>
+      </Grid>
+      {/* Ajoutez le bouton de paiement en bas à droite */}
+      <div className="payment-button-container">
+        <Button
+          id="payment_button"
+          variant="contained"
+          color="success"
+          endIcon={<PaidIcon id="paid_icon" />}
+          style={paymentButtonStyle} // Appliquez le style conditionnel ici
+          onClick={async () => {
+            const res = await startReservation();
+            console.log("startRes", res);
+            const res2 = await fillCommand(cartItems, res._id);
+            console.log("fillComand", res2);
+            navigate("/end");
+            dropCart();
+          }}
+        >
+          Payer {totalPrice} €
+        </Button>
+      </div>
+    </div>
+  );
 };
 
 export default OrderSummaryPage;

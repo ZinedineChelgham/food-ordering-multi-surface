@@ -1,24 +1,42 @@
+import React from "react";
+import "./CommandList.css";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
-import React from 'react';
-import './CommandList.css'; 
-
-const CommandList = ({ orderItems, onItemUpdate,onDeleteItem }) => {
+const CommandList = ({ orderItems, onItemUpdate, onDeleteItem }) => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLandscape = useMediaQuery("(orientation: landscape)");
   return (
     <>
       {orderItems.length > 0 ? (
         <div className="command-list-container">
-          {orderItems.map(item => (
+          {orderItems.map((item) => (
             <div
-              key={item.id}
+              key={item._id}
               className="command-item"
-              onClick={() => onItemUpdate(item, true)} 
+              onClick={() => onItemUpdate(item, true)}
             >
-              <span className="quantity">{item.quantity}</span>
-              <span className="name">{item.name}</span>
-              <span className="price">€{item.price.toFixed(2)}</span>
-              <span className="delete-icon" onClick={() => onDeleteItem(item.id)}>
+              <span className="quantity">x{item.quantity}</span>
+              <span className="name">{item.shortName}</span>
+              <span className="price">€{item.price}</span>
+              <span
+                className="delete-icon"
+                onClick={() => onDeleteItem(item._id)}
+              >
                 {/* SVG for the red cross icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="2vw"
+                  height="2vw"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="red"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -27,8 +45,22 @@ const CommandList = ({ orderItems, onItemUpdate,onDeleteItem }) => {
           ))}
         </div>
       ) : (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
-          <p>VOTRE COMMANDE EST VIDE</p>
+        <div
+          style={{
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Typography
+            variant="body1"
+            color="#fffff"
+            fontWeight={"bold"}
+            fontSize={isLandscape ? "4vh" : "5vw"}
+          >
+            Votre commande est vide
+          </Typography>
         </div>
       )}
     </>
@@ -36,4 +68,3 @@ const CommandList = ({ orderItems, onItemUpdate,onDeleteItem }) => {
 };
 
 export default CommandList;
-
