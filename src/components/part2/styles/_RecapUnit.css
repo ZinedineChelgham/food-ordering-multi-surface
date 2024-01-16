@@ -1,5 +1,8 @@
 .recap-unit {
-    width: 500px;
+    width: 650px;
     height: 150px;
     background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
 }

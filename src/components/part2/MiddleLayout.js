@@ -25,14 +25,18 @@ function MiddleLayout() {
     // Add more items as needed
   ];
 
+  const handleOnDragStart = (e, item) => {
+    console.log("draging item", item);
+    e.dataTransfer.setData("menuItem", JSON.stringify(item));
+  };
+
   return (
     <div id="middle">
       {items.map((item) => (
         <OrderItem
           key={item.name}
-          name={item.name}
-          image={item.image}
-          price={item.price}
+          item={item}
+          handleOnDragStart={(e) => handleOnDragStart(e, item)}
         />
       ))}
     </div>

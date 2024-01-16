@@ -1,23 +1,148 @@
-#bend-wrapper {
-    width: 200px;
-    height: 200px;
+.item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    animation: 10s linear infinite;
 }
 
-svg {
-    width: 100%;
-    overflow: visible;
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-path {
-    fill: transparent;
+
+
+.item-container img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-img {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
 
+.badge {
+    font: 20px Monaco, MonoSpace;
+    height: 230px;
+    position: absolute;
+    width: 5px;
+    left: 50;
+    top: -50;
+    transform-origin: bottom center;
+}
+
+.badge span {
+    font: 23px Monaco, MonoSpace;
+    height: 119px;
+    position: absolute;
+    width: 0px;
+    left: 50;
+    top: -50;
+    transform-origin: bottom center;
+}
+
+
+
+
+.char1 {
+    transform: rotate(6deg);
+}
+
+.char2 {
+    transform: rotate(12deg);
+}
+
+.char3 {
+    transform: rotate(18deg);
+}
+
+.char4 {
+    transform: rotate(24deg);
+}
+
+.char5 {
+    transform: rotate(30deg);
+}
+
+.char6 {
+    transform: rotate(36deg);
+}
+
+.char7 {
+    transform: rotate(42deg);
+}
+
+.char8 {
+    transform: rotate(48deg);
+}
+
+.char9 {
+    transform: rotate(54deg);
+}
+
+.char10 {
+    transform: rotate(60deg);
+}
+
+.char11 {
+    transform: rotate(66deg);
+}
+
+.char12 {
+    transform: rotate(72deg);
+}
+
+.char13 {
+    transform: rotate(78deg);
+}
+
+.char14 {
+    transform: rotate(84deg);
+}
+
+.char15 {
+    transform: rotate(90deg);
+}
+
+.char16 {
+    transform: rotate(96deg);
+}
+
+.char17 {
+    transform: rotate(102deg);
+}
+
+.char18 {
+    transform: rotate(108deg);
+}
+
+.char19 {
+    transform: rotate(114deg);
+}
+
+.char20 {
+    transform: rotate(120deg);
+}
+
+.char21 {
+    transform: rotate(126deg);
+}
+
+.char22 {
+    transform: rotate(132deg);
+}
+
+.char23 {
+    transform: rotate(138deg);
+}
+
+.char24 {
+    transform: rotate(144deg);
 }
