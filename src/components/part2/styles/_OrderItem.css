@@ -1,0 +1,23 @@
+#bend-wrapper {
+    width: 200px;
+    height: 200px;
+}
+
+svg {
+    width: 100%;
+    overflow: visible;
+}
+
+path {
+    fill: transparent;
+}
+
+img {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+}
