@@ -4,6 +4,9 @@ import MiddleLayout from "./MiddleLayout";
 
 function StartingLayout() {
   const style = {
+    margin: 0,
+    padding: 0,
+    boxSizing: "border-box",
     width: "100vw",
     height: "100vh",
     display: "grid",
@@ -16,7 +19,7 @@ function StartingLayout() {
         <CustomRecapLayout />
       </div>
       <div style={{ backgroundColor: "yellow" }}>
-        <MiddleLayout/>
+        <MiddleLayout />
       </div>
       <div style={{ backgroundColor: "grey" }}>
         <CustomRecapLayout />

@@ -33,11 +33,13 @@ function MiddleLayout() {
   return (
     <div id="middle">
       {items.map((item) => (
-        <OrderItem
-          key={item.name}
-          item={item}
-          handleOnDragStart={(e) => handleOnDragStart(e, item)}
-        />
+        <div className="middle-items" draggable>
+          <OrderItem
+            key={item.name}
+            item={item}
+            handleOnDragStart={(e) => handleOnDragStart(e, item)}
+          />
+        </div>
       ))}
     </div>
   );

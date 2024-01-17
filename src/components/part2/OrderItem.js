@@ -2,7 +2,7 @@
 import React from "react";
 import "./styles/_OrderItem.css";
 
-const OrderItem = ({ item, handleOnDragStart }) => {
+const OrderItem = ({ item, handleOnDragStart, isRecapUnit }) => {
   const completeName = item.name + " - " + item.price;
   const nameToArray = completeName.split("");
 
@@ -16,14 +16,15 @@ const OrderItem = ({ item, handleOnDragStart }) => {
     >
       <img src={item.image} alt="" />
       <div className="badge">
-        {nameToArray.map((letter, index) => (
-          <span
-            key={index} // Adding a unique key for each span element
-            className={`char${index + 1}`}
-          >
-            {letter}
-          </span>
-        ))}
+        {!isRecapUnit &&
+          nameToArray.map((letter, index) => (
+            <span
+              key={index} // Adding a unique key for each span element
+              className={`char${index + 1}`}
+            >
+              {letter}
+            </span>
+          ))}
       </div>
     </div>
   );

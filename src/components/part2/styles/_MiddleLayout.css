@@ -4,4 +4,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 3 rem;
+}
+
+.middle-items {
+    width: 120px;
+    height: 120px;
 }

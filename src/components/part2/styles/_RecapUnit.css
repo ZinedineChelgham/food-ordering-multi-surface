@@ -4,5 +4,11 @@
     background-color: aqua;
     display: flex;
     flex-direction: row;
-    align-items: start;
+    align-items: center;
+    justify-content: start;
+}
+
+.recap-unit-item {
+    width: 100px;
+    height: 100px;
 }

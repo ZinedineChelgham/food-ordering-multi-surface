@@ -20,7 +20,9 @@ function RecapUnit({}) {
     >
       RecapUnit
       {selectedItems.map((item) => (
-        <OrderItem key={item.name} item={item} />
+        <div className="recap-unit-item">
+          <OrderItem key={item.name} item={item} isRecapUnit={true} />
+        </div>
       ))}
     </div>
   );
