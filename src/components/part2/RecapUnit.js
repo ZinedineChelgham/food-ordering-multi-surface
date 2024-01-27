@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./styles/_RecapUnit.css";
 import OrderItem from "./OrderItem";
 
-function RecapUnit({}) {
+function RecapUnit() {
   const [selectedItems, setSelectedItems] = useState([]);
 
   const handleDrop = (e) => {
@@ -14,11 +14,10 @@ function RecapUnit({}) {
 
   return (
     <div
-      className="recap-unit"
+      className="recap-unit entry"
       onDrop={(e) => handleDrop(e)}
       onDragOver={(e) => e.preventDefault()}
     >
-      RecapUnit
       {selectedItems.map((item) => (
         <div className="recap-unit-item">
           <OrderItem key={item.name} item={item} isRecapUnit={true} />

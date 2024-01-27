@@ -3,11 +3,33 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 3 rem;
+    justify-content: space-between;
+    gap: 3rem;
+    background-color: #F9F5E3;
 }
 
 .middle-items {
     width: 120px;
     height: 120px;
+}
+
+#middle-items-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.cb-container {
+    width: 490px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#left-cb {
+    transform: rotate(-90deg);
+}
+
+#right-cb {
+    transform: rotate(90deg);
 }

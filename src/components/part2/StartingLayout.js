@@ -11,17 +11,18 @@ function StartingLayout() {
     height: "100vh",
     display: "grid",
     gridTemplateRows: "1fr 2fr 1fr",
+    backgroundColor: "#F9F5E3",
   };
 
   return (
     <div style={style}>
-      <div style={{ backgroundColor: "grey" }}>
+      <div>
         <CustomRecapLayout />
       </div>
       <div style={{ backgroundColor: "yellow" }}>
         <MiddleLayout />
       </div>
-      <div style={{ backgroundColor: "grey" }}>
+      <div>
         <CustomRecapLayout />
       </div>
     </div>

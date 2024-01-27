@@ -1,18 +1,29 @@
 // OrderItem.js
-import React from "react";
 import "./styles/_OrderItem.css";
+import React, { useState } from "react";
 
 const OrderItem = ({ item, handleOnDragStart, isRecapUnit }) => {
-  const completeName = item.name + " - " + item.price;
-  const nameToArray = completeName.split("");
+  const [isDragging, setIsDragging] = useState(false);
 
-  console.log(handleOnDragStart);
+  const completeName = item.name + "-" + item.price + "€ -";
+  const tmpName = completeName.split("").join(" ");
+  const nameToArray = tmpName.split("");
+
+  const handleDragStart = (e) => {
+    setIsDragging(true);
+    handleOnDragStart && handleOnDragStart(e);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
 
   return (
     <div
-      className="item-container"
+      className={`item-container ${isDragging ? "dragging" : ""}`}
       draggable
-      onDragStart={(e) => handleOnDragStart && handleOnDragStart(e)}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
     >
       <img src={item.image} alt="" />
       <div className="badge">
@@ -20,7 +31,7 @@ const OrderItem = ({ item, handleOnDragStart, isRecapUnit }) => {
           nameToArray.map((letter, index) => (
             <span
               key={index} // Adding a unique key for each span element
-              className={`char${index + 1}`}
+              className={`char${index}`}
             >
               {letter}
             </span>

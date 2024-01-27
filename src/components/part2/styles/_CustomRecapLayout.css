@@ -6,3 +6,14 @@
     align-items: center;
     padding: 1rem 1rem
 }
+
+h2 {
+    text-align: center;
+}
+
+img {
+    width: 110px;
+    height: 80px;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+}
