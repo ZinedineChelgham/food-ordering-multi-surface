@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import "./styles/_RecapUnit.css";
 import OrderItem from "./OrderItem";
+import CartContext from "../../context/CartContext";
 
 function RecapUnit() {
   const [selectedItems, setSelectedItems] = useState([]);
+  const { addToCart, cartItems } = React.useContext(CartContext);
 
   const handleDrop = (e) => {
     const test = e.dataTransfer.getData("menuItem");
     console.log(test);
     const item = JSON.parse(e.dataTransfer.getData("menuItem"));
     setSelectedItems([...selectedItems, item]);
+    addToCart(item);
+    console.log(cartItems);
   };
 
   const totalPrice = selectedItems.reduce(
@@ -19,7 +23,7 @@ function RecapUnit() {
 
   return (
     <div>
-      <div className="recap-total">Total: {totalPrice}</div>
+      <div className="recap-total">Total: {totalPrice}€</div>
       <div
         className="recap-unit entry"
         onDrop={(e) => handleDrop(e)}
