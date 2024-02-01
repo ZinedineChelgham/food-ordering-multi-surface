@@ -17,3 +17,10 @@
     width: 100px;
     height: 100px;
 }
+
+.recap-total {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+
+}

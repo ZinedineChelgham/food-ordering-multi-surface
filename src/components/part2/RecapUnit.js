@@ -12,17 +12,25 @@ function RecapUnit() {
     setSelectedItems([...selectedItems, item]);
   };
 
+  const totalPrice = selectedItems.reduce(
+    (total, item) => total + item.price,
+    0
+  );
+
   return (
-    <div
-      className="recap-unit entry"
-      onDrop={(e) => handleDrop(e)}
-      onDragOver={(e) => e.preventDefault()}
-    >
-      {selectedItems.map((item) => (
-        <div className="recap-unit-item">
-          <OrderItem key={item.name} item={item} isRecapUnit={true} />
-        </div>
-      ))}
+    <div>
+      <div className="recap-total">Total: {totalPrice}</div>
+      <div
+        className="recap-unit entry"
+        onDrop={(e) => handleDrop(e)}
+        onDragOver={(e) => e.preventDefault()}
+      >
+        {selectedItems.map((item) => (
+          <div className="recap-unit-item">
+            <OrderItem key={item.name} item={item} isRecapUnit={true} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

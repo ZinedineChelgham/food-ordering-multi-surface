@@ -3,8 +3,10 @@ import "./styles/_MiddleLayout.css";
 import OrderItem from "./OrderItem";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { useNavigate } from "react-router";
 
 function MiddleLayout() {
+  const navigate = useNavigate();
   const items = [
     {
       name: "Item 1",
@@ -32,12 +34,33 @@ function MiddleLayout() {
     e.dataTransfer.setData("menuItem", JSON.stringify(item));
   };
 
+  const handleCheckboxChange = () => {
+    // Check if all checkboxes are checked
+    const allCheckboxesChecked =
+      document.querySelectorAll('input[type="checkbox"]:checked').length === 4;
+
+    // If all checkboxes are checked, navigate to "/recap"
+    if (allCheckboxesChecked) {
+      navigate("/recap");
+    }
+  };
+
   return (
     <div id="middle">
       <div id="left-cb" className="cb-container">
-        <FormControlLabel required control={<Checkbox />} label="" />
+        <FormControlLabel
+          key={10}
+          required
+          control={<Checkbox onChange={handleCheckboxChange} />}
+          label=""
+        />
         <h2>Passer au plats !</h2>
-        <FormControlLabel required control={<Checkbox />} label="" />
+        <FormControlLabel
+          key={20}
+          required
+          control={<Checkbox onChange={handleCheckboxChange} />}
+          label=""
+        />
       </div>
       <div id="middle-items-container">
         {items.map((item) => (
@@ -52,9 +75,19 @@ function MiddleLayout() {
       </div>
 
       <div id="right-cb" className="cb-container">
-        <FormControlLabel required control={<Checkbox />} label="" />
+        <FormControlLabel
+          key={30}
+          required
+          control={<Checkbox onChange={handleCheckboxChange} />}
+          label=""
+        />
         <h2>Passer au plats !</h2>
-        <FormControlLabel required control={<Checkbox />} label="" />
+        <FormControlLabel
+          key={40}
+          required
+          control={<Checkbox onChange={handleCheckboxChange} />}
+          label=""
+        />
       </div>
     </div>
   );

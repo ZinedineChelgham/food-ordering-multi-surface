@@ -10,6 +10,7 @@ import HomeBorne from "./components/HomeBorne.js";
 import ThankYouComponent from "./components/ThankYouComponent";
 import StartingLayout from "./components/part2/StartingLayout.js";
 import GamePage from "./components/part2/GamePage.js";
+import OrderRecapLayout from "./components/part2/OrderRecapLayout.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,11 +18,12 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartingLayout />} />
+        <Route path="/recap" element={<OrderRecapLayout />} />
         <Route path="/start" element={<App />} />
         <Route path="/ordersummary" element={<OrderSummaryPage />} />
         <Route path="/multiorder" element={<MultiOrder />} />
         <Route path="/end" element={<ThankYouComponent />} />
-        <Route path="/game" element={<GamePage/>} />
+        <Route path="/game" element={<GamePage />} />
       </Routes>
     </BrowserRouter>
   </CartState>
