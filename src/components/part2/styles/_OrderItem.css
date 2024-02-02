@@ -6,7 +6,7 @@
 
     width: 100%;
     height: 100%;
-    animation: 20s linear infinite;
+    animation: rotate 20s linear infinite;
 }
 
 @keyframes rotate {
@@ -31,7 +31,7 @@
 
 .badge {
     font: 20px Monaco, MonoSpace;
-    height: 19%;
+    height: 135%;
     position: absolute;
     width: 4px;
     left: 50;

@@ -5,8 +5,8 @@ import React, { useState } from "react";
 const OrderItem = ({ item, handleOnDragStart, isRecapUnit }) => {
   const [isDragging, setIsDragging] = useState(false);
 
-  const completeName = item.name + "-" + item.price + "€ -";
-  const tmpName = completeName.split("").join(" ");
+  const completeName = item.shortName + "-" + item.price + "€";
+  const tmpName = completeName;
   const nameToArray = tmpName.split("");
 
   const handleDragStart = (e) => {

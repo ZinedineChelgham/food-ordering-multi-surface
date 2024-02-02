@@ -52,8 +52,6 @@ export default class Ball {
     if (rect.right >= window.innerWidth || rect.left <= 0) {
       this.direction.x *= -1;
     }
-
-    console.log(paddleRects);
     //l r t b
     for (let i = 0; i < paddleRects.length; i++) {
       if (isCollision(paddleRects[i], rect)) {

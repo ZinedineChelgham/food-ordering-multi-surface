@@ -1,11 +1,23 @@
 const API = "http://localhost:9500/dining";
-const borneNumber = 3;
-const borneId = "659084e8a588315fefd07bca";
+export const borneNumber = 2;
+
+export async function getCommandId(borneNumber) {
+  const res = await fetch(`http://localhost:9500/dining/tableOrders`)
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch((err) => console.error(err));
+
+  for (let item of res) {
+    if (item.tableNumber === borneNumber) {
+      return item._id;
+    }
+  }
+}
 
 export async function startReservation() {
   const data = {
     tableNumber: borneNumber,
-    customersCount: 1,
+    customersCount: 4,
   };
 
   const requestOptions = {
@@ -16,16 +28,21 @@ export async function startReservation() {
 
   return fetch(`${API}/tableOrders`, requestOptions)
     .then((res) => res.json())
-    .then((data) => data)
-    .catch((err) => console.error(err));
+    .then((data) => {
+      console.log("FROM BACK", data);
+      return data;
+    })
+    .catch((err) => {});
 }
 
-export async function fillCommand(items, orderId) {
+export async function fillCommand(items) {
+  const orderId = await getCommandId(borneNumber);
+
   for (let item of items) {
     const data = {
       menuItemId: item._id,
       menuItemShortName: item.shortName,
-      howMany: item.quantity,
+      howMany: item.quantity || 1,
     };
 
     const requestOptions = {
@@ -36,7 +53,10 @@ export async function fillCommand(items, orderId) {
 
     fetch(`${API}/tableOrders/${orderId}`, requestOptions)
       .then((res) => res.json())
-      .then((data) => data)
+      .then((data) => {
+        // console.log(data);
+        return data;
+      })
       .catch((err) => console.error(err));
 
     // wait 0.1s between each fetch
@@ -52,6 +72,7 @@ export async function fillCommand(items, orderId) {
       }
     );
     const prepareData = await prepareResponse.json();
+    console.log("FROM BACK", prepareData);
   } catch (err) {
     console.error(err);
     throw err; // You might want to handle this differently

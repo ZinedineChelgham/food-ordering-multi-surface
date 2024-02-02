@@ -1,4 +1,4 @@
-.validationGameScreen{
+.validationGameScreen {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
     justify-content: space-between;
 }
 
-.top{
+.topp {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -15,14 +15,14 @@
     align-items: center;
 }
 
-.textContainer{
+.textContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.buttonValidate{
+.buttonValidate {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -30,29 +30,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #F5F5F5; /* Couleur du texte à l'intérieur du cercle */
-    font-size: 30px; /* Taille du texte */
+    color: #F5F5F5;
+    /* Couleur du texte à l'intérieur du cercle */
+    font-size: 30px;
+    /* Taille du texte */
     font-weight: bold;
 }
 
-.buttonRefuse{
+.buttonRefuse {
     width: 40px;
     height: 40px;
-    border-radius: 8px; /* Valeur pour un coin arrondi, ajustez selon vos préférences */
+    border-radius: 8px;
+    /* Valeur pour un coin arrondi, ajustez selon vos préférences */
     background-color: #6D696A;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white; /* Couleur du texte à l'intérieur du bouton */
-    font-size: 16px; /* Taille du texte */
+    color: white;
+    /* Couleur du texte à l'intérieur du bouton */
+    font-size: 16px;
+    /* Taille du texte */
 }
 
-.buttonContainer{
+.buttonContainer {
     display: flex;
     flex-direction: row;
 }
 
-.bottom{
+.bottomm {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -60,30 +65,37 @@
     align-items: center;
 }
 
-.circleContainer{
-    width: 20vw; /* Taille du cercle */
+.circleContainer {
+    width: 20vw;
+    /* Taille du cercle */
     height: 20vw;
-    border-radius: 50%; /* Rend le cadre circulaire */
-    background-color: #D9D9D9; /* Couleur du cercle */
+    border-radius: 50%;
+    /* Rend le cadre circulaire */
+    background-color: #D9D9D9;
+    /* Couleur du cercle */
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white; /* Couleur du texte à l'intérieur du cercle */
-    font-size: 16px; /* Taille du texte */
-    animation: spin 10s linear infinite; /* Animation de rotation sur 10 secondes, vitesse lente et infinie */
+    color: white;
+    /* Couleur du texte à l'intérieur du cercle */
+    font-size: 16px;
+    /* Taille du texte */
+    animation: spin 10s linear infinite;
+    /* Animation de rotation sur 10 secondes, vitesse lente et infinie */
 }
 
-.textFlex{
-    color : #206A9E;
+.textFlex {
+    color: #206A9E;
     font-size: 30px;
     font-weight: bold;
-
+    text-align: center;
 }
 
 @keyframes spin {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }

@@ -9,11 +9,9 @@ function RecapUnit() {
 
   const handleDrop = (e) => {
     const test = e.dataTransfer.getData("menuItem");
-    console.log(test);
     const item = JSON.parse(e.dataTransfer.getData("menuItem"));
     setSelectedItems([...selectedItems, item]);
     addToCart(item);
-    console.log(cartItems);
   };
 
   const totalPrice = selectedItems.reduce(
@@ -29,9 +27,9 @@ function RecapUnit() {
         onDrop={(e) => handleDrop(e)}
         onDragOver={(e) => e.preventDefault()}
       >
-        {selectedItems.map((item) => (
-          <div className="recap-unit-item">
-            <OrderItem key={item.name} item={item} isRecapUnit={true} />
+        {selectedItems.map((item, i) => (
+          <div key={i} className="recap-unit-item">
+            <OrderItem item={item} isRecapUnit={true} />
           </div>
         ))}
       </div>

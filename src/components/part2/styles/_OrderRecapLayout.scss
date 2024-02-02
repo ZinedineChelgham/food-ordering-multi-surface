@@ -2,6 +2,10 @@ body {
   background-color: #f9f5e3;
 }
 
+.price {
+  animation: rotate 10s linear infinite;
+}
+
 @import "~compass-mixins/lib/compass/css3";
 
 /// Mixin to place items on a circle
@@ -51,16 +55,27 @@ body {
   padding-bottom: 2rem;
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .circle-container {
+  animation: rotate 10s linear infinite;
   @include on-circle($item-count: 8, $circle-size: 20em, $item-size: 6em);
   margin: 5em auto 0;
   background-color: #66ca77;
 
   img {
     display: block;
-    max-width: 100%;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    filter: grayscale(100%);
     transition: 0.15s;
 
     &:hover {
