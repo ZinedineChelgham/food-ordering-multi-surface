@@ -1,0 +1,68 @@
+.recapScreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.recapDiv{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.greenTextXL{
+    font-size: 35px;
+    color: #19862C;
+}
+.greenText{
+    font-size: 28px;
+    color: #19862C;
+}
+
+.rotate180{
+    transform: rotate(180deg);
+}
+
+.rotate90{
+    transform: rotate(90deg);
+}
+
+.rotateMinus90{
+    transform: rotate(-90deg);
+}
+
+.price{
+    position: absolute;
+    top: 50vh;
+    z-index: 10000;
+    font-size: 35px;
+    color: #19862C;
+    font-weight: bold;
+}
+
+.buttonAction{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #19862C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F5F5F5; /* Couleur du texte à l'intérieur du cercle */
+    font-size: 30px; /* Taille du texte */
+    font-weight: bold;
+}
+
+.buttonStyle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}

@@ -1,0 +1,90 @@
+.validationGameScreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    align-items: center;
+}
+
+.textContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonValidate{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #19862C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F5F5F5; /* Couleur du texte à l'intérieur du cercle */
+    font-size: 30px; /* Taille du texte */
+    font-weight: bold;
+}
+
+.buttonRefuse{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px; /* Valeur pour un coin arrondi, ajustez selon vos préférences */
+    background-color: #6D696A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Couleur du texte à l'intérieur du bouton */
+    font-size: 16px; /* Taille du texte */
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    align-items: center;
+}
+
+.circleContainer{
+    width: 20vw; /* Taille du cercle */
+    height: 20vw;
+    border-radius: 50%; /* Rend le cadre circulaire */
+    background-color: #D9D9D9; /* Couleur du cercle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Couleur du texte à l'intérieur du cercle */
+    font-size: 16px; /* Taille du texte */
+    animation: spin 10s linear infinite; /* Animation de rotation sur 10 secondes, vitesse lente et infinie */
+}
+
+.textFlex{
+    color : #206A9E;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -11,6 +11,7 @@ import ThankYouComponent from "./components/ThankYouComponent";
 import StartingLayout from "./components/part2/StartingLayout.js";
 import GamePage from "./components/part2/GamePage.js";
 import OrderRecapLayout from "./components/part2/OrderRecapLayout.js";
+import BeforeTheGame from "./components/part2/BeforeTheGame";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,6 +25,7 @@ root.render(
         <Route path="/multiorder" element={<MultiOrder />} />
         <Route path="/end" element={<ThankYouComponent />} />
         <Route path="/game" element={<GamePage />} />
+        <Route path="/beforegame" element={<BeforeTheGame />} />
       </Routes>
     </BrowserRouter>
   </CartState>

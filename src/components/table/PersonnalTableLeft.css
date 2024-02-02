@@ -1,0 +1,10 @@
+.personalTableLeft{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 5fr;
+}
+
+.part{
+    border: #000000 solid 0.5px;
+}
