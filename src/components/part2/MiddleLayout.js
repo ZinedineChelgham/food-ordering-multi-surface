@@ -14,14 +14,12 @@ function MiddleLayout() {
   React.useEffect(() => {
     getMenuFromCategory("entrées").then((data) => {
       setItems(data);
-      console.log(data);
     });
 
     startReservation();
   }, []);
 
   const handleOnDragStart = (e, item) => {
-    console.log("draging item", item);
     e.dataTransfer.setData("menuItem", JSON.stringify(item));
   };
 

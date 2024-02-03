@@ -16,7 +16,7 @@ function StartingLayout() {
 
   return (
     <div style={style}>
-      <div>
+      <div style={{ transform: "rotate(180deg)" }}>
         <CustomRecapLayout />
       </div>
       <div style={{ backgroundColor: "yellow" }}>

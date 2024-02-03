@@ -8,7 +8,7 @@ function CustomRecapLayout() {
     <div id="recap-layout">
       <RecapUnit />
       <div className="dish-type-container">
-        <h2>Entrées</h2>
+        <h2 style={{color: "#66CA77"}}>Entrées</h2>
         <img src={entry} alt="entry" />
       </div>
       <RecapUnit />

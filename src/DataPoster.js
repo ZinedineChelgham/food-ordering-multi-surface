@@ -1,5 +1,5 @@
 const API = "http://localhost:9500/dining";
-export const borneNumber = 2;
+export const borneNumber = 9;
 
 export async function getCommandId(borneNumber) {
   const res = await fetch(`http://localhost:9500/dining/tableOrders`)
